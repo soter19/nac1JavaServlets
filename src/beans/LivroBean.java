@@ -1,36 +1,37 @@
+package beans;
+
 /**
  * Forged by Soter Padua on 30/03/17.
  */
 public class LivroBean {
-	
-	private String titulo;
-	private Autor autor;
-	private Assunto assunto;
-	private Editora editora;
-	private Double valor;
-	
+	private String      titulo;
+	private AutorBean   autor;
+	private AssuntoBean assunto;
+	private EditoraBean editora;
+	private Double      valor;
+
 	public String getTitulo() {
 		return titulo;
 	}
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
 	}
-	public Autor getAutor() {
+	public AutorBean getAutor() {
 		return autor;
 	}
-	public void setAutor(Autor autor) {
+	public void setAutor(AutorBean autor) {
 		this.autor = autor;
 	}
-	public Assunto getAssunto() {
+	public AssuntoBean getAssunto() {
 		return assunto;
 	}
-	public void setAssunto(Assunto assunto) {
+	public void setAssunto(AssuntoBean assunto) {
 		this.assunto = assunto;
 	}
-	public Editora getEditora() {
+	public EditoraBean getEditora() {
 		return editora;
 	}
-	public void setEditora(Editora editora) {
+	public void setEditora(EditoraBean editora) {
 		this.editora = editora;
 	}
 	public Double getValor() {
@@ -39,6 +40,4 @@ public class LivroBean {
 	public void setValor(Double valor) {
 		this.valor = valor;
 	}
-	
-	
 }
