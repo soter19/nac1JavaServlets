@@ -1,5 +1,8 @@
 package beans;
 
-public class EditoraBean {
+import javax.faces.bean.ManagedBean;
 
+@ManagedBean
+public class EditoraBean {
+	String nome;
 }

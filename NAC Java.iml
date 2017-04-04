@@ -28,6 +28,6 @@
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="jdk" jdkName="1.8" jdkType="JavaSDK" />
-    <orderEntry type="library" exported="" name="Mojarra-1.2" level="project" />
+    <orderEntry type="library" exported="" name="Mojarra-2.2.1" level="project" />
   </component>
 </module>
