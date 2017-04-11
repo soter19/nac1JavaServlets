@@ -1,6 +1,6 @@
-package beans;
+package managedBeans;
 
-import bo.LivroBO;
+import beans.Livro;
 import bo.PesquisaBO;
 import utils.NomesPaginas;
 
@@ -12,8 +12,8 @@ import java.util.ArrayList;
  */
 @ManagedBean
 public class PesquisaBean {
-	private String    pesquisaString;
-	private ArrayList<LivroBO> livrosResultados;
+	private String           pesquisaString;
+	private ArrayList<Livro> livrosResultados;
 
 	public void setPesquisaString(String pesquisaString) {
 		this.pesquisaString = pesquisaString;
@@ -24,11 +24,11 @@ public class PesquisaBean {
 		return pesquisaString;
 	}
 
-	public ArrayList<LivroBO> getLivrosResultados() {
+	public ArrayList<Livro> getLivrosResultados() {
 		return livrosResultados;
 	}
 
-	public void setLivrosResultados(ArrayList<LivroBO> livrosResultados) {
+	public void setLivrosResultados(ArrayList<Livro> livrosResultados) {
 		this.livrosResultados = livrosResultados;
 	}
 

@@ -1,4 +1,4 @@
-package beans;
+package managedBeans;
 import javax.faces.bean.ManagedBean;
 
 @ManagedBean

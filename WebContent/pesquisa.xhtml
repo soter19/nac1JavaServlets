@@ -11,7 +11,8 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
 
 <h:head>
     <title>Pesquisa</title>
@@ -23,9 +24,11 @@
         <h:commandButton action="#{pesquisaBean.pesquisar}" value="Pesquisar" />
     </h:form>
     <ul>
-        <ui:repeat var="livro" value="#{pesquisaBean.livrosResultado}">
-            <li>#{livro.nome} - #{livro.nomeAutor}</li>
-        </ui:repeat>
+        <c:if test="#{not empty pesquisaBean.livrosResultados}">
+            <ui:repeat  var="livro" value="#{pesquisaBean.livrosResultados}">
+                <li>#{livro.titulo} - #{livro.autor}</li>
+            </ui:repeat>
+        </c:if>
     </ul>
 </h:body>
 
