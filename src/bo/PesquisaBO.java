@@ -12,7 +12,7 @@ import java.util.ArrayList;
  */
 public class PesquisaBO {
 
-	public ArrayList<LivroBO> pesquisa(String livro) throws Exception {
+	public static ArrayList<LivroBO> pesquisa(String livro) throws Exception {
 		if(Helper.isNullOrEmpty(livro)){
 			throw new Exception();
 		}

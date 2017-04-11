@@ -36,9 +36,8 @@ public class PesquisaBean {
 	private String erro;
 
 	public String pesquisar(){
-		PesquisaBO pBO = new PesquisaBO();
 		try {
-			livrosResultados = pBO.pesquisa(pesquisaString);
+			livrosResultados = PesquisaBO.pesquisa(pesquisaString);
 		}catch(Exception e){
 			erro = e.getMessage();
 		}
