@@ -1,8 +1,8 @@
-package managedBeans;
+package livraria.managedBeans;
 
 import javax.faces.bean.ManagedBean;
 
 @ManagedBean
-public class EditoraBean {
+public class AutorBean {
 	String nome;
 }

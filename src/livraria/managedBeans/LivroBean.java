@@ -1,9 +1,9 @@
-package managedBeans;
+package livraria.managedBeans;
 
-import beans.Assunto;
-import beans.Autor;
-import beans.Editora;
-import beans.Livro;
+import livraria.beans.Assunto;
+import livraria.beans.Autor;
+import livraria.beans.Editora;
+import livraria.beans.Livro;
 
 import javax.faces.bean.ManagedBean;
 

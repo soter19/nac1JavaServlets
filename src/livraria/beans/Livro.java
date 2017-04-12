@@ -1,16 +1,17 @@
-package beans;
+package livraria.beans;
+
+import org.bson.Document;
 
 /**
  * Forged by Soter Padua on 30/03/17.
  */
-public class Livro {
+public class Livro extends Document{
 	private String  titulo;
 	private Autor   autor;
 	private Assunto assunto;
 	private Editora editora;
 	private String  imgURL;
 	private Double  valor;
-	private String nome;
 
 	public String getTitulo() {
 		return titulo;

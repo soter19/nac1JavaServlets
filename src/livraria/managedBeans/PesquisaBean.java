@@ -1,8 +1,8 @@
-package managedBeans;
+package livraria.managedBeans;
 
-import beans.Livro;
-import bo.PesquisaBO;
-import utils.NomesPaginas;
+import livraria.beans.Livro;
+import livraria.bo.PesquisaBO;
+import livraria.utils.NomesPaginas;
 
 import javax.faces.bean.ManagedBean;
 import java.util.ArrayList;
@@ -30,6 +30,14 @@ public class PesquisaBean {
 
 	public void setLivrosResultados(ArrayList<Livro> livrosResultados) {
 		this.livrosResultados = livrosResultados;
+	}
+
+	public String getErro() {
+		return erro;
+	}
+
+	public void setErro(String erro) {
+		this.erro = erro;
 	}
 
 	//Propriedades de saída (Placeholders)
