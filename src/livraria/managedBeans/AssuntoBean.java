@@ -1,4 +1,4 @@
-package managedBeans;
+package livraria.managedBeans;
 import javax.faces.bean.ManagedBean;
 
 @ManagedBean

@@ -1,4 +1,4 @@
-package utils;
+package livraria.utils;
 
 /**
  * ENUM responsável por guardar todos os nomes de páginas, para facilitar
