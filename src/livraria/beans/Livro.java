@@ -1,7 +1,6 @@
 package livraria.beans;
 
 import org.bson.Document;
-
 /**
  * Forged by Soter Padua on 30/03/17.
  */

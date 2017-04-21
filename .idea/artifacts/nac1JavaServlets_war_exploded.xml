@@ -7,7 +7,9 @@
           <element id="module-output" name="nac1JavaServlets" />
         </element>
         <element id="directory" name="lib">
-          <element id="library" level="project" name="lib" />
+          <element id="library" level="project" name="Mojarra-2.2.1" />
+          <element id="library" level="project" name="BootsFaces-OSP-1.0.2-dist" />
+          <element id="library" level="project" name="mongo-java-driver-3.4.2" />
         </element>
       </element>
       <element id="javaee-facet-resources" facet="nac1JavaServlets/web/Web" />
