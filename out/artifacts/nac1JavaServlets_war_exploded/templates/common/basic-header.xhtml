@@ -5,7 +5,7 @@
       xmlns:b="http://bootsfaces.net/ui"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html">
-    <body>
+    <h:body>
         <ui:composition>
             <h:head>
                 <!-- CSS -->
@@ -23,6 +23,13 @@
                                 <b:navLink value="Drama" href="#"></b:navLink>
                                 <b:navLink value="Comédia" href="#"></b:navLink>
                             </b:dropMenu>
+
+                        <b:navbarLinks pull="right" styleClass="hidden-xs">
+                            <b:navLink value="Favoritos" href="favoritos.xhtml"></b:navLink>
+                            <b:navLink value="Carrinho" href="carrinho.xhtml"></b:navLink>
+                            <b:navLink value="Perfil" href="perfil.xhtml"></b:navLink>
+                        </b:navbarLinks>
+
                     </b:navbarLinks>
 
                     <!--barra de busca-->
@@ -34,12 +41,12 @@
                     </h:form>
 
                     <!-- itens menu lado direito -->
-                    <b:navbarLinks pull="right"><b:navLink value="    " href="#"></b:navLink></b:navbarLinks>
+                   <!-- <b:navbarLinks pull="right"><b:navLink value="    " href="#"></b:navLink></b:navbarLinks>
                         <b:navbarLinks pull="right" styleClass="hidden-xs">
                             <b:navLink iconAwesome="Favoritos" href="#"></b:navLink>
-                            <b:navLink value="Carrinho" href="#"></b:navLink>
+                            <b:navLink value="Carrinho" href="carrinho.xhtml"></b:navLink>
                             <b:navLink value="Perfil" href="#"></b:navLink>
-                        </b:navbarLinks>
+                        </b:navbarLinks> -->
                     </b:navBar>
 
                 <h:outputStylesheet library="css" name="include/bootstrap.min.css" />
@@ -50,5 +57,5 @@
                 <h:outputScript name="js/scripts.js" />
             </h:head>
         </ui:composition>
-    </body>
+    </h:body>
 </html>

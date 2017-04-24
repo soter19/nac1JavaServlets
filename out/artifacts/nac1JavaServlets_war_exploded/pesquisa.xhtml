@@ -20,20 +20,27 @@
 </h:head>
 
 <h:body>
-    <h:form>
-        <h:inputText value="#{pesquisaBean.pesquisaString}" />
-        <h:commandButton action="#{pesquisaBean.pesquisar}" value="Pesquisar" />
-    </h:form>
-    <c:if test="#{not empty pesquisaBean.erro}}">
-        <b:alert severity="warning"><strong>Warning!</strong> #{pesquisaBean.erro}</b:alert>
-    </c:if>
-    <ul>
-        <c:if test="#{not empty pesquisaBean.livrosResultados}">
-            <ui:repeat  var="livro" value="#{pesquisaBean.livrosResultados}">
-                <li>#{livro.titulo} - #{livro.autor}</li>
-            </ui:repeat>
+
+    <ui:composition template="/templates/common/layout.xhtml">
+
+        <h1> Carrinho </h1>
+
+        <h:form>
+            <h:inputText value="#{pesquisaBean.pesquisaString}" />
+            <h:commandButton action="#{pesquisaBean.pesquisar}" value="Pesquisar" />
+        </h:form>
+        <c:if test="#{not empty pesquisaBean.erro}}">
+            <b:alert severity="warning"><strong>Warning!</strong> #{pesquisaBean.erro}</b:alert>
         </c:if>
-    </ul>
+        <ul>
+            <c:if test="#{not empty pesquisaBean.livrosResultados}">
+                <ui:repeat  var="livro" value="#{pesquisaBean.livrosResultados}">
+                    <li>#{livro.titulo} - #{livro.autor}</li>
+                </ui:repeat>
+            </c:if>
+        </ul>
+
+    </ui:composition>
 </h:body>
 
 </html>

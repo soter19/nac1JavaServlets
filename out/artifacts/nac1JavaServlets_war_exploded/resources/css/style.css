@@ -5,6 +5,14 @@
     padding: 10px;
 }
 
+.text-margim{
+    margin: 20px;
+
+}
+
+border{
+    border: 1px solid
+}
 .footer {
     background-color: #c7254e;
     color: #ffffff;
@@ -12,4 +20,8 @@
 
 #head {
     background-color: #eea236; !important;
+}
+
+#corpo {
+    background-color: #ce8483;
 }
