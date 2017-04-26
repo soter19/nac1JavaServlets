@@ -8,61 +8,64 @@
         <title>Perfil</title>
         <link rel="stylesheet" type="text/css" href="style.css"></link>
     </h:head>
-    <h:body>
+    <h:body id="body-perfil">
     <ui:composition template="/templates/common/layout.xhtml">
 
-        <ui:define name="content">
-            <h1 class="text">Perfil</h1>
+
+        <div id="block-center">
+            <ui:define name="content">
+                <h1 class="text">Perfil</h1>
                 <br/>
-                    <h2 class="text">Dados Pessoais:</h2>
-                        <br/>
+                <h2 class="text">Dados Pessoais:</h2>
+                <br/>
                 <h:form class="navbar-form hidden-md hidden-sm hidden-xs">
                     <div class="form-group">
-                        <h4 class="text"><strong>Nome:</strong></h4>
+                        <h4 class="text text-center"><strong>Nome:</strong></h4>
                     </div>
-                    <input type="text" class="form-control" value="Isabele Sprengel Lima"/>
+                    <input type="text" class="form-control center-block" value="Isabele Sprengel Lima"/>
                 </h:form>
-                        <br/>
+                <br/>
                 <h:form class="navbar-form hidden-md hidden-sm hidden-xs">
                     <div class="form-group">
                         <h4 class="text"><strong>Data nascimento:</strong></h4>
-                     </div>
-                <input type="text" class="form-control" value="13/06/1997"/>
-                 </h:form>
-                        <br/>
+                    </div>
+                    <input type="text" class="form-control" value="13/06/1997"/>
+                </h:form>
+                <br/>
                 <h:form class="navbar-form hidden-md hidden-sm hidden-xs">
                     <div class="form-group">
                         <h4 class="text"><strong>CPF:</strong></h4>
-                        </div>
+                    </div>
                     <input type="text" class="form-control" value="342.822.728-05"/>
                 </h:form>
-                        <br/>
-                    <h2 class="text">Dados Endereço:</h2>
-                        <br/>
+                <br/>
+                <h2 class="text">Dados Endereço:</h2>
+                <br/>
                 <h:form class="navbar-form hidden-md hidden-sm hidden-xs">
                     <div class="form-group">
                         <h4 class="text"><strong>Endereço:</strong></h4>
                     </div>
                     <input type="text" class="form-control" value="Rua São Jose"/>
                 </h:form>
-                        <br/>
+                <br/>
                 <h:form class="navbar-form hidden-md hidden-sm hidden-xs">
                     <div class="form-group">
                         <h4 class="text"><strong>Número:</strong></h4>
                     </div>
                     <input type="text" class="form-control" value="124"/>
                 </h:form>
-                        <br/>
-            <h:form class="navbar-form hidden-md hidden-sm hidden-xs">
-                <div class="form-group">
-                    <h4 class="text"><strong>CEP:</strong></h4>
-                </div>
-                <input type="text" class="form-control" value="02345-000"/>
-            </h:form>
-                        <br/>
-            <a href="login.xhtml"><button type="submit" class="btn btn-warning">Login</button></a>
-            <a href="cadastro.xhtml"><button type="submit" class="btn btn-warning">Cadastro</button></a>
-        </ui:define>
+                <br/>
+                <h:form class="navbar-form hidden-md hidden-sm hidden-xs">
+                    <div class="form-group">
+                        <h4 class="text"><strong>CEP:</strong></h4>
+                    </div>
+                    <input type="text" class="form-control" value="02345-000"/>
+                </h:form>
+                <br/>
+                <a href="login.xhtml"><button type="submit" class="btn btn-warning">Login</button></a>
+                <a href="cadastro.xhtml"><button type="submit" class="btn btn-warning">Cadastro</button></a>
+            </ui:define>
+        </div>
 
     </ui:composition>
     </h:body>

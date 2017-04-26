@@ -1,27 +1,15 @@
 .center {
-    margin: auto;
-    width: 50%;
-    border: 3px solid green;
+    border: 1px solid black;
     padding: 10px;
+    left: 50%;
 }
 
-.text-margim{
-    margin: 20px;
+#body-perfil{
+    background-color: #d58512;
 
 }
 
-border{
-    border: 1px solid
-}
 .footer {
-    background-color: #c7254e;
+    background-color: #101010;
     color: #ffffff;
-}
-
-#head {
-    background-color: #eea236; !important;
-}
-
-#corpo {
-    background-color: #ce8483;
 }
