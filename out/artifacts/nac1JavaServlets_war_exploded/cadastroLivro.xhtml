@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets" xml:lang="en" lang="en">
+    <h:head>
+        <title>Cadastro Livro</title>
+    </h:head>
+
+    <h:body>
+        <ui:composition template="/templates/common/layout.xhtml">
+
+            <ui:define name="content">
+                <h:form>
+                    <h1 align="center"><strong>Cadastro Livro</strong></h1>
+                    <h4 align="center">Nome: </h4> <input class="center center-block" type="text" name="name"/>
+                    <h4 align="center">Valor: </h4> <input class="center center-block" type="password" name="value"/>
+                    <h4 align="center">Autor: </h4> <input class="center center-block" type="password" name="author"/>
+                    <h4 align="center">Editora: </h4> <input class="center center-block" type="password" name="editor"/>
+                    <h4 align="center">Assunto: </h4> <input class="center center-block" type="password" name="subject"/>
+                    <h4 align="center">Imagem: </h4> <input class="center center-block" type="password" name="image"/>
+                    <br/>
+                    <br/>
+                    <button type="button" class="btn btn-warning center-block">Cadastrar</button>
+                    <br/>
+                    <br/>
+                    <a href="cadastroOutras.xhtml"> <button type="button" class="btn btn-warning center-block">Cadastrar mais informações</button> </a>
+                    <a href="controlePreco.xhtml"> <button type="button" class="btn btn-warning center-block">Cadastrar outras informações</button> </a>
+                </h:form>
+
+            </ui:define>
+
+        </ui:composition>
+
+    </h:body>
+</html>
