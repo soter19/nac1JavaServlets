@@ -1,15 +1,30 @@
-.center {
+/* Generic Shit*/
+
+.footer {
+    background-color: #101010;
+    color: #ffffff;
+}
+
+/* Login Page */
+
+input.center{
     border: 1px solid black;
     padding: 10px;
-    left: 50%;
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+}
+
+.center {
+    margin: 0 auto;
+    display: block !important;
+}
+
+#esqueci-minha-senha.center{
+    margin: 10px auto;
+    width: 140px;
 }
 
 #body-perfil{
     background-color: #d58512;
 
-}
-
-.footer {
-    background-color: #101010;
-    color: #ffffff;
 }

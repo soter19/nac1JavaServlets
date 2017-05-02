@@ -1,21 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets" xml:lang="en" lang="en">
 
-    <h:head>
-        <title>Login</title>
-        <link rel="stylesheet" type="text/css" href="style.css"></link>
-    </h:head>
-    <h:body>
-        <ui:composition template="/templates/common/layout.xhtml">
-            <ui:define name="content">
-                <h4>LOGIN</h4>
-            </ui:define>
+<h:head>
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="style.css"></link>
+</h:head>
+<h:body>
+    <ui:composition template="/templates/common/layout.xhtml">
+        <ui:define name="content">
+            <h:form>
+                <h1 align="center"><strong>Bem Vindo à Galerinha do Sot</strong></h1>
+                <h4 align="center">Login: </h4>
+                <input class="center" type="text" name="login"/>
+                <h4 align="center">Senha: </h4>
+                <input class="center" type="password" name="password"/>
+                <button type="button" class="btn btn-warning center">Entrar</button>
+                <a id="esqueci-minha-senha" class="center" href="#">Esqueceu sua senha?</a>
+            </h:form>
 
-        </ui:composition>
+        </ui:define>
 
-    </h:body>
+    </ui:composition>
+
+</h:body>
 </html>
