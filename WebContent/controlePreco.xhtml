@@ -2,11 +2,136 @@
 <!DOCTYPE html
         PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head>
-    <title>Controle Preço</title>
-</head>
-<body>
- <p> controle de preco aqui </p>
-</body>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets" xml:lang="en" lang="en">
+<h:head>
+    <title>Controle de Preço</title>
+</h:head>
+    <h:body>
+        <ui:composition template="/templates/common/layout.xhtml">
+        <ui:define name="content">
+
+        <div class="jumbotron">
+        <h3>Qual livro deseja editar?</h3>
+        <p>
+            <select name="editarLivro">
+            <option value="Livro0">Selecione o livro...</option>
+            <option value="Livro1">O Pequeno Príncipe</option>
+            <option value="Livro2">O Código DaVinci</option>
+            <option value="Livro3">Veronika Decide Morrer</option>
+            <option value="Livro4">Memorias de Uma Moça Bem Comportada</option>
+            <option value="Livro5">Morte no Nilo</option>
+            <option value="Livro6">O Evangelho Segundo Jesus Cristo</option>
+            <option value="Livro7">Cinquenta Tons de Cinza </option>
+            <option value="Livro8">Game of Thrones - Guerra dos Tronos</option>
+            <option value="Livro9">Game of Thrones - Fúria dos Reis</option>
+            <option value="Livro10">Game of Thrones - A Tormenta das Espadas</option>
+            <option value="Livro11">Game of Thrones - O Festim dos Corvos</option>
+            <option value="Livro12">Game of Thrones - A Dança dos Dragões</option>
+            <option value="Livro13">A Menina que Roubava Livros</option>
+            <option value="Livro14">O Mundo de Sofia</option>
+            <option value="Livro15">O Príncipe</option>
+            <option value="Livro16">A Arte da Guerra</option>
+            <option value="Livro17">Orgulho e Preconceito</option>
+            <option value="Livro18">O Segredo</option>
+            <option value="Livro19">A Divina comédia</option>
+            <option value="Livro20">O Apanhador no Campo de Centeio</option>
+            <option value="Livro21">Como Eu Era Antes de Voce</option>
+            <option value="Livro22">Pais Brilhantes, Professores Fascinantes</option>
+            <option value="Livro23">A culpa é das Estrelas</option>
+            <option value="Livro24">Alice no País das Maravilhas</option>
+            <option value="Livro25">A Cabana</option>
+            <option value="Livro26">1984</option>
+            <option value="Livro27">A vida é Bela</option>
+            <option value="Livro28">Don Quixote</option>
+            <option value="Livro29">Um Conto de Duas Cidades</option>
+            <option value="Livro30">O Alquimista</option>
+            <option value="Livro31">O Senhor dos Anéis - A Sociedade do Anel</option>
+            <option value="Livro32">O Senhor dos Anéis - As Duas Torres</option>
+            <option value="Livro33">O Senhor dos Anéis - O Retorno do Rei</option>
+            <option value="Livro34">O Hobbit</option>
+            <option value="Livro35">Harry Potter e a Pedra Filosofal</option>
+            <option value="Livro36">Harry Potter e a Câmara Secreta</option>
+            <option value="Livro37">Harry Potter e o Prisioneiro de Askaban</option>
+            <option value="Livro38">Harry Potter e o Cálice de Fogo</option>
+            <option value="Livro39">Harry Potter e a Ordem da Fênix</option>
+            <option value="Livro40">Harry Potter e o Enigma do Príncipe</option>
+            <option value="Livro41">Harry Potter e as Relíquias da Morte</option>
+            <option value="Livro42">Harry Potter e a Criança Amaldiçoada</option>
+            <option value="Livro43">O Caso dos Dez Negrinhos</option>
+            <option value="Livro44">O Leão, a Feiticeira e o Guarda-Roupa</option>
+            <option value="Livro45">Pense e Enriqueça</option>
+            <option value="Livro46">Cem Anos de Solidão</option>
+            <option value="Livro47">Lolita</option>
+            <option value="Livro48">Heidi</option>
+            <option value="Livro49">Beleza Negra</option>
+            <option value="Livro50">O Nome da Rosa</option>
+            <option value="Livro51">A aguia pousou</option>
+            <option value="Livro52">Era uma vez em Watership Down</option>
+            <option value="Livro53">As pontes de Madison</option>
+            <option value="Livro54">Ben-Hur</option>
+            <option value="Livro55">A Marca do Zorro</option>
+            <option value="Livro56">A História do Pedro Coelho</option>
+            <option value="Livro57">Fernao Capelo Gaivota</option>
+            <option value="Livro58">Anjos e Demônios</option>
+            <option value="Livro59">Inferno</option>
+            <option value="Livro60">Fortaleza Digital</option>
+            <option value="Livro61">O Símbolo Perdido</option>
+            <option value="Livro62">Guerra e Paz</option>
+            <option value="Livro63">As Aventuras de Pinóquio</option>
+            <option value="Livro64">Você Pode Curar sua Vida</option>
+            <option value="Livro65">Caim e Abel</option>
+            <option value="Livro66">O Sol é para Todos</option>
+            <option value="Livro67">… E o Vento Levou</option>
+            <option value="Livro68">Uma Vida com Propósitos</option>
+            <option value="Livro69">Pássaros Feridos</option>
+            <option value="Livro70">Os Homens que Não Amavam as Mulheres</option>
+            <option value="Livro71">Quem Mexeu no meu Queijo?</option>
+            <option value="Livro72">O Grande Gatsby</option>
+            <option value="Livro73">O Vento nos Salgueiros</option>
+            <option value="Livro74">Os Sete Hábitos das Pessoas Altamente Eficazes</option>
+            <option value="Livro75">A Profecia Celestina</option>
+            <option value="Livro76">Jogos Vorazes</option>
+            <option value="Livro77">Em Chamas</option>
+            <option value="Livro78">A Esperança</option>
+            <option value="Livro79">O Poderoso Chefão</option>
+            <option value="Livro80">O Totem do Lobo</option>
+            <option value="Livro81">Tubarao</option>
+            <option value="Livro82">As aventuras de Huckleberry Finn</option>
+            <option value="Livro83">O Diário Secreto de um Adolescente</option>
+            <option value="Livro84">A Expedição Kon-Tiki</option>
+            <option value="Livro85">O Bom Soldado Svejk</option>
+            <option value="Livro86">Onde Vivem os Monstros</option>
+            <option value="Livro87">O Poder do Pensamento Positivo</option>
+            <option value="Livro88">Fear of Flying</option>
+            <option value="Livro89">Duna</option>
+            <option value="Livro90">A História Sem Fim</option>
+            <option value="Livro91">Adivinha Quanto Eu Te Amo</option>
+            <option value="Livro92">Xogun - A Gloriosa Saga do Japão</option>
+            <option value="Livro93">Os pilares da terra</option>
+            <option value="Livro94">O perfume</option>
+            <option value="Livro95">As vinhas da Ira</option>
+            <option value="Livro96">A Sombra do Vento</option>
+            <option value="Livro97">O Guia do Mochileiro das Galáxias</option>
+            <option value="Livro98">O Velho e o Mar</option>
+            <option value="Livro99">O Menino do Pijama Listrado</option>
+            <option value="Livro100">Diario de Anne Frank</option>
+        </select>
+    </p>
+</div>
+
+<div class="input-group input-group-lg">
+    <span class="input-group-addon" id="precoAtual">Preço atual:</span>
+    <input type="text" class="form-control"/>
+</div>
+
+<div class="input-group input-group-lg">
+    <span class="input-group-addon" id="desconto">Desconto:</span>
+    <input type="text" class="form-control"/>
+</div>
+<input type="button" name="salvar" value="Salvar"/>
+
+        </ui:define>
+        </ui:composition>
+    </h:body>
 </html>
