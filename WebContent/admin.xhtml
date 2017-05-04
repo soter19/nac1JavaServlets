@@ -15,10 +15,12 @@
 		<ui:composition template="/templates/common/layout.xhtml">
 
 			<ui:define name="content">
-				<h:form>
+				<h:form class="navbar-form hidden-md hidden-sm hidden-xs">
 					<h1 align="center"><strong>Login Admin</strong></h1>
-					<h4 align="center">Login: </h4> <input class="center center-block" type="text" name="login"/>
-					<h4 align="center">Senha: </h4> <input class="center center-block" type="password" name="password"/>
+					<h4 align="center">Login: </h4>
+					<input class="center form-control" type="text" name="login"/>
+					<h4 align="center">Senha: </h4>
+					<input class="center form-control" type="password" name="password"/>
 					<br/>
 					<br/>
 					<a href="cadastroLivro.xhtml"> <button type="button" class="btn btn-warning center-block">Entrar</button> </a>

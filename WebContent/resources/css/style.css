@@ -28,3 +28,11 @@ input.center{
     background-color: #d58512;
 
 }
+
+.left{
+float: left;
+}
+
+.right{
+float: right
+}

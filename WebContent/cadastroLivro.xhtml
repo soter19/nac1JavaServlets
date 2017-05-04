@@ -3,7 +3,7 @@
         PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://java.sun.com/jsf/facelets" xml:lang="en" lang="en">
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:b="http://bootsfaces.net/ui" xml:lang="en" lang="en">
     <h:head>
         <title>Cadastro Livro</title>
     </h:head>
@@ -12,25 +12,65 @@
         <ui:composition template="/templates/common/layout.xhtml">
 
             <ui:define name="content">
-                <h:form>
-                    <h1 align="center"><strong>Cadastro Livro</strong></h1>
-                    <h4 align="center">Nome: </h4> <input class="center center-block" type="text" name="name"/>
-                    <h4 align="center">Valor: </h4> <input class="center center-block" type="text" name="value"/>
-                    <h4 align="center">Autor: </h4> <input class="center center-block" type="text" name="author"/>
-                    <h4 align="center">Editora: </h4> <input class="center center-block" type="text" name="editor"/>
-                    <h4 align="center">Assunto: </h4> <input class="center center-block" type="text" name="subject"/>
-                    <h4 align="center">Imagem: </h4> <input class="center center-block" type="text" name="image"/>
+                <div class="left">
+                <h:form class="navbar-form hidden-md hidden-sm hidden-xs">
+                    <h1 align="left"><strong>Cadastro Livro</strong></h1>
+                    <h4 align="left">Nome: </h4> <input class="form-control" type="text" name="name"/>
+                    <br/>
+                        <b:dropMenu value="Assuntos">
+                            <b:navLink value="Suspense" href="#"/>
+                            <b:navLink value="Romance" href="#"/>
+                            <b:navLink value="Terror" href="#"/>
+                            <b:navLink value="Drama" href="#"/>
+                            <b:navLink value="Comédia" href="#"/>
+                        </b:dropMenu>
+                    <br/>
+                        <b:dropMenu value="Assuntos">
+                            <b:navLink value="Suspense" href="#"/>
+                            <b:navLink value="Romance" href="#"/>
+                            <b:navLink value="Terror" href="#"/>
+                            <b:navLink value="Drama" href="#"/>
+                            <b:navLink value="Comédia" href="#"/>
+                        </b:dropMenu>
+                    <br/>
+                        <b:dropMenu value="Assuntos">
+                            <b:navLink value="Suspense" href="#"/>
+                            <b:navLink value="Romance" href="#"/>
+                            <b:navLink value="Terror" href="#"/>
+                            <b:navLink value="Drama" href="#"/>
+                            <b:navLink value="Comédia" href="#"/>
+                        </b:dropMenu>                    <h4 align="left">Imagem: </h4> <input class="form-control" type="text" name="image"/>
+                    <h4 align="left">Valor: </h4> <input class="form-control" type="text" name="value"/>
+                    <h4 align="left">Desconto: </h4> <input class="form-control" type="text" name="descont"/>
+
                     <br/>
                     <br/>
-                    <button type="button" class="btn btn-warning center-block">Cadastrar</button>
+                    <b:button type="button" class="btn btn-warning" size="lg">Cadastrar</b:button>
                     <br/>
-                    <a href="cadastroOutras.xhtml"> <button type="button" class="btn btn-warning center-block">Cadastrar mais informações</button> </a>
+                     </h:form>
+                </div>
+
+                <div class="right">
+                <h:form class="navbar-form hidden-md hidden-sm hidden-xs right">
+
+                    <h1 align="left"><strong>Cadastrar outras infomações</strong></h1>
+
+                    <h4 align="left">Novo autor: </h4> <input class="form-control" type="text" name="author"/>
+                    <h4 align="left">Nova editora: </h4> <input class="form-control" type="text" name="editor"/>
+                    <h4 align="left">Novo assunto: </h4> <input class="form-control" type="text" name="subject"/>
                     <br/>
-                    <a href="controlePreco.xhtml"> <button type="button" class="btn btn-warning center-block">Cadastrar outras informações</button> </a>
+                    <br/>
+                    <button type="button" class="btn btn-warning">Cadastrar</button>
+                    <br/>
                 </h:form>
 
-            </ui:define>
+                </div>
 
+
+            </ui:define>
+                <!--<a href="cadastroOutras.xhtml"> <button type="button" class="btn btn-warning center-block">Cadastrar mais informações</button> </a>-->
+                <!--<br/>-->
+                <!--<a href="controlePreco.xhtml"> <button type="button" class="btn btn-warning center-block">Cadastrar outras informações</button> </a>-->
         </ui:composition>
 
     </h:body>
