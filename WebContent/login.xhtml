@@ -4,28 +4,39 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://java.sun.com/jsf/facelets" xml:lang="en" lang="en">
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:b="http://bootsfaces.net/ui" xml:lang="en" lang="en">
 
 <h:head>
     <title>Login</title>
     <link rel="stylesheet" type="text/css" href="style.css"/>
 </h:head>
-<h:body>
-    <ui:composition template="/templates/common/layout.xhtml">
-        <ui:define name="content">
-            <h:form>
-                <h1 align="center"><strong>Bem Vindo à Galerinha da Nath</strong></h1>
-                <h4 align="center">Login: </h4>
-                <input class="center" type="text" name="login"/>
-                <h4 align="center">Senha: </h4>
-                <input class="center" type="password" name="password"/>
-                <button type="button" class="btn btn-warning center">Entrar</button>
-                <a id="esqueci-minha-senha" class="center" href="#">Esqueceu sua senha?</a>
-            </h:form>
+    <h:body>
+        <ui:composition template="/templates/common/layout.xhtml">
+            <ui:define name="content">
+                <b:row>
+                    <b:column medium-screen="6">
+                        <h:form>
+                            <h1><strong>Bem Vindo à Galerinha</strong></h1>
+                            <h4>Login: </h4>
+                            <input class="form-control" type="text" name="login"/>
+                            <h4>Senha: </h4>
+                            <input class="form-control" type="password" name="password"/>
+                            <br/>
+                            <a href="perfil.xhtml"><button type="button" class="btn btn-warning center">Entrar</button></a>
+                            <a id="esqueci-minha-senha" href="#">Esqueceu sua senha?</a>
+                        </h:form>
+                    </b:column>
 
-        </ui:define>
 
-    </ui:composition>
+                    <b:column span="3" offset="2">
+                        <h4>Ainda não possue conta?</h4>
+                        <a href="cadastro.xhtml"><b:button look="warning" size="lg" value="Cadastre aqui!"/></a>
+                    </b:column>
+                </b:row>
 
-</h:body>
+            </ui:define>
+
+        </ui:composition>
+
+    </h:body>
 </html>

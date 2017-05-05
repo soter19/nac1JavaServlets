@@ -12,7 +12,6 @@
         <ui:composition template="/templates/common/layout.xhtml">
 
             <ui:define name="content">
-                <div class="left">
                 <h:form class="navbar-form hidden-md hidden-sm hidden-xs">
                     <h1 align="left"><strong>Cadastro Livro</strong></h1>
                     <h4 align="left">Nome: </h4> <input class="form-control" type="text" name="name"/>
@@ -39,33 +38,17 @@
                             <b:navLink value="Terror" href="#"/>
                             <b:navLink value="Drama" href="#"/>
                             <b:navLink value="Comédia" href="#"/>
-                        </b:dropMenu>                    <h4 align="left">Imagem: </h4> <input class="form-control" type="text" name="image"/>
+                        </b:dropMenu>
+
+                    <h4 align="left">Imagem: </h4> <input class="form-control" type="text" name="image"/>
                     <h4 align="left">Valor: </h4> <input class="form-control" type="text" name="value"/>
                     <h4 align="left">Desconto: </h4> <input class="form-control" type="text" name="descont"/>
 
                     <br/>
                     <br/>
-                    <b:button type="button" class="btn btn-warning" size="lg">Cadastrar</b:button>
-                    <br/>
-                     </h:form>
-                </div>
-
-                <div class="right">
-                <h:form class="navbar-form hidden-md hidden-sm hidden-xs right">
-
-                    <h1 align="left"><strong>Cadastrar outras infomações</strong></h1>
-
-                    <h4 align="left">Novo autor: </h4> <input class="form-control" type="text" name="author"/>
-                    <h4 align="left">Nova editora: </h4> <input class="form-control" type="text" name="editor"/>
-                    <h4 align="left">Novo assunto: </h4> <input class="form-control" type="text" name="subject"/>
-                    <br/>
-                    <br/>
                     <button type="button" class="btn btn-warning">Cadastrar</button>
                     <br/>
-                </h:form>
-
-                </div>
-
+                     </h:form>
 
             </ui:define>
                 <!--<a href="cadastroOutras.xhtml"> <button type="button" class="btn btn-warning center-block">Cadastrar mais informações</button> </a>-->
