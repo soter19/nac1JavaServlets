@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+    <title>Esqueci Minha Senha</title>
+    <link rel="stylesheet" type="text/css" href="style.css"></link>
+</h:head>
+
+<h:body>
+
+    <ui:composition template="/templates/common/layout.xhtml">
+
+        <ui:define name="content">
+
+            <h:form class="navbar-form hidden-md hidden-sm hidden-xs">
+
+                <h1 align="center"><strong> Enviar Nova Senha </strong></h1>
+
+                <h4 align="center">Informe seu e-mail cadastrado: </h4>
+                <input class="center form-control" type="text" name="emailesqueci"/>
+
+                <button type="button" class="btn btn-warning center-block">Enviar</button>
+                <!--<h1 align="center"><a href="index.xhtml">Voltar</a></h1>-->
+
+                <br/>
+                <br/>
+
+            </h:form>
+
+         </ui:define>
+
+    </ui:composition>
+</h:body>
+
+</html>
