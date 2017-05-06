@@ -13,26 +13,19 @@
     <h:body>
         <ui:composition template="/templates/common/layout.xhtml">
             <ui:define name="content">
-                <b:row>
-                    <b:column medium-screen="6">
-                        <h:form>
-                            <h1><strong>Bem Vindo à Galerinha</strong></h1>
-                            <h4>Login: </h4>
-                            <input class="form-control" type="text" name="login"/>
-                            <h4>Senha: </h4>
-                            <input class="form-control" type="password" name="password"/>
+                <h:form class="navbar-form hidden-md hidden-sm hidden-xs">
+                            <h1 align="center"><strong>Bem Vindo à Galerinha</strong></h1>
+                            <h4 align="center">Login: </h4>
+                            <input class="form-control center" type="text" name="login"/>
+                            <h4 align="center">Senha: </h4>
+                            <input class="form-control center" type="password" name="password"/>
                             <br/>
-                            <a href="perfil.xhtml"><button type="button" class="btn btn-warning center">Entrar</button></a>
-                            <a id="esqueci-minha-senha" href="#">Esqueceu sua senha?</a>
+                            <a href="perfil.xhtml"> <button type="button" class="btn btn-warning center-block">Login</button> </a>
+                            <p align="center"> ou </p>
+                            <a href="cadastro.xhtml"> <button type="button" class="btn btn-warning center-block">Cadastre-se aqui!</button> </a>
+                            <br/>
+                            <a class="center" id="esqueci-minha-senha" href="esqueciSenha.xhtml">Esqueceu sua senha?</a>
                         </h:form>
-                    </b:column>
-
-
-                    <b:column span="3" offset="2">
-                        <h4>Ainda não possue conta?</h4>
-                        <a href="cadastro.xhtml"><b:button look="warning" size="lg" value="Cadastre aqui!"/></a>
-                    </b:column>
-                </b:row>
 
             </ui:define>
 

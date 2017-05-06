@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:b="http://bootsfaces.net/ui"
+      xmlns:p="http://java.sun.com/jsf/composite">
+
+<h:head>
+    <title>Editar livro</title>
+    <link rel="stylesheet" type="text/css" href="style.css"></link>
+</h:head>
+
+<h:body>
+
+    <ui:composition template="/templates/common/layout.xhtml">
+
+        <ui:define name="content">
+            <b:row>
+                <b:column span="6">
+                    <h:form class="navbar-form hidden-md hidden-sm hidden-xs">
+
+                        <h1 align="left"><strong>Editar Livro</strong></h1>
+                        <br/>
+                        <h3>Qual livro deseja editar?</h3>
+                            <p>
+                                <select name="editarLivro">
+                                    <option value="Livro0">Selecione o livro...</option>
+                                    <option value="Livro1">O Pequeno Príncipe</option>
+                                    <option value="Livro2">O Código DaVinci</option>
+                                    <option value="Livro3">Veronika Decide Morrer</option>
+                                    <option value="Livro4">Memorias de Uma Moça Bem Comportada</option>
+                                    <option value="Livro5">Morte no Nilo</option>
+                                    <option value="Livro6">O Evangelho Segundo Jesus Cristo</option>
+                                    <option value="Livro7">Cinquenta Tons de Cinza </option>
+                                    <option value="Livro8">Game of Thrones - Guerra dos Tronos</option>
+                                    <option value="Livro9">Game of Thrones - Fúria dos Reis</option>
+                                    <option value="Livro10">Game of Thrones - A Tormenta das Espadas</option>
+                                </select>
+                            </p>
+                         <h5 align="left">Nome:</h5>
+                                     <input class="form-control" type="text" name="name"/>
+                                        <p>
+                                             <select name="Autores">
+                                                 <option value="Livro0">Selecione o autor...</option>
+                                                 <option value="Livro1">Maria B</option>
+                                                 <option value="Livro2">Roman Pike</option>
+                                                 <option value="Livro3">Pedro Coelho</option>
+                                             </select>
+                                         </p>
+                                         <p>
+                                             <select name="Editoras">
+                                                 <option value="Livro0">Selecione a editora...</option>
+                                                 <option value="Livro1">Abril</option>
+                                                 <option value="Livro2">Global</option>
+                                                 <option value="Livro3">Moderna</option>
+                                             </select>
+                                         </p>
+                                         <p>
+                                             <select name="Assuntos">
+                                                 <option value="Livro0">Selecione o assunto...</option>
+                                                 <option value="Livro1">Suspense</option>
+                                                 <option value="Livro2">Romance</option>
+                                                 <option value="Livro3">Drama</option>
+                                             </select>
+                                         </p>
+                                     <h5 align="left">Img:</h5>
+                                     <input class="form-control" type="text" name="image"/>
+                                     <h5 align="left">Valor:</h5>
+                                     <input class="form-control" type="text" name="value"/>
+                        <a href="controlePreco.xhtml"> <b:button value="Editar valor" look="info"/> </a>
+
+                        <br/>
+                        <br/>
+                        <b:button value="Editar" look="warning"/>
+                        <b:button value="Apagar" look="danger"/>
+
+                    </h:form>
+                </b:column>
+
+                <b:column span="6">
+                    <h:form class="navbar-form hidden-md hidden-sm hidden-xs">
+
+                        <h1 align="left"><strong>Editar Outras Informações</strong></h1>
+                        <br/>
+
+
+                        <h3>Qual informação deseja editar?</h3>
+                        <p>
+                            <select name="editarLivro">
+                                <option value="Livro0">Selecione a opção...</option>
+                                <option value="Livro1">Autores</option>
+                                <option value="Livro2">Editoras</option>
+                                <option value="Livro3">Assuntos</option>
+                            </select>
+                        </p>
+
+
+                        <button type="button" class="btn btn-warning">Editar</button>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <a href="cadastroLivro.xhtml"> <b:button value="VOLTAR" look="primary" size="lg"/> </a>
+
+                    </h:form>
+                </b:column>
+            </b:row>
+
+        </ui:define>
+        <!--<a href="cadastroOutras.xhtml"> <button type="button" class="btn btn-warning center-block">Cadastrar mais informações</button> </a>-->
+        <!--<br/>-->
+        <!--<a href="controlePreco.xhtml"> <button type="button" class="btn btn-warning center-block">Cadastrar outras informações</button> </a>-->
+    </ui:composition>
+</h:body>
+
+</html>
