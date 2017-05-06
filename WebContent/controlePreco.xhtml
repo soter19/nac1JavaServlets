@@ -2,18 +2,19 @@
 <!DOCTYPE html
         PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xml:lang="en" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:b="http://bootsfaces.net/ui" xml:lang="en" lang="en">
+
 <h:head>
     <title>Controle de Preço</title>
 </h:head>
+
     <h:body>
         <ui:composition template="/templates/common/layout.xhtml">
         <ui:define name="content">
 
-        <div class="jumbotron">
+            <h:form class="navbar-form hidden-md hidden-sm hidden-xs">
+
         <h3>Qual livro deseja editar?</h3>
         <p>
             <select name="editarLivro">
@@ -30,19 +31,12 @@
             <option value="Livro10">Game of Thrones - A Tormenta das Espadas</option>
         </select>
     </p>
-</div>
 
-<div class="input-group input-group-lg">
-    <span class="input-group-addon" id="precoAtual">Preço atual:</span>
-    <input type="text" class="form-control"/>
-</div>
+            <h4 align="left">Preço Atual: </h4> <input class="form-control" type="text" name="precoAtual"/>
+            <h4 align="left">Desconto: </h4> <input class="form-control" type="text" name="desconto"/>
 
-<div class="input-group input-group-lg">
-    <span class="input-group-addon" id="desconto">Desconto:</span>
-    <input type="text" class="form-control"/>
-</div>
-<input type="button" name="salvar" value="Salvar"/>
-
+    <button type="button" class="btn btn-warning">Salvar</button>
+            </h:form>
         </ui:define>
         </ui:composition>
     </h:body>
