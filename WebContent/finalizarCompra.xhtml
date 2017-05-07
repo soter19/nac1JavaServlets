@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:b="http://bootsfaces.net/ui" xml:lang="en" lang="en">
+    <h:head>
+        <title>Finalizar Compra</title>
+        <link rel="stylesheet" type="text/css" href="style.css"></link>
+    </h:head>
+    <h:body id="body-perfil">
+        <ui:composition template="/templates/common/layout.xhtml">
+            <div id="block-center">
+                <ui:define name="content">
+                    <h:form class="navbar-form hidden-md hidden-sm hidden-xs">
+                        <b:row>
+                            <h2 class="text">Finalizando Compra:</h2><br/>
+                            <b:column span="3">
+                                <a href="carrinho.xhtml">Voltar para o carrinho</a><br/>
+                                Endereço de Faturamento:<br/><br/>
+                                Endereço de Envio:<br/>
+                                <a href="perfil.xhtml">Alterar</a><br/><br/>
+                                Tipo de Frete:<br/>
+                                <a href="perfil.xhtml">Alterar</a><br/><br/>
+                            </b:column>
+                            <b:column span="3">
+                                <div class="list-group">
+                                    <a href="#" class="list-group-item disabled">Cartão de Crédito</a>
+                                    <a href="#" class="list-group-item">Boleto</a>
+                                    <a href="#" class="list-group-item">Cartão de Débito</a>
+                                    <a href="#" class="list-group-item">Débito em Conta</a>
+                                    <a href="#" class="list-group-item">Vale Sot</a>
+                                </div>
+                            </b:column>
+                            <b:column span="6">
+                                <h3 class="text">Cartão de Crédito</h3>
+                                <table class="table">
+                                    <tr>
+                                        <td>Nome do Titular no Cartão:</td>
+                                        <td colspan="2"><input type="text" class="form-control center-block" value=""/></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Número do Cartão:</td>
+                                        <td colspan="2"><input type="text" class="form-control center-block" value=""/></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Código de Segurança:</td>
+                                        <td><input type="text" class="form-control center-block" value=""/></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Validade do Cartão:</td>
+                                        <td>Mês
+                                            <select size="1" name="D1">
+                                                <option value="1">Janeiro</option>
+                                                <option value="2">Fevereiro</option>
+                                                <option value="2">Março</option>
+                                                <option value="2">Abril</option>
+                                                <option value="2">Maio</option>
+                                                <option value="2">Junho</option>
+                                                <option value="2">Julho</option>
+                                                <option value="2">Agosto</option>
+                                                <option value="2">Setembro</option>
+                                                <option value="2">Outubro</option>
+                                                <option value="2">Novembro</option>
+                                                <option value="2">Dezembro</option>
+                                            </select>
+                                        </td>
+                                        <td>Ano
+                                            <select size="1" name="D2">
+                                                <option value="1">2017</option>
+                                                <option value="2">2018</option>
+                                                <option value="2">2019</option>
+                                                <option value="2">2020</option>
+                                                <option value="2">2021</option>
+                                                <option value="2">2022</option>
+                                                <option value="2">2023</option>
+                                                <option value="2">2024</option>
+                                                <option value="2">2025</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </b:column>
+                        </b:row>
+                        <button type="button" class="btn btn-warning center-block">Finalizar Compra</button>
+                    </h:form>
+                </ui:define>
+            </div>
+        </ui:composition>
+    </h:body>
+</html>
