@@ -30,5 +30,8 @@ input.center{
 
 #body-perfil{
     background-color: #d58512;
+}
 
+#nav{
+    border-radius: 0px; !important;
 }
