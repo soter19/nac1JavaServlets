@@ -13,97 +13,75 @@
 
             <ui:define name="content">
                 <b:row>
-                <b:column span="6">
-                <h:form class="navbar-form hidden-md hidden-sm hidden-xs">
+                <b:column span="6" offset="3">
 
-                    <h1 align="left"><strong>Cadastrar Livro</strong></h1>
-                    <br/>
+                    <h1 align="center"><strong>Cadastrar Livro</strong></h1>
 
-                    <h5 align="left">Nome:</h5>
-                    <input class="form-control" type="text" name="name"/>
-                    <br/>
-                    <p>
-                        <select name="Autores">
-                            <option value="Livro0">Selecione o autor...</option>
-                            <option value="Livro1">Maria B</option>
-                            <option value="Livro2">Roman Pike</option>
-                            <option value="Livro3">Pedro Coelho</option>
-                        </select>
-                    </p>
-                    <p>
-                        <select name="Editoras">
-                            <option value="Livro0">Selecione a editora...</option>
-                            <option value="Livro1">Abril</option>
-                            <option value="Livro2">Global</option>
-                            <option value="Livro3">Moderna</option>
-                        </select>
-                    </p>
-                    <p>
-                        <select name="Assuntos">
-                            <option value="Livro0">Selecione o assunto...</option>
-                            <option value="Livro1">Suspense</option>
-                            <option value="Livro2">Romance</option>
-                            <option value="Livro3">Drama</option>
-                        </select>
-                    </p>
-                    <h5 align="left">Img:</h5>
-                    <input class="form-control" type="text" name="image"/>
-                    <h5 align="left">Valor:</h5>
-                    <input class="form-control" type="text" name="value"/>
+                <table class="table">
 
-                    <button type="button" class="btn btn-warning">Cadastrar</button>
+                    <tr>
+                        <td><h5 align="left">Nome:</h5></td>
+                        <td><input class="form-control" type="text" name="name"/></td>
+                    </tr>
 
-                     </h:form>
-                </b:column>
+                   <tr>
+                       <td><h5 align="left">Autor:</h5></td>
+                       <td><p>
+                           <select name="Autores">
+                               <option value="Livro0">Selecione o autor...</option>
+                               <option value="Livro1">Maria B</option>
+                               <option value="Livro2">Roman Pike</option>
+                               <option value="Livro3">Pedro Coelho</option>
+                               <option value="Livro4">Cadastrar novo autor...</option>
+                           </select>
+                       </p></td>
+                       <td><input class="form-control" type="text" name="autor"/></td>
+                   </tr>
 
-                <b:column span="6">
-                    <h:form class="navbar-form hidden-md hidden-sm hidden-xs">
 
-                    <h1 align="left"><strong>Cadastrar Outras Informações</strong></h1>
-                    <br/>
 
-                        <b:row>
-                            <b:column span="1">
-                                <h5 align="left">Autor:</h5>
-                            </b:column>
-                            <b:column span="1" offset="1">
-                                <input class="form-control" type="text" name="ator"/>
-                            </b:column>
-                        </b:row>
-                        <br/>
-                        <br/>
+                    <tr>
+                        <td><h5 align="left">Editora:</h5></td>
+                        <td><p>
+                            <select name="Editoras">
+                                <option value="Livro0">Selecione a editora...</option>
+                                <option value="Livro1">Abril</option>
+                                <option value="Livro2">Global</option>
+                                <option value="Livro3">Moderna</option>
+                                <option value="Livro4">Cadastrar nova editora...</option>
+                            </select>
+                        </p></td>
+                        <td><input class="form-control" type="text" name="editora"/></td>
+                    </tr>
 
-                        <b:row>
-                            <b:column span="1">
-                                <h5 align="left">Editora:</h5>
-                            </b:column>
-                            <b:column span="1" offset="1">
-                                <input class="form-control" type="text" name="editora"/>
-                            </b:column>
-                        </b:row>
-                        <br/>
-                        <br/>
+                    <tr>
+                        <td><h5 align="left">Gênero:</h5></td>
+                        <td><p>
+                            <select name="Gêneros">
+                                <option value="Livro0">Selecione o gênero...</option>
+                                <option value="Livro1">Suspense</option>
+                                <option value="Livro2">Romance</option>
+                                <option value="Livro3">Drama</option>
+                                <option value="Livro4">Cadastrar novo gênero...</option>
+                            </select>
+                        </p></td>
+                        <td><input class="form-control" type="text" name="genero"/></td>
+                    </tr>
 
-                        <b:row>
-                            <b:column span="1">
-                                <h5 align="left">Assunto:</h5>
-                            </b:column>
-                            <b:column span="1" offset="1">
-                                <input class="form-control" type="text" name="assunto"/>
-                            </b:column>
-                        </b:row>
-                        <br/>
-                        <br/>
+                    <tr>
+                        <td><h5 align="left">Img:</h5></td>
+                        <td> <input class="form-control" type="text" name="image"/> </td>
+                    </tr>
 
-                        <button type="button" class="btn btn-warning">Cadastrar</button>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <a href="editarLivro.xhtml"> <b:button value="EDITAR" look="danger" size="lg"/> </a>
+                    <tr>
+                        <td><h5 align="left">Valor:</h5></td>
+                        <td><input class="form-control" type="text" name="value"/></td>
+                        <td><a href="controlePreco.xhtml">Aplicar desconto</a><br/></td>
+                    </tr>
+                </table>
 
-                    </h:form>
+                    <button type="button" class="btn btn-warning center">Salvar</button>
+
                 </b:column>
                 </b:row>
 
