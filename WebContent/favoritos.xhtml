@@ -135,64 +135,8 @@
                             <b:column span="2">
                                 <button type="button" class="btn btn-warning right-block">Remover</button>
                             </b:column>
-
                         </b:row>
                     </div>
-                </h:form>
-            </ui:define>
-        </ui:composition>
-    </h:body>
-</html>
-
-<h:head>
-    <title>Lista de desejos</title>
-</h:head>
-
-<h:body>
-    <ui:composition template="/templates/common/layout.xhtml">
-
-        <ui:define name="content">
-            <h:form>
-
-                <h2>Lista de desejos</h2><br></br>
-
-                <p>
-                    <select name="genero">
-                        <option value="Genero0">Gênero</option>
-                        <option value="Genero1">Romance</option>
-                        <option value="Genero2">Drama</option>
-                        <option value="Genero3">Suspense</option>
-                    </select>
-                </p>
-
-                <table class="table">
-                    <tr>
-                        <td rowspan="5">
-                            <img src="https://s-media-cache-ak0.pinimg.com/originals/8d/e2/29/8de22937d50b35b5cdef70735714ad9d.jpg"
-                                 alt="capa" align="left" width="150" height="160"/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><h4 class="text"><strong>Nome do livro</strong></h4></td>
-                    </tr>
-                    <tr>
-                        <td>Gênero:</td>
-                        <td>Suspense</td>
-                    </tr>
-                    <tr>
-                        <td>Preço Original:</td>
-                        <td>R$ 29,99</td>
-                    </tr>
-                    <tr>
-                        <td>Preço Atual:</td>
-                        <td>R$ 25,99</td>
-                    </tr>
-
-                </table>
-
-                <b:column span="2">
-                    <button type="button" class="btn btn-warning right-block">Remover</button>
-                </b:column>
             </h:form>
         </ui:define>
     </ui:composition>
