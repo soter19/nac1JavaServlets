@@ -16,26 +16,13 @@
             <h:form class="navbar-form hidden-md hidden-sm hidden-xs">
 
         <h3>Qual livro deseja editar?</h3>
-        <p>
-            <select name="editarLivro">
-            <option value="Livro0">Selecione o livro...</option>
-            <option value="Livro1">O Pequeno Príncipe</option>
-            <option value="Livro2">O Código DaVinci</option>
-            <option value="Livro3">Veronika Decide Morrer</option>
-            <option value="Livro4">Memorias de Uma Moça Bem Comportada</option>
-            <option value="Livro5">Morte no Nilo</option>
-            <option value="Livro6">O Evangelho Segundo Jesus Cristo</option>
-            <option value="Livro7">Cinquenta Tons de Cinza </option>
-            <option value="Livro8">Game of Thrones - Guerra dos Tronos</option>
-            <option value="Livro9">Game of Thrones - Fúria dos Reis</option>
-            <option value="Livro10">Game of Thrones - A Tormenta das Espadas</option>
-        </select>
-    </p>
+                <input type="text" class="form-control"/>
+                    <button class="btn btn-default" type="button">Go!</button>
 
-            <h4 align="left">Preço Atual: </h4> <input class="form-control" type="text" name="precoAtual"/>
-            <h4 align="left">Desconto: </h4> <input class="form-control" type="text" name="desconto"/>
-
-    <button type="button" class="btn btn-warning">Salvar</button>
+                    <h4 align="left">Preço Original: </h4> <input class="form-control" type="text" name="precoOriginal"/>
+                    <h4 align="left">Desconto: </h4> <input class="form-control" type="text" name="desconto"/>
+                        <button type="button" class="btn btn-warning">Salvar</button>
+                    <h4 align="left">Preço Atual: </h4> <input class="form-control" type="text" name="precoAtual"/>
             </h:form>
         </ui:define>
         </ui:composition>

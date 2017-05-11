@@ -5,6 +5,10 @@
     color: #ffffff;
 }
 
+.footer h5{
+    padding: 20px 0;
+}
+
 .center {
      margin: 0 auto;
      display: block !important;
@@ -12,6 +16,11 @@
 
 div#page{
     margin: 0 20px;
+}
+
+div#content{
+    min-height: 320px;
+    margin: 20px 0;
 }
 /* Login Page */
 
