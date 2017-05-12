@@ -6,7 +6,7 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:b="http://bootsfaces.net/ui" xml:lang="en" lang="en">
     <h:head>
         <title>Finalizar Compra</title>
-        <link rel="stylesheet" type="text/css" href="style.css"></link>
+        <link rel="stylesheet" type="text/css" href="style.css"/>
     </h:head>
     <h:body id="body-perfil">
         <ui:composition template="/templates/common/layout.xhtml">
@@ -19,6 +19,10 @@
                                 <a href="carrinho.xhtml">Voltar para o carrinho</a><br/>
                             </b:column>
                             <b:column span="6" offset="2">
+                                <b:alert severity="info"
+                                         title="Sua Compra!">O valor da sua
+                                    compra foi R$:XX,XX
+                                </b:alert>
                                 <h3 class="text">Cartão de Crédito</h3>
                                 <table class="table">
                                     <tr>
@@ -39,16 +43,16 @@
                                             <select size="1" name="D1">
                                                 <option value="1">Janeiro</option>
                                                 <option value="2">Fevereiro</option>
-                                                <option value="2">Março</option>
-                                                <option value="2">Abril</option>
-                                                <option value="2">Maio</option>
-                                                <option value="2">Junho</option>
-                                                <option value="2">Julho</option>
-                                                <option value="2">Agosto</option>
-                                                <option value="2">Setembro</option>
-                                                <option value="2">Outubro</option>
-                                                <option value="2">Novembro</option>
-                                                <option value="2">Dezembro</option>
+                                                <option value="3">Março</option>
+                                                <option value="4">Abril</option>
+                                                <option value="5">Maio</option>
+                                                <option value="6">Junho</option>
+                                                <option value="7">Julho</option>
+                                                <option value="8">Agosto</option>
+                                                <option value="9">Setembro</option>
+                                                <option value="10">Outubro</option>
+                                                <option value="11">Novembro</option>
+                                                <option value="12">Dezembro</option>
                                             </select>
                                         </td>
                                         <td>Ano
