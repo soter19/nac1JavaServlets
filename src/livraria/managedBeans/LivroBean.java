@@ -1,5 +1,6 @@
 package livraria.managedBeans;
 
+import livraria.bd.BeanCRUD;
 import livraria.beans.Assunto;
 import livraria.beans.Autor;
 import livraria.beans.Editora;
@@ -11,7 +12,7 @@ import javax.faces.bean.ManagedBean;
  * Forged by Soter Padua on 30/03/17.
  */
 @ManagedBean
-public class LivroBean {
+public class LivroBean implements BeanCRUD{
 	private Livro livro = new Livro();
 
 	public String getTitulo() {
@@ -52,5 +53,25 @@ public class LivroBean {
 
 	public void setValor(Double valor) {
 		livro.setValor(valor);
+	}
+
+	@Override
+	public boolean createOnDB() {
+		return false;
+	}
+
+	@Override
+	public boolean getFromDB() {
+		return false;
+	}
+
+	@Override
+	public boolean updateOnDB() {
+		return false;
+	}
+
+	@Override
+	public boolean deleteFromDB() {
+		return false;
 	}
 }
