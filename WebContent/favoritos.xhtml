@@ -17,16 +17,6 @@
 
                     <h2>Lista de desejos</h2><br></br>
 
-                    <p>
-                        <select name="genero">
-                            <option value="Genero0">Gênero</option>
-                            <option value="Genero1">Romance</option>
-                            <option value="Genero2">Drama</option>
-                            <option value="Genero3">Suspense</option>
-                        </select>
-                    </p>
-                    <br></br>
-
                     <div>
                         <b:row>
                         <b:column span="4">
@@ -58,7 +48,12 @@
 
                         </b:column>
                             <b:column span="2">
-                                <button type="button" class="btn btn-warning right-block">Remover</button>
+                                <b:buttonGroup orientation="vertical">
+                                    <b:button  icon="shopping-cart" value="Adicionar ao Carrinho" look="primary">
+                                        <b:commandButton value="Info" actionListener="#{autorBean.info}" update="@form"/>
+                                    </b:button>
+                                    <b:button  icon="remove" value="Remover Item" look="warning"/>
+                                </b:buttonGroup>
                             </b:column>
 
                 </b:row>
@@ -95,7 +90,12 @@
 
                             </b:column>
                             <b:column span="2">
-                                <button type="button" class="btn btn-warning right-block">Remover</button>
+                                <b:buttonGroup orientation="vertical">
+                                    <b:button  icon="shopping-cart" value="Adicionar ao Carrinho" look="primary">
+                                        <b:commandButton value="Info" actionListener="#{autorBean.info}" update="@form"/>
+                                    </b:button>
+                                    <b:button  icon="remove" value="Remover Item" look="warning"/>
+                                </b:buttonGroup>
                             </b:column>
 
                         </b:row>
@@ -132,7 +132,12 @@
 
                             </b:column>
                             <b:column span="2">
-                                <button type="button" class="btn btn-warning right-block">Remover</button>
+                                <b:buttonGroup orientation="vertical">
+                                    <b:button  icon="shopping-cart" value="Adicionar ao Carrinho" look="primary">
+                                        <b:commandButton value="Info" actionListener="#{autorBean.info}" update="@form"/>
+                                    </b:button>
+                                    <b:button  icon="remove" value="Remover Item" look="warning"/>
+                                </b:buttonGroup>
                             </b:column>
                         </b:row>
                     </div>
