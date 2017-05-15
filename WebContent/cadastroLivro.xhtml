@@ -3,7 +3,8 @@
         PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:b="http://bootsfaces.net/ui" xml:lang="en" lang="en">
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:b="http://bootsfaces.net/ui"
+      xmlns:f="http://java.sun.com/jsf/core" xml:lang="en" lang="en">
     <h:head>
         <title>Cadastro Livro</title>
     </h:head>
@@ -35,7 +36,15 @@
                                <option value="Livro4">Cadastrar novo autor...</option>
                            </select>
                        </p></td>
-                       <td><input class="form-control" type="text" name="autor"/></td>
+                       <td>
+                           <b:form>
+                                <b:inputText  name="autor">
+                                    <f:facet name="append">
+                                        <b:commandButton look="primary" value="Cadastrar Autor"/>
+                                    </f:facet>
+                                </b:inputText>
+                           </b:form>
+                       </td>
                    </tr>
 
 
@@ -51,7 +60,15 @@
                                 <option value="Livro4">Cadastrar nova editora...</option>
                             </select>
                         </p></td>
-                        <td><input class="form-control" type="text" name="editora"/></td>
+                        <td>
+                            <b:form>
+                                <b:inputText  name="autor">
+                                    <f:facet name="append">
+                                        <b:commandButton look="primary" value="Cadastrar Editora"/>
+                                    </f:facet>
+                                </b:inputText>
+                            </b:form>
+                        </td>
                     </tr>
 
                     <tr>
@@ -65,7 +82,14 @@
                                 <option value="Livro4">Cadastrar novo gênero...</option>
                             </select>
                         </p></td>
-                        <td><input class="form-control" type="text" name="genero"/></td>
+                        <td><b:form>
+                            <b:inputText  name="autor">
+                                <f:facet name="append">
+                                    <b:commandButton look="primary" value="Cadastrar Gênero"/>
+                                </f:facet>
+                            </b:inputText>
+                        </b:form>
+                        </td>
                     </tr>
 
                     <tr>
