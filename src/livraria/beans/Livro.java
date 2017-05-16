@@ -60,14 +60,12 @@ public class Livro{
 		this.imgURL = imgURL;
 	}
 
-	public static Livro fromDocument(Document doc){
+	public static Livro fromDocument(Document doc) throws Exception {
 		Livro livro = new Livro();
 
-		Autor autor = new Autor();
-		autor.setNome(doc.getString("autor"));
+		Autor autor = new Autor(doc.getString("autor"));
 
-		Assunto assunto = new Assunto();
-		assunto.setTitulo(doc.getString("assunto"));
+		Assunto assunto = new Assunto(doc.getString("assunto"));;
 
 		livro.setTitulo(doc.getString("titulo"));
 		livro.setAutor(autor);
