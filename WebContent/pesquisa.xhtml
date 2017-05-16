@@ -28,9 +28,12 @@
                 <b:alert severity="warning"><strong>Warning!</strong> #{pesquisaBean.erro}</b:alert>
             </c:if>
             <ul>
+                <c:if test="#{empty pesquisaBean.livrosResultados}">
+                    <h3>Nenhum livro foi encontrado.</h3>
+                </c:if>
                 <c:if test="#{not empty pesquisaBean.livrosResultados}">
                     <ui:repeat  var="livro" value="#{pesquisaBean.livrosResultados}">
-                        <li>#{livro.titulo} - #{livro.autor}</li>
+                        <li>#{livro.titulo} - #{livro.autor.nome}</li>
                     </ui:repeat>
                 </c:if>
             </ul>
