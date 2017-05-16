@@ -4,7 +4,7 @@ import org.bson.Document;
 /**
  * Forged by Soter Padua on 30/03/17.
  */
-public class Livro extends Document{
+public class Livro{
 	private String  titulo;
 	private Autor   autor;
 	private Assunto assunto;
@@ -58,5 +58,24 @@ public class Livro extends Document{
 
 	public void setImgURL(String imgURL) {
 		this.imgURL = imgURL;
+	}
+
+	public static Livro fromDocument(Document doc){
+		Livro livro = new Livro();
+
+		Autor autor = new Autor();
+		autor.setNome(doc.getString("autor"));
+
+		Assunto assunto = new Assunto();
+		assunto.setTitulo(doc.getString("assunto"));
+
+		livro.setTitulo(doc.getString("titulo"));
+		livro.setAutor(autor);
+		livro.setAssunto(assunto);
+		livro.setValor(doc.getDouble("valor"));
+		livro.setImgURL(doc.getString("imgURL"));
+
+		return livro;
+
 	}
 }

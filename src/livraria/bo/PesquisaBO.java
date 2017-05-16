@@ -27,7 +27,7 @@ public class PesquisaBO {
 		ArrayList<Livro> res = new ArrayList<>();
 		while(cur.hasNext()){
 			Document next = cur.next();
-			Livro currLivro = (Livro) next;
+			Livro currLivro = Livro.fromDocument(next);
 			res.add(currLivro);
 		}
 		return res;

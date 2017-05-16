@@ -23,12 +23,7 @@
 
     <ui:composition template="/templates/common/layout.xhtml">
         <ui:define name="content">
-            <h1> Carrinho </h1>
 
-            <h:form>
-                <h:inputText value="#{pesquisaBean.pesquisaString}" />
-                <h:commandButton action="#{pesquisaBean.pesquisar}" value="Pesquisar" />
-            </h:form>
             <c:if test="#{not empty pesquisaBean.erro}}">
                 <b:alert severity="warning"><strong>Warning!</strong> #{pesquisaBean.erro}</b:alert>
             </c:if>
