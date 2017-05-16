@@ -36,10 +36,6 @@ public class PesquisaBean {
 		return erro;
 	}
 
-	public void setErro(String erro) {
-		this.erro = erro;
-	}
-
 	//Propriedades de saída (Placeholders)
 	private String erro;
 
