@@ -11,6 +11,8 @@ import org.bson.Document;
 
 import java.util.ArrayList;
 
+import static com.mongodb.client.model.Filters.regex;
+
 /**
  * Forged by Soter Padua on 03/04/17.
  */
@@ -20,9 +22,10 @@ public class PesquisaBO {
 			throw new Exception();
 		}
 		MongoCollection<Document> a = LivrariaBD.getInstancia().getBD().getCollection("livros");
-		Document query = new Document();
-		query.append("titulo", livro);
-		MongoCursor<Document> cur = a.find(query).iterator();
+
+		String pattern = ".*" + livro + ".*";
+
+		MongoCursor<Document> cur = a.find(regex("titulo", pattern, "i")).iterator();
 
 		ArrayList<Livro> res = new ArrayList<>();
 		while(cur.hasNext()){
