@@ -24,9 +24,10 @@
     <ui:composition template="/templates/common/layout.xhtml">
         <ui:define name="content">
 
-            <c:if test="#{not empty pesquisaBean.erro}}">
-                <b:alert severity="warning"><strong>Warning!</strong> #{pesquisaBean.erro}</b:alert>
-            </c:if>
+            <b:alert rendered="#{pesquisaBean.erro != null}"
+                     severity="warning"><strong>Warning!</strong>
+                #{pesquisaBean.erro}</b:alert>
+
             <ul>
                 <c:if test="#{empty pesquisaBean.livrosResultados}">
                     <h3>Nenhum livro foi encontrado.</h3>
