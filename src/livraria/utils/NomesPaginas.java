@@ -6,7 +6,8 @@ package livraria.utils;
  */
 public enum NomesPaginas {
 	CARRINHO("carrinho"),
-	PESQUISA("pesquisa");
+	PESQUISA("pesquisa"),
+	LOGIN("login");
 
 	final public String nome;
 	NomesPaginas(final String nome) {

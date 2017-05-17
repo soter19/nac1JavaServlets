@@ -6,7 +6,8 @@ package livraria.bd;
 public enum Collections {
 	LIVROS("livros"),
 	AUTORES("autores"),
-	ASSUNTOS("assuntos");
+	ASSUNTOS("assuntos"),
+	USUARIOS("usuarios");
 
 	final public String nome;
 	Collections(final String nome) {
