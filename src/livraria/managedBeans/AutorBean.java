@@ -29,10 +29,5 @@ public class AutorBean implements BeanCRUD {
 	public boolean deleteFromDB() {
 		return false;
 	}
-
-	public void info(){
-		FacesContext c = FacesContext.getCurrentInstance();
-		c.addMessage(null,new FacesMessage(FacesMessage.SEVERITY_WARN, "Sucesso! ","Produto Inserido ao Carrinho"));
-	}
 }
 

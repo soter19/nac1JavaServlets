@@ -15,20 +15,65 @@
     <h:body>
         <ui:composition template="/templates/common/layout.xhtml">
             <ui:define name="content">
-                <b:form inline="true">
-                    <h:panelGrid columns="1" cellpadding="5">
-                        <b:inputText label="E-mail:" labelStyle="width:80px;">
-                            <f:facet name="prepend">
-                                <h:outputText value="@" />
-                            </f:facet>
-                        </b:inputText>
-                        <b:inputText label="Amount:" labelStyle="width:80px;">
-                            <f:facet name="append">
-                                <h:outputText value=".00" />
-                            </f:facet>
-                        </b:inputText>
-                    </h:panelGrid>
-                </b:form>
+                <h:form id="loginForm">
+                    <b:container layout="fluid">
+                        <b:panel medium-screen="4" offsetMd="4"
+                                 look="primary">
+                            <b:row>
+                                <b:column medium-screen="4">
+                                    <h:outputText value="Username:" for="username" />
+                                </b:column>
+                                <b:column medium-screen="8">
+                                    <b:inputText placeholder="Username"
+                                                 id="username"
+                                                 value="#{loginBean.email}"
+                                                 autocomplete="false">
+                                        <f:facet name="prepend">
+                                            <b:icon name="user" />
+                                        </f:facet>
+                                    </b:inputText>
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="username" />
+                                </b:column>
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="4">
+                                    <h:outputText value="Password:" />
+                                </b:column>
+                                <b:column medium-screen="8">
+                                    <b:inputSecret placeholder="Password"
+                                                   id="password"
+                                                   value="#{loginBean.senha}">
+                                        <f:facet name="prepend">
+                                            <b:iconAwesome name="key" />
+                                        </f:facet>
+                                    </b:inputSecret>
+                                </b:column>
+                                <b:column medium-screen="12"
+                                          styleClass="message">
+                                    <b:message for="password"/>
+                                </b:column>
+                            </b:row>
+                            <b:row>
+                                <b:column mediumScreen="3" offsetMd="2">
+
+                                    <b:commandButton value="Login"
+                                                     action="#{loginBean.login}"
+                                                     look="primary"/>
+                                </b:column>
+                                <b:column mediumScreen="6">
+                                    <b:commandButton value="Cadastre-se!"
+                                                     look="success"
+                                                     action="#{loginBean.signup}"/>
+                                </b:column>
+                            </b:row>
+                        </b:panel>
+                    </b:container>
+                    <b:growl globalOnly="true" placementFrom="bottom"
+                             show-detail="true" allowDismiss="true"
+                             delay="10000" escape="true" />
+                </h:form>
 
             </ui:define>
 
