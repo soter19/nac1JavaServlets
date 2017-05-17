@@ -24,5 +24,6 @@
     <orderEntry type="library" exported="" name="BootsFaces-OSP-1.0.2-dist" level="project" />
     <orderEntry type="library" name="mongo-java-driver-3.4.2" level="project" />
     <orderEntry type="library" name="Mojarra-2.2.1" level="project" />
+    <orderEntry type="library" name="Java EE 6-Java EE 6" level="project" />
   </component>
 </module>
