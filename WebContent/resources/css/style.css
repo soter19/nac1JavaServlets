@@ -44,3 +44,7 @@ input.center{
 #nav{
     border-radius: 0px; !important;
 }
+
+.CenterGroup{
+    padding-top: 10px;
+}
