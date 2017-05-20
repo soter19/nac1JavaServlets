@@ -1,6 +1,7 @@
 package livraria.managedBeans;
 
 import livraria.bd.BeanCRUD;
+import livraria.beans.Autor;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -8,7 +9,7 @@ import javax.faces.context.FacesContext;
 
 @ManagedBean
 public class AutorMB implements BeanCRUD {
-	String nome;
+	Autor autor;
 
 	@Override
 	public boolean createOnDB() {

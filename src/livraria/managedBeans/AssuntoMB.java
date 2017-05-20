@@ -1,15 +1,27 @@
 package livraria.managedBeans;
 import livraria.bd.BeanCRUD;
+import livraria.beans.Assunto;
+import org.bson.BSON;
+import org.bson.Document;
 
 import javax.faces.bean.ManagedBean;
 
 @ManagedBean
 public class AssuntoMB implements BeanCRUD {
-	String Nome;
+	String titulo;
 
 	@Override
 	public boolean createOnDB() {
-		return false;
+		Assunto newAssunto = new Assunto();
+		newAssunto.setTitulo(titulo);
+
+		if(!newAssunto.isValid()){
+			return false;
+		}
+
+		Assunto.getCollection().insertOne(newAssunto.getDocument());
+
+		return true;
 	}
 
 	@Override
@@ -19,7 +31,15 @@ public class AssuntoMB implements BeanCRUD {
 
 	@Override
 	public boolean updateOnDB() {
-		return false;
+		Assunto newAssunto = new Assunto();
+		newAssunto.setTitulo(titulo);
+
+		if(!newAssunto.isValid()){
+			return false;
+		}
+
+//		Document oneAndUpdate = Assunto.getCollection().findOneAndUpdate(newAssunto.getDocument());
+		return true;
 	}
 
 	@Override
