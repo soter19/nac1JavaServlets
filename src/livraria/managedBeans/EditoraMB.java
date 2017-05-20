@@ -5,7 +5,7 @@ import livraria.bd.BeanCRUD;
 import javax.faces.bean.ManagedBean;
 
 @ManagedBean
-public class EditoraBean implements BeanCRUD {
+public class EditoraMB implements BeanCRUD {
 	String nome;
 
 	@Override

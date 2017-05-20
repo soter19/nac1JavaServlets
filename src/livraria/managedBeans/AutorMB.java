@@ -1,11 +1,14 @@
 package livraria.managedBeans;
+
 import livraria.bd.BeanCRUD;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.context.FacesContext;
 
 @ManagedBean
-public class AssuntoBean implements BeanCRUD {
-	String Nome;
+public class AutorMB implements BeanCRUD {
+	String nome;
 
 	@Override
 	public boolean createOnDB() {
@@ -27,3 +30,4 @@ public class AssuntoBean implements BeanCRUD {
 		return false;
 	}
 }
+

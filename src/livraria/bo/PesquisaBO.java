@@ -3,9 +3,9 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import livraria.bd.LivrariaBD;
 import livraria.beans.Livro;
-import livraria.managedBeans.AutorBean;
-import livraria.managedBeans.EditoraBean;
-import livraria.managedBeans.LivroBean;
+import livraria.managedBeans.AutorMB;
+import livraria.managedBeans.EditoraMB;
+import livraria.managedBeans.LivroMB;
 import livraria.utils.Helper;
 import org.bson.Document;
 
@@ -36,15 +36,15 @@ public class PesquisaBO {
 		return res;
 	}
 
-	public AutorBean pesquisa(AutorBean autor){
+	public AutorMB pesquisa(AutorMB autor){
 		return null;
 	}
 
-	public EditoraBean pesquisa(EditoraBean autor){
+	public EditoraMB pesquisa(EditoraMB autor){
 		return null;
 	}
 
-	public LivroBean pesquisa(livraria.managedBeans.LivroBean autor){
+	public LivroMB pesquisa(livraria.managedBeans.LivroMB autor){
 		return null;
 	}
 }

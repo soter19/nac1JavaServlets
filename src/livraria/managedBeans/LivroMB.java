@@ -12,7 +12,7 @@ import javax.faces.bean.ManagedBean;
  * Forged by Soter Padua on 30/03/17.
  */
 @ManagedBean
-public class LivroBean implements BeanCRUD{
+public class LivroMB implements BeanCRUD{
 	private Livro livro = new Livro();
 
 	public String getTitulo() {

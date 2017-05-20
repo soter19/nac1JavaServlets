@@ -11,7 +11,7 @@ import java.util.ArrayList;
  * Forged by Soter Padua on 03/04/17.
  */
 @ManagedBean
-public class PesquisaBean {
+public class PesquisaMB {
 	private String           pesquisaString;
 	private ArrayList<Livro> livrosResultados;
 

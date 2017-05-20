@@ -16,7 +16,7 @@ import javax.faces.context.FacesContext;
  */
 @ManagedBean(name = "loginBean")
 @SessionScoped
-public class LoginBean {
+public class LoginMB {
 	private Usuario usuario;
 	private String email;
 	private String senha;
