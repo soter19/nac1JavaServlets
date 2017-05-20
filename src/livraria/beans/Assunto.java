@@ -47,4 +47,9 @@ public class Assunto {
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
 	}
+
+	// Validation
+	public boolean isValid() {
+		return Helper.isNullOrEmptyString(titulo);
+	}
 }

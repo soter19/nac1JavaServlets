@@ -29,5 +29,10 @@ public class AutorMB implements BeanCRUD {
 	public boolean deleteFromDB() {
 		return false;
 	}
+
+	@Override
+	public boolean isValid() {
+		return false;
+	}
 }
 

@@ -8,4 +8,5 @@ public interface BeanCRUD {
 	public boolean getFromDB();
 	public boolean updateOnDB();
 	public boolean deleteFromDB();
+	public boolean isValid();
 }

@@ -32,8 +32,10 @@ public class Usuario {
 			                                                       .nome);
 	}
 
+	// Validation
 	public Boolean isValid(){
-		return !Helper.isNullOrEmptyString(user) &&
-		       !Helper.isNullOrEmptyString(password);
+		return !Helper.isNullOrEmptyString(email) &&
+		       !Helper.isNullOrEmptyString(senha);
+	}
 	}
 }
