@@ -1,25 +1,30 @@
 package livraria.managedBeans;
+import com.mongodb.async.SingleResultCallback;
+import com.mongodb.client.model.FindOneAndUpdateOptions;
+import com.mongodb.client.result.UpdateResult;
 import livraria.bd.BeanCRUD;
 import livraria.beans.Assunto;
+import net.bootsfaces.utils.FacesMessages;
 import org.bson.BSON;
 import org.bson.Document;
 
 import javax.faces.bean.ManagedBean;
 
+import static com.mongodb.client.model.Filters.eq;
+import static com.mongodb.client.model.Updates.combine;
+import static com.mongodb.client.model.Updates.set;
+
 @ManagedBean
 public class AssuntoMB implements BeanCRUD {
-	String titulo;
+	Assunto assunto;
 
 	@Override
 	public boolean createOnDB() {
-		Assunto newAssunto = new Assunto();
-		newAssunto.setTitulo(titulo);
-
-		if(!newAssunto.isValid()){
+		if(!assunto.isValid()){
 			return false;
 		}
 
-		Assunto.getCollection().insertOne(newAssunto.getDocument());
+		Assunto.getCollection().insertOne(assunto.getDocument());
 
 		return true;
 	}
@@ -31,15 +36,17 @@ public class AssuntoMB implements BeanCRUD {
 
 	@Override
 	public boolean updateOnDB() {
-		Assunto newAssunto = new Assunto();
-		newAssunto.setTitulo(titulo);
-
-		if(!newAssunto.isValid()){
+		if(!assunto.isValid()){
 			return false;
 		}
 
-//		Document oneAndUpdate = Assunto.getCollection().findOneAndUpdate(newAssunto.getDocument());
-		return true;
+		UpdateResult updateResult = Assunto.getCollection().updateOne(
+			// Query Conditions
+			eq("_id", assunto.getId()),
+			new Document("$set", assunto.getDocument())
+		);
+
+		return updateResult.wasAcknowledged();
 	}
 
 	@Override

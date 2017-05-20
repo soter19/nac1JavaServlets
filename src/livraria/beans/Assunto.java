@@ -1,7 +1,6 @@
 package livraria.beans;
 
 import com.mongodb.BasicDBObject;
-import com.mongodb.DBCollection;
 import com.mongodb.client.MongoCollection;
 import livraria.Helper;
 import livraria.bd.Collections;
@@ -12,9 +11,9 @@ import org.bson.types.ObjectId;
 /**
  * Forged by Soter Padua on 03/04/17.
  */
-public class Assunto {
-	private transient final String idFieldName     = "_id";
-	private transient final String tituloFieldName = "titulo";
+public class Assunto {;
+	public transient static final String idFieldName = "_id";
+	public transient static final String tituloFieldName = "titulo";
 
 	private String id;
 	private String titulo;

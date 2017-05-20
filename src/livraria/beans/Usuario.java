@@ -79,6 +79,7 @@ public class Usuario {
 		if(!isValid()){
 			throw new Exception("Usuário não é válido");
 		}
-		getCollection().findOneAndUpdate();
+//		TODO:
+//		getCollection().findOneAndUpdate();
 	}
 }

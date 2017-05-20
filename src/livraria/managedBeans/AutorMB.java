@@ -1,39 +1,19 @@
 package livraria.managedBeans;
 
+import com.mongodb.client.result.UpdateResult;
 import livraria.bd.BeanCRUD;
+import livraria.beans.Assunto;
 import livraria.beans.Autor;
+import org.bson.Document;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 
+import static com.mongodb.client.model.Filters.eq;
+
 @ManagedBean
-public class AutorMB implements BeanCRUD {
+public class AutorMB {
 	Autor autor;
-
-	@Override
-	public boolean createOnDB() {
-		return false;
-	}
-
-	@Override
-	public boolean getFromDB() {
-		return false;
-	}
-
-	@Override
-	public boolean updateOnDB() {
-		return false;
-	}
-
-	@Override
-	public boolean deleteFromDB() {
-		return false;
-	}
-
-	@Override
-	public boolean isValid() {
-		return false;
-	}
 }
 

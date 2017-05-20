@@ -24,7 +24,7 @@ public class LoginMB {
 		try {
 			if(checkLogin()){
 				HttpSession session = SessionUtils.getSession();
-				session.setAttribute("username", usuario.);
+				session.setAttribute("username", usuario.getEmail());
 				FacesMessages.info("Success:","Logged!");
 			}else{
 				FacesMessages.warning("Wrong Credentials: ","Please try again");
