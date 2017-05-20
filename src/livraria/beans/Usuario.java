@@ -9,12 +9,13 @@ import livraria.bd.LivrariaBD;
  * Forged by Soter Padua on 03/04/17.
  */
 public class Usuario {
-	private final String user;
-	private final String password;
+	private String id;
+	private String email;
+	private String senha;
 
-	public Usuario(String user, String password) {
-		this.user = user;
-		this.password = password;
+	public Usuario(String email, String senha) {
+		this.email = email;
+		this.senha = senha;
 	}
 
 	//	Getters and Setters
