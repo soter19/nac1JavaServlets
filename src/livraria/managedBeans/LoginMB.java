@@ -1,6 +1,7 @@
 package livraria.managedBeans;
 
 import com.mongodb.BasicDBObject;
+import livraria.Helper;
 import livraria.SessionUtils;
 import livraria.beans.Usuario;
 import livraria.utils.NomesPaginas;
@@ -18,21 +19,18 @@ import javax.faces.context.FacesContext;
 @SessionScoped
 public class LoginMB {
 	private Usuario usuario;
-	private String email;
-	private String senha;
 
 	public String login() {
 		try {
-			usuario = new Usuario(email, senha);
 			if(checkLogin()){
 				HttpSession session = SessionUtils.getSession();
-				session.setAttribute("username", email);
+				session.setAttribute("username", usuario.);
 				FacesMessages.info("Success:","Logged!");
 			}else{
-				FacesMessages.warning("Wrong Credentials:","Please try again");
+				FacesMessages.warning("Wrong Credentials: ","Please try again");
 			}
 		} catch(Exception e) {
-			FacesMessages.warning("Erro:", e.getMessage());
+			FacesMessages.warning("Erro: ", e.getMessage());
 		}
 		return NomesPaginas.LOGIN.nome;
 	}
@@ -43,14 +41,13 @@ public class LoginMB {
 		}
 
 		BasicDBObject query = new BasicDBObject();
-		query.append("email", usuario.getUser());
-		query.append("senha", usuario.getPassword());
+		query.append("email", usuario.getEmail());
+		query.append("senha", usuario.getSenha());
 
 		Object first = Usuario.getCollection().find(query).first();
 
 		return first != null;
 	}
-
 
 	public void signup(){
 		FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "", "Congratulations! You've successfully logged in.");
@@ -58,25 +55,38 @@ public class LoginMB {
 	}
 
 	public void forgotPassword() {
-		FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "", "Default user name: BootsFaces");
-		FacesContext.getCurrentInstance().addMessage("loginForm:username", msg);
-		msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "", "Default password: rocks!");
-		FacesContext.getCurrentInstance().addMessage("loginForm:password", msg);
+		if(Helper.isNullOrEmptyString(usuario.getEmail())){
+			FacesMessages.warning("Por favor, inserir o e-mail");
+		}
+		FacesMessages.info("Caso haja um cliente com esse e-mail, será enviado um e-mail para alterar a senha.");
+		// Código que simula o email de troca de senha
+		// Atualmente só troca a senha atual para 123
+
+		try {
+			usuario.trocarSenha();
+
+		} catch(Exception e) {
+			FacesMessages.warning(e.getMessage());
+		}
 	}
 
 	public String getEmail() {
-		return email;
+		return usuario.getEmail();
 	}
 
 	public void setEmail(String email) {
-		this.email = email;
+		usuario.setEmail(email);
 	}
 
 	public String getSenha() {
-		return senha;
+		return usuario.getSenha();
 	}
 
 	public void setSenha(String senha) {
-		this.senha = senha;
+		usuario.setSenha(senha);;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
 	}
 }
