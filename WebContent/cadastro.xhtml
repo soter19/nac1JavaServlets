@@ -4,58 +4,135 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:b="http://bootsfaces.net/ui">
 
 <h:head>
     <title>Cadastro de Pessoas</title>
     <link rel="stylesheet" type="text/css" href="style.css"></link>
 </h:head>
-
 <h:body>
-
     <ui:composition template="/templates/common/layout.xhtml">
-
         <ui:define name="content">
-
             <h:form class="navbar-form hidden-md hidden-sm hidden-xs">
-
-                <h1 align="center"><strong> Cadastro de Cliente</strong></h1>
-                <br/>
                 <h2 align="center" class="text">Dados Pessoais:</h2>
-                <br/>
-                <h4 align="center">Nome: </h4>
-                <input class="center form-control" type="text" name="nome"/>
-                <h4 align="center"> E-mail: </h4>
-                <input class="center form-control" type="text" name="email"/>
-                <h4 align="center"> Telefone: </h4>
-                <input class="center form-control" type="text" name="telefone"/>
-                <h4 align="center"> Senha: </h4>
-                <input class="center form-control" type="senha" name="senha"/>
-                <h4 align="center"> Confirmar Senha: </h4>
-                <input class="center form-control" type="text" name="confirmasenha"/>
-
-
-                <br/>
+                <b:container layout="fluid">
+                    <b:panel medium-screen="4" offsetMd="4" look="primary">
+                        <b:row>
+                            <b:column medium-screen="4">
+                                <h:outputText value="Nome:" for="nome"/>
+                            </b:column>
+                            <b:column medium-screen="8">
+                                <b:inputText placeholder="nome"
+                                     id="nome"
+                                     value=""
+                                     autocomplete="false"/>
+                            </b:column>
+                        <!--<b:column medium-screen="6" style-class="message">
+                            <b:message for="nome"/> !-->
+                        </b:row>
+                        <b:row>
+                            <b:column medium-screen="4">
+                                <h:outputText value="Email:" for="email"/>
+                            </b:column>
+                            <b:column medium-screen="8">
+                                <b:inputText placeholder="email"
+                                             id="email"
+                                             value=""
+                                             autocomplete="false"/>
+                            </b:column>
+                        <!--<b:column medium-screen="6" style-class="message">
+                            <b:message for="email"/> !-->
+                        </b:row>
+                        <b:row>
+                            <b:column medium-screen="4">
+                                <h:outputText value="Telefone:" for="telefone"/>
+                            </b:column>
+                            <b:column medium-screen="8">
+                                <b:inputText placeholder="telefone"
+                                             id="telefone"
+                                             value=""
+                                             autocomplete="false"/>
+                            </b:column>
+                        <!--<b:column medium-screen="6" style-class="message">
+                            <b:message for="telefone"/> !-->
+                        </b:row>
+                        <b:row>
+                            <b:column medium-screen="4">
+                                <h:outputText value="Senha:" for="senha"/>
+                            </b:column>
+                            <b:column medium-screen="8">
+                                <b:inputText placeholder="senha"
+                                             id="senha"
+                                             value=""
+                                             autocomplete="false"/>
+                            </b:column>
+                        <!--<b:column medium-screen="6" style-class="message">
+                            <b:message for="senha"/> !-->
+                        </b:row>
+                        <b:row>
+                            <b:column medium-screen="4">
+                                <h:outputText value="Confirmar Senha:" for="confirmasenha"/>
+                            </b:column>
+                            <b:column medium-screen="8">
+                                <b:inputText placeholder="confirmar senha"
+                                             id="confirmasenha"
+                                             value=""
+                                             autocomplete="false"/>
+                            </b:column>
+                        <!--<b:column medium-screen="6" style-class="message">
+                            <b:message for="confirmasenha"/> !-->
+                        </b:row>
+                    </b:panel>
+                </b:container>
                 <h2 align="center" class="text">Dados Endereço:</h2>
-                <br/>
-                <h4 align="center"> Endereço: </h4>
-                <input class="center form-control" type="text" name="endereco"/>
-                <h4 align="center"> Número: </h4>
-                <input class="center form-control" type="text" name="numero"/>
-                <h4 align="center"> CEP: </h4>
-                <input class="center form-control" type="text" name="cep"/>
+                <b:container layout="fluid">
+                    <b:panel medium-screen="4" offsetMd="4" look="primary">
 
-
-                <button type="button" class="btn btn-warning center-block">Cadastrar</button>
-                <!--<h1 align="center"><a href="index.xhtml">Voltar</a></h1>-->
-
-                <br/>
-                <br/>
-
+                        <b:row>
+                            <b:column medium-screen="4">
+                                <h:outputText value="Endereço:" for="endereco"/>
+                            </b:column>
+                            <b:column medium-screen="8">
+                                <b:inputText placeholder="endereco"
+                                         id="endereco"
+                                         value=""
+                                         autocomplete="false"/>
+                            </b:column>
+                        <!--<b:column medium-screen="6" style-class="message">
+                            <b:message for="endereco"/> !-->
+                            <b:column medium-screen="4">
+                                <h:outputText value="Número:" for="numero"/>
+                            </b:column>
+                            <b:column medium-screen="8">
+                                <b:inputText placeholder="numero"
+                                             id="numero"
+                                             value=""
+                                             autocomplete="false"/>
+                            </b:column>
+                        <!--<b:column medium-screen="6" style-class="message">
+                            <b:message for="numero"/> !-->
+                            <b:column medium-screen="4">
+                                <h:outputText value="Cep:" for="cep"/>
+                            </b:column>
+                            <b:column medium-screen="8">
+                                <b:inputText placeholder="cep"
+                                             id="cep"
+                                             value=""
+                                             autocomplete="false"/>
+                            </b:column>
+                        <!--<b:column medium-screen="6" style-class="message">
+                            <b:message for="cep"/> !-->
+                        </b:row>
+                    </b:panel>
+                </b:container>
+                <center>
+                <b:commandButton value="Finalizar Cadastro"
+                                 look="success"
+                                 action="#{cadastroBean.cadastrarcliente}" />
+                </center>
             </h:form>
-
         </ui:define>
-
     </ui:composition>
 </h:body>
 </html>

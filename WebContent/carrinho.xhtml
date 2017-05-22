@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:b="http://bootsfaces.net/ui">
 
 <h:head>
     <title>Carrinho</title>
@@ -10,58 +12,85 @@
 
 <h:body>
     <ui:composition template="/templates/common/layout.xhtml">
+        <ui:define name="content">
+            <h:form class="navbar-form hidden-md hidden-sm hidden-xs">
+                <b:container layout="fluid">
+                    <!--
+                    <b:panel title="Carrinho" look="primary">
+                        <b:row>
+                            <b:column span="2">
+                                <h:outputText value="Item"/>
+                            </b:column>
+                            <b:column span="4">
+                                <h:outputText value="Titulo"/>
+                            </b:column>
+                            <b:column span="2">
+                                <h:outputText value="Preço"/>
+                            </b:column>
+                            <b:column span="2">
+                                <h:outputText value="Quantidade"/>
+                            </b:column>
+                            <b:column span="2">
+                                <h:outputText value="Subtotal"/>
+                            </b:column>
+                        </b:row>
+                        TODO começa rotina
+                        <b:row>
+                            <b:column span="2">
+                                <b:image height="120px" width="100px"
+                                         value="https://s-media-cache-ak0.pinimg.com/originals/8d/e2/29/8de22937d50b35b5cdef70735714ad9d.jpg"/>
+                            </b:column>
+                            <b:column span="4">
+                                <h:outputText value="A menina que roubava livros"/>
+                            </b:column>
+                            <b:column span="2">
+                                <h:outputText value="R$ 29,99"/>
+                            </b:column>
+                            <b:column span="2">
+                                <h:outputText value="1"/>
+                            </b:column>
+                            <b:column span="2">
+                                <h:outputText value="R$ 29,99"/>
+                            </b:column>
+                        </b:row>
+                        TODO finaliza rotina
+                        <b:row>
+                            <b:column span="2"/>
+                            <b:column span="4"/>
+                            <b:column span="2"/>
+                            <b:column span="2">
+                                <h:outputText value="Valor Total: "/>
+                                <h:outputText value="R$ 30,00"/>
+                            </b:column>
+                            <b:column span="2">
+                                <b:commandButton value="Finalizar Compra"
+                                                 look="success"
+                                                 action="#{carrinhoBean.finalizarCompra}"/>
+                            </b:column>
+                        </b:row>
+                    </b:panel>
+                    !-->
 
-    <ui:define name="content">
+                    <b:dataTable value="#{carrinhoBean.carrinho}" var="carrinho">
+                        <b:dataTableColumn value="#{carinhoBean.imagem}" label="Item"/>
+                        <b:dataTableColumn value="#{carinhoBean.titulo}" label="Título"/>
+                        <b:dataTableColumn value="#{carinhoBean.preco}" label="Preço"/>
+                        <b:dataTableColumn value="#{carinhoBean.quantidade}" label="Quantidade"/>
+                        <b:dataTableColumn value="#{carinhoBean.subtotal}" label="Subtotal"/>
+                    </b:dataTable>
+                    <!--
 
+                    Mostrar TOTAL e colocar botão de Finalizar Compra
 
-        <h1> Carrinho </h1>
+                    <b:commandButton value="Finalizar Compra"
+                                                 look="success"
+                                                 action="#{carrinhoBean.finalizarCompra}"/>
 
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Item</th>
-                    <th>Preço</th>
-                    <th>Quantidade</th>
-                    <th>Subtotal</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        <img src="https://s-media-cache-ak0.pinimg.com/originals/8d/e2/29/8de22937d50b35b5cdef70735714ad9d.jpg"
-                             alt="" width="150" height="160" class="img-thumbnail"/>
-                        <p align="center" >oi</p>
-                    </td>
-                    <td>
-                        <p>R$ 29,99</p>
-                    </td>
-                    <td>
-                        <p>1</p>
-                    </td>
-                    <td>
-                        <p>R$ 29,99</p>
-                    </td>
-                </tr>
-            </tbody>
-            <tfoot>
-                <tr>
-                    <th>
-                        Preço Total: R$ 29,99
-                    </th>
-                    <td colspan="5">
-                        <a href="finalizarCompra.xhtml"><button type="button" class="btn-warning" style="float: right">
-                            Finalizar Compra
-                        </button></a>
-                    </td>
-                </tr>
-            </tfoot>
+                    !-->
 
-        </table>
-        <div style="clear: both"></div>
-    </ui:define>
-
+                </b:container>
+            </h:form>
+        </ui:define>
     </ui:composition>
-
 </h:body>
-
 </html>
