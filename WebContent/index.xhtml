@@ -8,6 +8,7 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:b="http://bootsfaces.net/ui"
       xmlns:f="http://java.sun.com/jsf/core">
+
 <f:view locale="#{facesContext.externalContext.requestLocale}">
     <h:head>
         <title>#{msg.labelTitulo}</title>
@@ -15,30 +16,30 @@
     <h:body>
         <ui:composition template="/templates/common/layout.xhtml">
             <ui:define name="content">
-                <b:panelGrid colSpans="4,4,4">
-                    <h:form>
-                        <ui:repeat value="#{livroMB.getAllLivros()}" var="livro">
-                            <b:column>
-                                <b:row>
-                                    <b:column span="4">
-                                        <b:image width="100%"
-                                                 value="https://s-media-cache-ak0.pinimg.com/originals/8d/e2/29/8de22937d50b35b5cdef70735714ad9d.jpg"/>
-                                    </b:column>
-                                    <b:column span="6">
-                                        <h:outputText value="#{livro.titulo}"/><br/>
-                                        <h:outputText value="#{msg.labelAutor} : #{livro.autor.nome}"/><br/>
-                                        <h:outputText value="#{msg.labelEditora} : #{livro.editora.nome}"/><br/>
-                                        <h:outputText value="#{msg.labelPreco} : #{livro.valor}"/><br/>
-                                        <b:commandButton value="Adicionar ao Carrinho" look="success"
+                <h:form>
+                    <ui:repeat value="#{livroMB.getAllLivros()}" var="livro">
+                        <b:column span="4">
+                            <b:row>
+                                <b:column span="4" style="margin-bottom:10px">
+                                    <b:image width="100%"
+                                             value="https://s-media-cache-ak0.pinimg.com/originals/8d/e2/29/8de22937d50b35b5cdef70735714ad9d.jpg"/>
+                                </b:column>
+                                <b:column span="6">
+                                    <h:outputText value="#{livro.titulo}"/><br/>
+                                    <h:outputText value="#{msg.labelAutor} : #{livro.autor.nome}"/><br/>
+                                    <h:outputText value="#{msg.labelEditora} : #{livro.editora.nome}"/><br/>
+                                    <h:outputText value="#{msg.labelPreco} : #{livro.valor}"/><br/>
+                                    <b:buttonGroup>
+                                        <b:commandButton icon="shopping-cart" look="success"
                                                          action="#{carrinhoMB.adicionaCarrinho}"/>
-                                        <b:commandButton value="Adicionar à lista de desejos" look="success"
+                                        <b:commandButton icon="star" look="important"
                                                          action="#{carrinhoMB.adicionaFavorito}"/>
-                                    </b:column>
-                                </b:row>
-                            </b:column>
-                        </ui:repeat>
-                    </h:form>
-                </b:panelGrid>
+                                    </b:buttonGroup>
+                                </b:column>
+                            </b:row>
+                        </b:column>
+                    </ui:repeat>
+                </h:form>
             </ui:define>
         </ui:composition>
     </h:body>
