@@ -13,71 +13,17 @@
 <h:body>
     <ui:composition template="/templates/common/layout.xhtml">
         <ui:define name="content">
-            <h:form class="navbar-form hidden-md hidden-sm hidden-xs">
+            <h:outputText value="Seu carrinho está vazio! Vá comprar coisas." rendered="#{empty carrinhoMB.carrinho}"></h:outputText>
+            <h:form class="navbar-form hidden-md hidden-sm hidden-xs" rendered="#{not empty carrinhoMB.carrinho}">
                 <b:container layout="fluid">
-                    <!--
-                    <b:panel title="Carrinho" look="primary">
-                        <b:row>
-                            <b:column span="2">
-                                <h:outputText value="Item"/>
-                            </b:column>
-                            <b:column span="4">
-                                <h:outputText value="Titulo"/>
-                            </b:column>
-                            <b:column span="2">
-                                <h:outputText value="Preço"/>
-                            </b:column>
-                            <b:column span="2">
-                                <h:outputText value="Quantidade"/>
-                            </b:column>
-                            <b:column span="2">
-                                <h:outputText value="Subtotal"/>
-                            </b:column>
-                        </b:row>
-                        TODO começa rotina
-                        <b:row>
-                            <b:column span="2">
-                                <b:image height="120px" width="100px"
-                                         value="https://s-media-cache-ak0.pinimg.com/originals/8d/e2/29/8de22937d50b35b5cdef70735714ad9d.jpg"/>
-                            </b:column>
-                            <b:column span="4">
-                                <h:outputText value="A menina que roubava livros"/>
-                            </b:column>
-                            <b:column span="2">
-                                <h:outputText value="R$ 29,99"/>
-                            </b:column>
-                            <b:column span="2">
-                                <h:outputText value="1"/>
-                            </b:column>
-                            <b:column span="2">
-                                <h:outputText value="R$ 29,99"/>
-                            </b:column>
-                        </b:row>
-                        TODO finaliza rotina
-                        <b:row>
-                            <b:column span="2"/>
-                            <b:column span="4"/>
-                            <b:column span="2"/>
-                            <b:column span="2">
-                                <h:outputText value="Valor Total: "/>
-                                <h:outputText value="R$ 30,00"/>
-                            </b:column>
-                            <b:column span="2">
-                                <b:commandButton value="Finalizar Compra"
-                                                 look="success"
-                                                 action="#{carrinhoBean.finalizarCompra}"/>
-                            </b:column>
-                        </b:row>
-                    </b:panel>
-                    !-->
-
-                    <b:dataTable value="#{carrinhoMB.carrinho}" var="carrinho">
-                        <b:dataTableColumn value="#{carrinho.imagem}" label="Item"/>
-                        <b:dataTableColumn value="#{carrinho.titulo}" label="Título"/>
-                        <b:dataTableColumn value="#{carrinho.preco}" label="Preço"/>
-                        <b:dataTableColumn value="#{carrinho.quantidade}" label="Quantidade"/>
-                        <b:dataTableColumn value="#{carrinho.subtotal}" label="Subtotal"/>
+                    <b:dataTable value="#{carrinhoMB.carrinho}" var="item">
+                        <b:dataTableColumn value="#{item.titulo}" label="Título"/>
+                        <b:dataTableColumn value="#{item.editora.nome}" label="Editora"/>
+                        <b:dataTableColumn value="#{item.assunto.titulo}" label="Gênero"/>
+                        <b:dataTableColumn value="#{item.valor}" label="Preço"/>
                     </b:dataTable>
+
+                    <h:outputText>#{carrinhoMB.valorTotal()}</h:outputText>
 
                     <b:commandButton value="Finalizar Compra"
                                                  look="success"

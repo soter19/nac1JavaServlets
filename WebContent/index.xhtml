@@ -31,9 +31,10 @@
                                     <h:outputText value="#{msg.labelPreco} : #{livro.valor}"/><br/>
                                     <b:buttonGroup>
                                         <b:commandButton icon="shopping-cart" look="success"
-                                                         action="#{carrinhoMB.adicionaCarrinho}"/>
+                                                         action="#{carrinhoMB.adicionaAoCarrinho(livro)}"/>
                                         <b:commandButton icon="star" look="important"
-                                                         action="#{carrinhoMB.adicionaFavorito}"/>
+                                                         action="#{favoritosMB.adicionarAosFavoritos(livro)}"
+                                                         rendered="#{not empty user}"/>
                                     </b:buttonGroup>
                                 </b:column>
                             </b:row>
