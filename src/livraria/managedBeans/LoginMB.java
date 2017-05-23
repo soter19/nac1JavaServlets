@@ -3,6 +3,7 @@ package livraria.managedBeans;
 import com.mongodb.BasicDBObject;
 import livraria.Helper;
 import livraria.SessionUtils;
+import livraria.beans.Admin;
 import livraria.beans.Usuario;
 import livraria.utils.NomesPaginas;
 import net.bootsfaces.utils.FacesMessages;
@@ -19,9 +20,9 @@ import javax.faces.context.FacesContext;
 @SessionScoped
 public class LoginMB {
 	private Usuario usuario = new Usuario();
+	private Admin   admin   = new Admin();
 
 	public String login() {
-
 		try {
 			FacesContext context = FacesContext.getCurrentInstance();
 
@@ -39,6 +40,24 @@ public class LoginMB {
 		return NomesPaginas.INDEX.nome;
 	}
 
+	public String loginAdmin(){
+		try {
+			FacesContext context = FacesContext.getCurrentInstance();
+
+			if(checkAdminLogin()){
+				context.getExternalContext().getSessionMap().put("admin", admin);
+				FacesMessages.info("Success:","Logged!");
+			}else{
+				FacesMessages.warning("Wrong Credentials: ","Please try again");
+				return NomesPaginas.ADMIN.nome; // No caso de erro estamos mandando para a página de login.
+			}
+		} catch(Exception e) {
+			FacesMessages.warning("Erro: ", e.getMessage());
+			return NomesPaginas.ADMIN.nome; // No caso de erro estamos mandando para a página login.
+		}
+		return NomesPaginas.CADASTRO_LIVRO.nome;
+	}
+
 	private Boolean checkLogin() throws Exception {
 		if(!usuario.isValid()){
 			throw new Exception("Login Inválido");
@@ -49,6 +68,20 @@ public class LoginMB {
 		query.append("senha", usuario.getSenha());
 
 		Object first = Usuario.getCollection().find(query).first();
+
+		return first != null;
+	}
+
+	private Boolean checkAdminLogin() throws Exception{
+		if(!admin.isValid()){
+			throw new Exception("Login Inválido");
+		}
+
+		BasicDBObject query = new BasicDBObject();
+		query.append("email", admin.getEmail());
+		query.append("senha", admin.getSenha());
+
+		Object first = Admin.getCollection().find(query).first();
 
 		return first != null;
 	}

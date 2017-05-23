@@ -5,6 +5,7 @@ package livraria.bd;
  */
 public enum Collections {
 	LIVROS("livros"),
+	ADMINS("admins"),
 	AUTORES("autores"),
 	ASSUNTOS("assuntos"),
 	USUARIOS("usuarios"),
