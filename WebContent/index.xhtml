@@ -6,20 +6,45 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:b="http://java.sun.com/jsf/html">
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
 
-<h:head>
-    <title>Home - Galerinha do Sot</title>
-</h:head>
-
-<h:body>
-    <ui:composition template="/templates/common/layout.xhtml">
-
-        <ui:define name="content">
-            <p>This is another paragraph</p>
-        </ui:define>
-
-    </ui:composition>
-</h:body>
-
+<f:view locale="#{facesContext.externalContext.requestLocale}">
+    <h:head>
+        <title>#{msg.labelTitulo}</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="/templates/common/layout.xhtml">
+            <ui:define name="content">
+                <h:form>
+                    <ui:repeat value="#{livroMB.getAllLivros()}" var="livro">
+                        <b:column span="4">
+                            <b:row>
+                                <b:column span="4" style="margin-bottom:10px">
+                                    <b:image width="100%"
+                                             value="https://s-media-cache-ak0.pinimg.com/originals/8d/e2/29/8de22937d50b35b5cdef70735714ad9d.jpg"/>
+                                </b:column>
+                                <b:column span="6">
+                                    <h:outputText value="#{livro.titulo}"/><br/>
+                                    <h:outputText value="#{msg.labelAutor} : #{livro.autor.nome}"/><br/>
+                                    <h:outputText value="#{msg.labelEditora} : #{livro.editora.nome}"/><br/>
+                                    <h:outputText value="#{msg.labelPreco} : #{livro.valor}">
+                                        <f:convertNumber currencyCode="R$" type="currency" />
+                                    </h:outputText><br/>
+                                    <b:buttonGroup>
+                                        <b:commandButton icon="shopping-cart" look="success"
+                                                         action="#{carrinhoMB.adicionaAoCarrinho(livro)}"/>
+                                        <b:commandButton icon="star" look="important"
+                                                         action="#{favoritosMB.adicionarAosFavoritos(livro)}"
+                                                         rendered="#{not empty user}"/>
+                                    </b:buttonGroup>
+                                </b:column>
+                            </b:row>
+                        </b:column>
+                    </ui:repeat>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</f:view>
 </html>

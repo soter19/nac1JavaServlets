@@ -1,61 +1,32 @@
 package livraria.managedBeans;
-import com.mongodb.async.SingleResultCallback;
-import com.mongodb.client.model.FindOneAndUpdateOptions;
-import com.mongodb.client.result.UpdateResult;
-import livraria.bd.BeanCRUD;
+import com.mongodb.client.MongoCursor;
 import livraria.beans.Assunto;
-import net.bootsfaces.utils.FacesMessages;
-import org.bson.BSON;
+import livraria.beans.Editora;
 import org.bson.Document;
 
 import javax.faces.bean.ManagedBean;
-
-import static com.mongodb.client.model.Filters.eq;
-import static com.mongodb.client.model.Updates.combine;
-import static com.mongodb.client.model.Updates.set;
+import java.util.ArrayList;
 
 @ManagedBean
-public class AssuntoMB implements BeanCRUD {
-	Assunto assunto;
+public class AssuntoMB {
+	private Assunto assunto;
 
-	@Override
-	public boolean createOnDB() {
-		if(!assunto.isValid()){
-			return false;
+	public Assunto getAssunto() {
+		return assunto;
+	}
+
+	public void setAssunto(Assunto assunto) {
+		this.assunto = assunto;
+	}
+
+	public ArrayList<Assunto> getAll(){
+		ArrayList<Assunto>    todos = new ArrayList<>();
+		MongoCursor<Document> all   = Assunto.getAll();
+		while(all.hasNext()){
+			Document assuntoDoc = all.next();
+			Assunto  fromDocument = Assunto.getFromDocument(assuntoDoc);
+			todos.add(fromDocument);
 		}
-
-		Assunto.getCollection().insertOne(assunto.getDocument());
-
-		return true;
-	}
-
-	@Override
-	public boolean getFromDB() {
-		return false;
-	}
-
-	@Override
-	public boolean updateOnDB() {
-		if(!assunto.isValid()){
-			return false;
-		}
-
-		UpdateResult updateResult = Assunto.getCollection().updateOne(
-			// Query Conditions
-			eq("_id", assunto.getId()),
-			new Document("$set", assunto.getDocument())
-		);
-
-		return updateResult.wasAcknowledged();
-	}
-
-	@Override
-	public boolean deleteFromDB() {
-		return false;
-	}
-
-	@Override
-	public boolean isValid() {
-		return false;
+		return todos;
 	}
 }

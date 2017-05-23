@@ -1,6 +1,9 @@
 /* Generic Shit*/
 
 .footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
     background-color: #101010;
     color: #ffffff;
 }
@@ -38,7 +41,7 @@ input.center{
 }
 
 #body-perfil{
-    background-color: #d58512;
+    background-color: #001f3f;
 }
 
 #nav{

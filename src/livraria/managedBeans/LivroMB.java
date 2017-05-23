@@ -1,82 +1,48 @@
 package livraria.managedBeans;
 
+import com.mongodb.client.MongoCursor;
 import livraria.bd.BeanCRUD;
 import livraria.beans.Assunto;
 import livraria.beans.Autor;
 import livraria.beans.Editora;
 import livraria.beans.Livro;
+import org.bson.Document;
 
 import javax.faces.bean.ManagedBean;
+import java.util.ArrayList;
 
 /**
  * Forged by Soter Padua on 30/03/17.
  */
 @ManagedBean
-public class LivroMB implements BeanCRUD{
+public class LivroMB{
 	private Livro livro = new Livro();
 
-	public String getTitulo() {
-		return livro.getTitulo();
+	public Livro getLivro() {
+		return livro;
 	}
 
-	public void setTitulo(String titulo) {
-		livro.setTitulo(titulo);
+	public void setLivro(Livro livro) {
+		this.livro = livro;
 	}
 
-	public Autor getAutor() {
-		return livro.getAutor();
-	}
+	public ArrayList<Livro> getAllLivros() throws Exception {
+		MongoCursor<Document> allLivrosCursor = Livro.getAll();
+		ArrayList<Livro> allLivros = new ArrayList<>();
 
-	public void setAutor(Autor autor) {
-		livro.setAutor(autor);
-	}
+		while(allLivrosCursor.hasNext()){
+			Document currLivroDoc = allLivrosCursor.next();
+			Livro currLivro = new Livro();
+			currLivro.setTitulo(currLivroDoc.getString("titulo"));
+			currLivro.setImgURL(currLivroDoc.getString("imgUrl"));
+			currLivro.setValor(currLivroDoc.getDouble("valor"));
+			currLivro.setAssunto(new Assunto(currLivroDoc.getString("assunto")));
+			currLivro.setAutor(  new Autor(currLivroDoc.getString("autor")));
+			currLivro.setEditora(new Editora(currLivroDoc.getString("editora")));
 
-	public Assunto getAssunto() {
-		return livro.getAssunto();
-	}
 
-	public void setAssunto(Assunto assunto) {
-		livro.setAssunto(assunto);
-	}
-
-	public Editora getEditora() {
-		return livro.getEditora();
-	}
-
-	public void setEditora(Editora editora) {
-		livro.setEditora(editora);
-	}
-
-	public Double getValor() {
-		return livro.getValor();
-	}
-
-	public void setValor(Double valor) {
-		livro.setValor(valor);
-	}
-
-	@Override
-	public boolean createOnDB() {
-		return false;
-	}
-
-	@Override
-	public boolean getFromDB() {
-		return false;
-	}
-
-	@Override
-	public boolean updateOnDB() {
-		return false;
-	}
-
-	@Override
-	public boolean deleteFromDB() {
-		return false;
-	}
-
-	@Override
-	public boolean isValid() {
-		return false;
+			allLivros.add(currLivro);
+		}
+		return allLivros;
 	}
 }

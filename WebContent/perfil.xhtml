@@ -2,70 +2,99 @@
 <!DOCTYPE html
         PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:b="http://bootsfaces.net/ui" xml:lang="en" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui" xml:lang="en" lang="en">
+<f:view locale="#{facesContext.externalContext.requestLocale}">
     <h:head>
-        <title>Perfil</title>
+        <title>#{msg.labelTitulo}</title>
         <link rel="stylesheet" type="text/css" href="style.css"></link>
     </h:head>
     <h:body id="body-perfil">
-    <ui:composition template="/templates/common/layout.xhtml">
-
-
-        <div id="block-center">
-            <ui:define name="content">
-                        <h1 class="text center">Seu perfil</h1>
-                        <br/>
-                <b:row>
-                    <b:column span="6">
-                    <h2 class="text">Dados Pessoais:</h2>
-                        <br/>
-                        <table class="table">
-                        <tr>
-                            <td><strong>Nome: </strong></td>
-                            <td colspan="2"><input type="text" class="form-control center-block" value="Isabele Sprengel"/></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Email: </strong></td>
-                            <td colspan="2"><input type="text" class="form-control center-block" value="Isabele.sprengel@gmail.com"/></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Data de nascimento:</strong></td>
-                            <td><input type="text" class="form-control center-block" value="13/06/1997"/></td>
-                        </tr>
-                        <tr>
-                            <td><strong>CPF:</strong></td>
-                            <td><input type="text" class="form-control center-block" value="342.822.728-05"/></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Telefone:</strong></td>
-                            <td><input type="text" class="form-control center-block" value="(11) 97133- 5952"/></td>
-                        </tr>
-                        </table>
-                    </b:column>
-
-                    <b:column span="6">
-                        <h2 class="text">Dados Endereço:</h2>
-                        <br/>
-                        <table class="table">
-                            <tr>
-                                <td><strong>Endereço: </strong></td>
-                                <td colspan="2"><input type="text" class="form-control center-block" value="Rua Climaco Barbosa"/></td>
-                            </tr>
-                            <tr>
-                                <td><strong>Número:</strong></td>
-                                <td colspan="2"><input type="text" class="form-control center-block" value="500"/></td>
-                            </tr>
-                            <tr>
-                                <td><strong>CEP: </strong></td>
-                                <td><input type="text" class="form-control center-block" value="01523-000"/></td>
-                            </tr>
-                        </table>
-                    </b:column>
-                </b:row>
-            </ui:define>
-        </div>
-
-    </ui:composition>
+        <ui:composition template="/templates/common/layout.xhtml">
+            <div id="block-center">
+                <ui:define name="content">
+                    <h:form id="perfilForm">
+                        <b:container layout="fluid">
+                            <b:panel title="#{msg.labelTituloPerfil}" look="primary">
+                                <b:row tooltip="#{msg.labelDicaNome}">
+                                    <b:column medium-screen="2">
+                                        <h:outputText value="#{msg.labelNome}:" for="name" />
+                                    </b:column>
+                                    <b:column medium-screen="4">
+                                        <b:inputText id="name" value=""/>
+                                    </b:column>
+                                </b:row>
+                                <b:row tooltip="#{msg.labelDicaData}">
+                                    <b:column medium-screen="2">
+                                        <h:outputText value="#{msg.labelData}:" />
+                                    </b:column>
+                                    <b:column medium-screen="4">
+                                        <b:inputText id="datanasc" value=""/>
+                                    </b:column>
+                                </b:row>
+                                <b:row tooltip="#{msg.labelDicaEmail}">
+                                    <b:column medium-screen="2">
+                                        <h:outputText value="#{msg.labelEmail}:" />
+                                    </b:column>
+                                    <b:column medium-screen="4">
+                                        <b:inputText id="email" value="#{user.email}"/>
+                                    </b:column>
+                                </b:row>
+                                <b:row tooltip="#{msg.labelDicaCPF}">
+                                    <b:column medium-screen="2">
+                                        <h:outputText value="#{msg.labelCPF}:" />
+                                    </b:column>
+                                    <b:column medium-screen="4">
+                                        <b:inputText id="cpf" value=""/>
+                                    </b:column>
+                                </b:row>
+                                <b:row tooltip="#{msg.labelDicaTelefone}">
+                                    <b:column medium-screen="2">
+                                        <h:outputText value="#{msg.labelTelefone}:" />
+                                    </b:column>
+                                    <b:column medium-screen="4">
+                                        <b:inputText id="telefone" value=""/>
+                                    </b:column>
+                                </b:row>
+                                <b:row tooltip="#{msg.labelDicaEndereco}">
+                                    <b:column medium-screen="2">
+                                        <h:outputText value="#{msg.labelEndereco}:" />
+                                    </b:column>
+                                    <b:column medium-screen="4">
+                                        <b:inputText id="endereco" value=""/>
+                                    </b:column>
+                                </b:row>
+                                <b:row tooltip="#{msg.labelDicaNumero}">
+                                    <b:column medium-screen="2">
+                                        <h:outputText value="#{msg.labelNumero}:" />
+                                    </b:column>
+                                    <b:column medium-screen="4">
+                                        <b:inputText id="numero" value=""/>
+                                    </b:column>
+                                </b:row>
+                                <b:row tooltip="#{msg.labelDicaCEP}">
+                                    <b:column medium-screen="2">
+                                        <h:outputText value="#{msg.labelCEP}:" />
+                                    </b:column>
+                                    <b:column medium-screen="4">
+                                        <b:inputText id="cep" value=""/>
+                                    </b:column>
+                                </b:row>
+                                <b:row>
+                                    <b:column span="2" offset="2">
+                                        <b:commandButton value="#{msg.labelSalvar}" onclick="" update="@form" look="primary"
+                                                         style="width:100%" />
+                                    </b:column>
+                                </b:row>
+                            </b:panel>
+                        </b:container>
+                    </h:form>
+                </ui:define>
+            </div>
+        </ui:composition>
     </h:body>
+</f:view>
 </html>

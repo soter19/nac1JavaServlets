@@ -1,6 +1,7 @@
 /**
  * Forged by Soter Padua on 17/05/17.
  */
+
 import java.io.IOException;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -13,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebFilter(filterName = "AuthFilter", urlPatterns = { "*.xhtml" })
+@WebFilter(filterName = "AuthFilter", urlPatterns = {"*.xhtml"})
 public class AuthorizationFilter implements Filter {
 
 	public AuthorizationFilter() {
@@ -29,19 +30,23 @@ public class AuthorizationFilter implements Filter {
 	                     FilterChain chain) throws IOException, ServletException {
 		try {
 
-			HttpServletRequest reqt = (HttpServletRequest) request;
+			HttpServletRequest  reqt = (HttpServletRequest) request;
 			HttpServletResponse resp = (HttpServletResponse) response;
-			HttpSession ses = reqt.getSession(false);
+			HttpSession         ses  = reqt.getSession(false);
 
-			String reqURI = reqt.getRequestURI();
-			if (reqURI.contains("/login.xhtml")
-			    || (ses != null && ses.getAttribute("username") != null)
-			    || reqURI.contains("/public/")
-			    || reqURI.contains("javax.faces.resource"))
+			String  reqURI       = reqt.getRequestURI();
+			boolean isLoginPage  = reqURI.contains("/login.xhtml");
+			boolean isLogged     = (ses != null && ses.getAttribute("username") != null);
+			boolean isAdmin      = (ses != null && ses.getAttribute("admin") != null);
+			boolean isPublicPage = !reqURI.contains("/admin/");
+
+			if(isPublicPage || isAdmin) {
 				chain.doFilter(request, response);
-			else
+			} else {
 				resp.sendRedirect(reqt.getContextPath() + "/login.xhtml");
-		} catch (Exception e) {
+			}
+
+		} catch(Exception e) {
 			System.out.println(e.getMessage());
 		}
 	}

@@ -2,24 +2,28 @@ package livraria.beans;
 
 import com.mongodb.BasicDBObject;
 import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoCursor;
 import com.mongodb.client.result.UpdateResult;
 import livraria.Helper;
 import livraria.bd.BeanCRUD;
 import livraria.bd.Collections;
 import livraria.bd.LivrariaBD;
+import net.bootsfaces.utils.FacesMessages;
 import org.bson.Document;
 import org.bson.types.ObjectId;
 
 import static com.mongodb.client.model.Filters.eq;
+import static livraria.Helper.idFieldName;
 
 /**
  * Forged by Soter Padua on 03/04/17.
  */
 public class Autor implements BeanCRUD{
-	public final static String idFieldName   = "_id";
 	public final static String nomeFieldName = "nome";
 	private String id;
 	private String nome;
+
+	public Autor(){}
 
 	public Autor(String id) throws Exception {
 		BasicDBObject query = new BasicDBObject("_id", new ObjectId(id));
@@ -30,15 +34,6 @@ public class Autor implements BeanCRUD{
 		}
 
 		this.nome = first.getString("nome");
-	}
-
-	public Document getDocument(){
-		Document doc = new Document();
-		doc.append(nomeFieldName, nome);
-		if(!Helper.isNullOrEmptyString(id)){
-			doc.append(idFieldName, id);
-		}
-		return doc;
 	}
 
 	// Getters and Setters
@@ -67,16 +62,42 @@ public class Autor implements BeanCRUD{
 		                 .getCollection(Collections.AUTORES.nome);
 	}
 
-	// DB
+	public static MongoCursor<Document> getAll() {
+		return getCollection().find().iterator();
+	}
 
+	public static Autor getFromDocument(Document doc){
+		Autor a = new Autor();
+		a.setId(doc.getObjectId(idFieldName).toString());
+		a.setNome(doc.getString(nomeFieldName));
+		return a;
+	}
+
+	// DB
 	@Override
-	public boolean createOnDB() {
-		return false;
+	public Document getDocument(){
+		Document doc = new Document();
+		doc.append(nomeFieldName, nome);
+		if(!Helper.isNullOrEmptyString(id)){
+			doc.append(idFieldName, id);
+		}
+		return doc;
 	}
 
 	@Override
-	public boolean getFromDB() {
-		return false;
+	public void createOnDB() {
+		Document doc = new Document();
+		doc.append(nomeFieldName, nome);
+		if(!Helper.isNullOrEmptyString(id)){
+			doc.append(idFieldName, id);
+		}
+		getCollection().insertOne(doc);
+		FacesMessages.info("Autor "+ nome +" Criado no BD");
+	}
+
+	@Override
+	public Document getFromDB() {
+		return null;
 	}
 
 	@Override

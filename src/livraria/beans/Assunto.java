@@ -2,18 +2,24 @@ package livraria.beans;
 
 import com.mongodb.BasicDBObject;
 import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoCursor;
+import com.mongodb.client.result.UpdateResult;
 import livraria.Helper;
+import livraria.bd.BeanCRUD;
 import livraria.bd.Collections;
 import livraria.bd.LivrariaBD;
+import net.bootsfaces.utils.FacesMessages;
 import org.bson.Document;
 import org.bson.types.ObjectId;
+
+import static com.mongodb.client.model.Filters.eq;
+import static livraria.Helper.idFieldName;
 
 /**
  * Forged by Soter Padua on 03/04/17.
  */
-public class Assunto {;
-	public transient static final String idFieldName = "_id";
-	public transient static final String tituloFieldName = "titulo";
+public class Assunto implements BeanCRUD{;
+	private transient static final String tituloFieldName = "titulo";
 
 	private String id;
 	private String titulo;
@@ -48,11 +54,6 @@ public class Assunto {;
 		this.titulo = titulo;
 	}
 
-	// Validation
-	public boolean isValid() {
-		return Helper.isNullOrEmptyString(titulo);
-	}
-
 	// DB
 	public Document getDocument() {
 		Document doc = new Document(tituloFieldName, titulo);
@@ -63,9 +64,60 @@ public class Assunto {;
 	}
 
 	// Static Methods
-	public static MongoCollection<Document> getCollection() {
+	static MongoCollection<Document> getCollection() {
 		return LivrariaBD.getInstancia()
 		                 .getBD()
 		                 .getCollection(Collections.ASSUNTOS.nome);
+	}
+
+	public static MongoCursor<Document> getAll() {
+		return getCollection().find().iterator();
+	}
+
+	public static Assunto getFromDocument(Document doc){
+		Assunto a = new Assunto();
+		a.setId(doc.getObjectId(idFieldName).toString());
+		a.setTitulo(doc.getString(tituloFieldName));
+		return a;
+	}
+
+	// DB
+	@Override
+	public void createOnDB() throws Exception {
+		if(isValid()){
+			throw new Exception("not valid");
+		}
+
+		Assunto.getCollection().insertOne(getDocument());
+		FacesMessages.info("Assunto Criado no BD");
+	}
+
+	@Override
+	public Document getFromDB() {
+		return null;
+	}
+
+	@Override
+	public boolean updateOnDB() {
+		if(!isValid()){
+			return false;
+		}
+
+		UpdateResult updateResult = Assunto.getCollection().updateOne(
+			eq("_id", id),
+			new Document("$set", getDocument())
+		);
+
+		return updateResult.wasAcknowledged();
+	}
+
+	@Override
+	public boolean deleteFromDB() {
+		return false;
+	}
+
+	@Override
+	public boolean isValid() {
+		return Helper.isNullOrEmptyString(titulo);
 	}
 }
