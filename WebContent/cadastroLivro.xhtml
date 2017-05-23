@@ -2,7 +2,7 @@
 <!DOCTYPE html
         PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html"
+    <html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:b="http://bootsfaces.net/ui"
       xmlns:f="http://java.sun.com/jsf/core" xml:lang="en" lang="en">
     <h:head>
@@ -28,19 +28,16 @@
                    <tr>
                        <td><h5 align="left">Autor:</h5></td>
                        <td><p>
-                           <select name="Autores">
-                               <option value="Livro0">Selecione o autor...</option>
-                               <option value="Livro1">Maria B</option>
-                               <option value="Livro2">Roman Pike</option>
-                               <option value="Livro3">Pedro Coelho</option>
-                               <option value="Livro4">Cadastrar novo autor...</option>
-                           </select>
+                           <b:selectOneMenu value="#{livroMB.livro.autor.nome}" colMd="2" label="Autor" labelColMd="2">
+                               <f:selectItems value="#{autorMB.getAllIds}" itemValue="#{autorMB.getAllNomes}" />
+                           </b:selectOneMenu>
                        </p></td>
                        <td>
                            <b:form>
-                                <b:inputText  name="autor">
+                                <b:inputText name="autor" value="#{livroMB.livro.autor.nome}">
                                     <f:facet name="append">
-                                        <b:commandButton look="primary" value="Cadastrar Autor"/>
+                                        <b:commandButton look="primary" action="#{autorMB.autor.createOnDB}"
+                                                         value="Cadastrar Autor"/>
                                     </f:facet>
                                 </b:inputText>
                            </b:form>
@@ -64,7 +61,8 @@
                             <b:form>
                                 <b:inputText  name="autor">
                                     <f:facet name="append">
-                                        <b:commandButton look="primary" value="Cadastrar Editora"/>
+                                        <b:commandButton look="primary" value="Cadastrar Editora"
+                                                         action="#{editoraMB.editora.createOnDB}"/>
                                     </f:facet>
                                 </b:inputText>
                             </b:form>
