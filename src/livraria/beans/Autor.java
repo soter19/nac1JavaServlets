@@ -11,12 +11,12 @@ import org.bson.Document;
 import org.bson.types.ObjectId;
 
 import static com.mongodb.client.model.Filters.eq;
+import static livraria.Helper.idFieldName;
 
 /**
  * Forged by Soter Padua on 03/04/17.
  */
 public class Autor implements BeanCRUD{
-	public final static String idFieldName   = "_id";
 	public final static String nomeFieldName = "nome";
 	private String id;
 	private String nome;

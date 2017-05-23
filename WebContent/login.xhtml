@@ -26,7 +26,7 @@
                             <b:column medium-screen="8">
                                 <b:inputText placeholder="Username"
                                              id="username"
-                                             value="#{loginBean.usuario.email}"
+                                             value="#{LoginMB.usuario.email}"
                                              autocomplete="false">
                                     <f:facet name="prepend">
                                         <b:icon name="user"/>
@@ -44,7 +44,7 @@
                             <b:column medium-screen="8">
                                 <b:inputSecret placeholder="Password"
                                                id="senha"
-                                               value="#{loginBean.usuario.senha}">
+                                               value="#{LoginMB.usuario.senha}">
                                     <f:facet name="prepend">
                                         <b:iconAwesome name="key"/>
                                     </f:facet>
@@ -59,18 +59,18 @@
                             <b:column mediumScreen="3" offsetMd="2">
 
                                 <b:commandButton value="Login"
-                                                 action="#{loginBean.login}"
+                                                 action="#{LoginMB.login}"
                                                  look="primary"/>
                             </b:column>
                             <b:column mediumScreen="6">
                                 <b:commandButton value="Cadastre-se!"
                                                  look="success"
-                                                 action="#{loginBean.signup}"/>
+                                                 action="#{LoginMB.signup}"/>
                             </b:column>
                             <b:column mediumScreen="12">
                                 
                             </b:column>
-                            <h:commandLink action="#{loginBean.forgotPassword}">
+                            <h:commandLink action="#{LoginMB.forgotPassword}">
                                 Esqueci a senha!
                             </h:commandLink>
                         </b:row>

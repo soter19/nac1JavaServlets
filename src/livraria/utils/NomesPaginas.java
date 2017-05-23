@@ -5,6 +5,7 @@ package livraria.utils;
  * quando o retorno dos beans.
  */
 public enum NomesPaginas {
+	INDEX("index"),
 	CARRINHO("carrinho"),
 	PESQUISA("pesquisa"),
 	LOGIN("login");

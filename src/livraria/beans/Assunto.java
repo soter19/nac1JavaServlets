@@ -8,11 +8,12 @@ import livraria.bd.LivrariaBD;
 import org.bson.Document;
 import org.bson.types.ObjectId;
 
+import static livraria.Helper.idFieldName;
+
 /**
  * Forged by Soter Padua on 03/04/17.
  */
 public class Assunto {;
-	public transient static final String idFieldName = "_id";
 	public transient static final String tituloFieldName = "titulo";
 
 	private String id;
