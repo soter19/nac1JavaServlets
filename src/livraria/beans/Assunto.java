@@ -2,24 +2,25 @@ package livraria.beans;
 
 import com.mongodb.BasicDBObject;
 import com.mongodb.client.MongoCollection;
+import com.mongodb.client.result.UpdateResult;
 import livraria.Helper;
+import livraria.bd.BeanCRUD;
 import livraria.bd.Collections;
 import livraria.bd.LivrariaBD;
 import org.bson.Document;
 import org.bson.types.ObjectId;
 
+import static com.mongodb.client.model.Filters.eq;
 import static livraria.Helper.idFieldName;
 
 /**
  * Forged by Soter Padua on 03/04/17.
  */
-public class Assunto {;
-	public transient static final String tituloFieldName = "titulo";
+public class Assunto implements BeanCRUD{;
+	private transient static final String tituloFieldName = "titulo";
 
 	private String id;
 	private String titulo;
-
-	public Assunto(){}
 
 	public Assunto(String id) throws Exception {
 		BasicDBObject query = new BasicDBObject("_id", new ObjectId(id));
@@ -49,11 +50,6 @@ public class Assunto {;
 		this.titulo = titulo;
 	}
 
-	// Validation
-	public boolean isValid() {
-		return Helper.isNullOrEmptyString(titulo);
-	}
-
 	// DB
 	public Document getDocument() {
 		Document doc = new Document(tituloFieldName, titulo);
@@ -64,9 +60,50 @@ public class Assunto {;
 	}
 
 	// Static Methods
-	public static MongoCollection<Document> getCollection() {
+	static MongoCollection<Document> getCollection() {
 		return LivrariaBD.getInstancia()
 		                 .getBD()
 		                 .getCollection(Collections.ASSUNTOS.nome);
+	}
+
+	// DB
+	@Override
+	public boolean createOnDB() {
+		if(isValid()){
+			return false;
+		}
+
+		Assunto.getCollection().insertOne(getDocument());
+
+		return true;
+	}
+
+	@Override
+	public Document getFromDB() {
+		return null;
+	}
+
+	@Override
+	public boolean updateOnDB() {
+		if(!isValid()){
+			return false;
+		}
+
+		UpdateResult updateResult = Assunto.getCollection().updateOne(
+			eq("_id", id),
+			new Document("$set", getDocument())
+		);
+
+		return updateResult.wasAcknowledged();
+	}
+
+	@Override
+	public boolean deleteFromDB() {
+		return false;
+	}
+
+	@Override
+	public boolean isValid() {
+		return Helper.isNullOrEmptyString(titulo);
 	}
 }
