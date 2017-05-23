@@ -14,32 +14,30 @@
 <h:body>
     <ui:composition template="/templates/common/layout.xhtml">
         <ui:define name="content">
-            <b:panelGrid colSpans="4,4,4">
-                <h:form>
+            <h:form>
+                <b:row>
                     <ui:repeat value="#{livroMB.getAllLivros()}" var="livro">
-                        <b:column>
-                            <b:row>
-                                <b:column span="4">
-                                    <b:image width="100%"
-                                             value="https://s-media-cache-ak0.pinimg.com/originals/8d/e2/29/8de22937d50b35b5cdef70735714ad9d.jpg"/>
-                                </b:column>
-                                <b:column span="6">
-                                    <h:outputText value="#{livro.titulo}"/><br/>
-                                    <h:outputText value="Autor: #{livro.autor.nome}"/><br/>
-                                    <h:outputText value="Editora: #{livro.editora.nome}"/><br/>
-                                    <h:outputText value="Preço: #{livro.valor}"/><br/>
+                        <b:column span="4">
+                            <b:column span="4">
+                                <b:image width="100%"
+                                         value="https://s-media-cache-ak0.pinimg.com/originals/8d/e2/29/8de22937d50b35b5cdef70735714ad9d.jpg"/>
+                            </b:column>
+                            <b:column span="6">
+                                <h:outputText value="#{livro.titulo}"/><br/>
+                                <h:outputText value="Autor: #{livro.autor.nome}"/><br/>
+                                <h:outputText value="Editora: #{livro.editora.nome}"/><br/>
+                                <h:outputText value="Preço: #{livro.valor}"/><br/>
 
-                                    <b:commandButton value="Adicionar ao Carrinho" look="success"
-                                                     action="#{carrinhoMB.adicionaCarrinho}"/>
-                                    <b:commandButton value="Adicionar à lista de desejos" look="success"
-                                                     action="#{carrinhoMB.adicionaFavorito}"/>
+                                <b:commandButton value="Adicionar ao Carrinho" look="success"
+                                                 action="#{carrinhoMB.adicionaCarrinho}"/>
+                                <b:commandButton value="Adicionar à lista de desejos" look="success"
+                                                 action="#{carrinhoMB.adicionaFavorito}"/>
 
-                                </b:column>
-                            </b:row>
+                            </b:column>
                         </b:column>
                     </ui:repeat>
-                </h:form>
-            </b:panelGrid>
+                </b:row>
+            </h:form>
         </ui:define>
     </ui:composition>
 </h:body>
