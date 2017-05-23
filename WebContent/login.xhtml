@@ -24,10 +24,7 @@
                                 <h:outputText value="Username:" for="username"/>
                             </b:column>
                             <b:column medium-screen="8">
-                                <b:inputText placeholder="Username"
-                                             id="username"
-                                             value="#{LoginMB.usuario.email}"
-                                             autocomplete="false">
+                                <b:inputText placeholder="Username" id="username" value="#{LoginMB.usuario.email}" autocomplete="false">
                                     <f:facet name="prepend">
                                         <b:icon name="user"/>
                                     </f:facet>
@@ -42,37 +39,30 @@
                                 <h:outputText value="Password:"/>
                             </b:column>
                             <b:column medium-screen="8">
-                                <b:inputSecret placeholder="Password"
-                                               id="senha"
-                                               value="#{LoginMB.usuario.senha}">
+                                <b:inputSecret placeholder="Password" id="senha" value="#{LoginMB.usuario.senha}">
                                     <f:facet name="prepend">
                                         <b:iconAwesome name="key"/>
                                     </f:facet>
                                 </b:inputSecret>
                             </b:column>
-                            <b:column medium-screen="12"
-                                      styleClass="message">
+                            <b:column medium-screen="12" styleClass="message">
                                 <b:message for="senha"/>
                             </b:column>
                         </b:row>
-                        <b:row>
+                        <b:row style="margin-bottom: 10px;">
                             <b:column mediumScreen="3" offsetMd="2">
-
-                                <b:commandButton value="Login"
-                                                 action="#{LoginMB.login}"
-                                                 look="primary"/>
+                                <b:commandButton value="Login" action="#{LoginMB.login}" look="primary"/>
                             </b:column>
                             <b:column mediumScreen="6">
-                                <b:commandButton value="Cadastre-se!"
-                                                 look="success"
-                                                 action="#{LoginMB.signup}"/>
+                                <b:commandButton value="Cadastre-se!" look="success" action="#{LoginMB.signup}"/>
                             </b:column>
-                            <b:column mediumScreen="12">
-                                
+                        </b:row>
+                        <b:row>
+                            <b:column mediumScreen="12" styleClass="text-center">
+                                <h:commandLink action="#{LoginMB.forgotPassword}">
+                                    Esqueci a senha!
+                                </h:commandLink>
                             </b:column>
-                            <h:commandLink action="#{LoginMB.forgotPassword}">
-                                Esqueci a senha!
-                            </h:commandLink>
                         </b:row>
                     </b:panel>
                 </b:container>

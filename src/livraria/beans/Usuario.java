@@ -21,13 +21,7 @@ public class Usuario {
 	private String email;
 	private String senha;
 
-	public Usuario(String email, String senha) {
-		this.email = email;
-		this.senha = senha;
-	}
-
-	public Usuario() {
-	}
+	public Usuario() {}
 
 	//	Getters and Setters
 
@@ -55,25 +49,57 @@ public class Usuario {
 		this.senha = senha;
 	}
 
+	// DB operations
+	public void trocarSenha() throws Exception {
+		if(!isValid()){
+			throw new Exception("Usuário não é válido, informe o e-mail.");
+		}
+
+		// parece burro, mas é para lidar com o fato de que só usuários
+		// deslogados podem pedir pela senha.
+		Usuario u = getUserFromEmail(email);
+
+
+		getCollection().updateOne(eq("_id", u.id), new Document("$set", new Document(Usuario.senhaFieldName,
+		                                                                             "123")));
+	}
+
+	public void criarUsuario() throws Exception{
+		if(emailExiste(email)){
+			throw new Exception("Email já cadastrado.");
+		}
+
+		Document user = new Document();
+		user.append(emailFieldName,email);
+		user.append(senhaFieldName,senha);
+
+		getCollection().insertOne(user);
+	}
+
+	private static Boolean emailExiste(String email){
+		Document usr = getCollection().find(eq(emailFieldName, email)).first();
+		return usr != null;
+	}
+
 	// Static Methods
-	public static MongoCollection getCollection(){
+	public static MongoCollection<Document> getCollection(){
 		return LivrariaBD.getInstancia().getBD().getCollection(Collections
 			                                                       .USUARIOS
 			                                                       .nome);
 	}
 
-	public static Usuario getUserFromEmail(String email) throws Exception {
+	private static Usuario getUserFromEmail(String email) throws Exception {
 		if(Helper.isNullOrEmptyString(email)){
 			throw new Exception("Email inválido");
 		}
-		Document     query   = new Document("email", email);
-		FindIterable iterable = getCollection().find(query);
+		Document               query    = new Document("email", email);
+		FindIterable<Document> iterable = getCollection().find(query);
 
 		if(!iterable.iterator().hasNext()){
 			throw new Exception("Usuário Inexistente");
 		}
 
-		Document userDoc = (Document) iterable.first();
+		Document userDoc = iterable.first();
 		Usuario  usuario = new Usuario();
 		usuario.setId(userDoc.getObjectId(idFieldName).toString());
 		usuario.setEmail(userDoc.getString(emailFieldName));
@@ -86,19 +112,5 @@ public class Usuario {
 	// Validation
 	public Boolean isValid(){
 		return !Helper.isNullOrEmptyString(email);
-	}
-
-	public void trocarSenha() throws Exception {
-		if(!isValid()){
-			throw new Exception("Usuário não é válido, informe o e-mail.");
-		}
-
-		// parece burro, mas é para lidar com o fato de que só usuários
-		// deslogados podem pedir pela senha.
-		Usuario u = getUserFromEmail(email);
-
-
-		getCollection().updateOne(eq("_id", u.id), new Document("$set", new Document(Usuario.senhaFieldName,
-		                                                                                    "123")));
 	}
 }

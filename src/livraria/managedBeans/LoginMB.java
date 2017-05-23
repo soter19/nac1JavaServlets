@@ -52,8 +52,18 @@ public class LoginMB {
 	}
 
 	public void signup(){
-		FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "", "Congratulations! You've successfully logged in.");
-		FacesContext.getCurrentInstance().addMessage("loginForm:password", msg);
+		if(!usuario.isValid()){
+			FacesMessages.warning("Usuário inválido: ","Por favor preencha e-mail e senha.");
+		}
+
+		try {
+			usuario.criarUsuario();
+		} catch(Exception e) {
+			FacesMessages.warning(e.getMessage());
+			return;
+		}
+
+		login();
 	}
 
 	public void forgotPassword() {
