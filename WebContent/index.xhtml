@@ -14,54 +14,32 @@
 <h:body>
     <ui:composition template="/templates/common/layout.xhtml">
         <ui:define name="content">
-            <h:form class="navbar-form hidden-md hidden-sm hidden-xs">
-                <div>
-                    <b:panelGrid colSpans="4,4,4">
+            <b:panelGrid colSpans="4,4,4">
+                <h:form>
+                    <ui:repeat value="#{livroMB.getAllLivros()}" var="livro">
+                        <b:column>
+                            <b:row>
+                                <b:column span="4">
+                                    <b:image width="100%"
+                                             value="https://s-media-cache-ak0.pinimg.com/originals/8d/e2/29/8de22937d50b35b5cdef70735714ad9d.jpg"/>
+                                </b:column>
+                                <b:column span="6">
+                                    <h:outputText value="#{livro.titulo}"/><br/>
+                                    <h:outputText value="Autor: #{livro.autor.nome}"/><br/>
+                                    <h:outputText value="Editora: #{livro.editora.nome}"/><br/>
+                                    <h:outputText value="Preço: #{livro.valor}"/><br/>
 
-                        <ui:repeat value="" var="carregaLivros">
+                                    <b:commandButton value="Adicionar ao Carrinho" look="success"
+                                                     action="#{carrinhoMB.adicionaCarrinho}"/>
+                                    <b:commandButton value="Adicionar à lista de desejos" look="success"
+                                                     action="#{carrinhoMB.adicionaFavorito}"/>
 
-                            <b:column>
-                                <b:row>
-                                    <b:column span="4">
-                                        <b:image height="150px" width="130px"
-                                                 value="https://s-media-cache-ak0.pinimg.com/originals/8d/e2/29/8de22937d50b35b5cdef70735714ad9d.jpg"/>
-                                    </b:column>
-                                    <b:column span="6">
-                                        <b:row>
-                                            <h:outputText value="A menina que roubava Livros"/>
-                                        </b:row>
-                                        <b:row>
-                                            <h:outputText value="Autor: Lanther"/>
-                                        </b:row>
-                                        <b:row>
-                                            <h:outputText value="Editora: Fiap"/>
-                                        </b:row>
-                                        <b:row>
-                                            <h:outputText value="R$ 29,90"/>
-                                        </b:row>
-                                        <b:row>
-                                            <b:column span="4">
-                                                <b:commandButton value="Add no Carrinho"
-                                                                 look="success"
-                                                                 action="#{carrinhoBean.adicionaCarrinho}"/>
-                                            </b:column>
-                                        </b:row>
-                                        <b:row>
-                                            <b:column span="4">
-                                                <b:commandButton value="Favoritar Desejo"
-                                                                 look="success"
-                                                                 action="#{favoritoBean.adicionaFavorito}"/>
-                                            </b:column>
-                                        </b:row>
-                                    </b:column>
-                                </b:row>
-                            </b:column>
-
-                        </ui:repeat>
-
-                    </b:panelGrid>
-                </div>
-            </h:form>
+                                </b:column>
+                            </b:row>
+                        </b:column>
+                    </ui:repeat>
+                </h:form>
+            </b:panelGrid>
         </ui:define>
     </ui:composition>
 </h:body>
