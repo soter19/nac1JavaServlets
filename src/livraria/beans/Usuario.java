@@ -7,6 +7,8 @@ import livraria.bd.Collections;
 import livraria.bd.LivrariaBD;
 import org.bson.Document;
 
+import java.util.Date;
+
 import static com.mongodb.client.model.Filters.eq;
 import static livraria.Helper.idFieldName;
 
@@ -17,9 +19,16 @@ public class Usuario {
 	private final static transient String emailFieldName = "email";
 	private final static transient String senhaFieldName = "senha";
 
-	private String id;
-	private String email;
-	private String senha;
+	private String  id;
+	private String  nome;
+	private Date    data;
+	private String  CPF;
+	private String  telefone;
+	private String  endereco;
+	private Integer numeroEndereco;
+	private String  CEP;
+	private String  email;
+	private String  senha;
 
 	public Usuario() {}
 
@@ -47,6 +56,62 @@ public class Usuario {
 
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+
+	public Integer getNumeroEndereco() {
+		return numeroEndereco;
+	}
+
+	public void setNumeroEndereco(Integer numeroEndereco) {
+		this.numeroEndereco = numeroEndereco;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public Date getData() {
+		return data;
+	}
+
+	public void setData(Date data) {
+		this.data = data;
+	}
+
+	public String getCPF() {
+		return CPF;
+	}
+
+	public void setCPF(String CPF) {
+		this.CPF = CPF;
+	}
+
+	public String getTelefone() {
+		return telefone;
+	}
+
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
+
+	public String getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
+	}
+
+	public String getCEP() {
+		return CEP;
+	}
+
+	public void setCEP(String CEP) {
+		this.CEP = CEP;
 	}
 
 	// DB operations
@@ -113,4 +178,5 @@ public class Usuario {
 	public Boolean isValid(){
 		return !Helper.isNullOrEmptyString(email);
 	}
+
 }
