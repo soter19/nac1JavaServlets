@@ -37,8 +37,7 @@
                                     <b:form>
                                         <b:inputText name="autor" value="#{autorMB.autor.nome}">
                                             <f:facet name="append">
-                                                <b:commandButton look="primary" action="#{autorMB.autor.createOnDB()}"
-                                                                 value="Cadastrar Autor" ajax="true"/>
+                                                <b:commandButton look="primary" action="#{autorMB.autor.createOnDB()}" value="Cadastrar Autor" ajax="true"/>
                                             </f:facet>
                                         </b:inputText>
                                     </b:form>
@@ -59,7 +58,7 @@
                                         <b:inputText name="editora" value="#{editoraMB.editora.nome}">
                                             <f:facet name="append">
                                                 <b:commandButton look="primary" value="Cadastrar Editora"
-                                                                 action="#{editoraMB.editora.createOnDB}"/>
+                                                                 action="#{editoraMB.editora.createOnDB}" ajax="true"/>
                                             </f:facet>
                                         </b:inputText>
                                     </b:form>
@@ -80,7 +79,7 @@
                                     <b:inputText name="assunto" value="#{assuntoMB.assunto.titulo}">
                                         <f:facet name="append">
                                             <b:commandButton look="primary" value="Cadastrar Gênero"
-                                                             action="#{assuntoMB.assunto.createOnDB}"/>
+                                                             action="#{assuntoMB.assunto.createOnDB}" ajax="true"/>
                                         </f:facet>
                                     </b:inputText>
                                 </b:form>

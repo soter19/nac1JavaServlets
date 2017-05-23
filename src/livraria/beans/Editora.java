@@ -3,9 +3,11 @@ package livraria.beans;
 import com.mongodb.BasicDBObject;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
+import livraria.Helper;
 import livraria.bd.BeanCRUD;
 import livraria.bd.Collections;
 import livraria.bd.LivrariaBD;
+import net.bootsfaces.utils.FacesMessages;
 import org.bson.Document;
 import org.bson.types.ObjectId;
 
@@ -67,7 +69,13 @@ public class Editora implements BeanCRUD {
 
 	@Override
 	public void createOnDB() {
-		return;
+		Document doc = new Document();
+		doc.append(nomeFieldName, nome);
+		if(!Helper.isNullOrEmptyString(id)){
+			doc.append(idFieldName, id);
+		}
+		getCollection().insertOne(doc);
+		FacesMessages.info("Editora " + nome + " Criado no BD");
 	}
 
 	@Override
