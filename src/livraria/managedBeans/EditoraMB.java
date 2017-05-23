@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 @ManagedBean
 public class EditoraMB{
-	private Editora editora;
+	private Editora editora = new Editora();
 
 	public Editora getEditora() {
 		return editora;
