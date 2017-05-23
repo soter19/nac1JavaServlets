@@ -1,26 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<html xmlns="http://www.w3.org/1999/xhtml" 
-	  xmlns:h="http://java.sun.com/jsf/html"
-	  xmlns:ui="http://java.sun.com/jsf/facelets">
-	<h:head>
-	    <title>Admin</title>
-		<link rel="stylesheet" type="text/css" href="style.css"></link>
-	</h:head>
-	<h:body>
-		<ui:composition template="/templates/common/layout.xhtml">
-			<ui:define name="content">
-				<h:form class="navbar-form hidden-md hidden-sm hidden-xs">
-					<h1 align="center"><strong>Login Admin</strong></h1>
-					<h4 align="center">Login: </h4>
-					<input class="center form-control" type="text" name="login"/>
-					<h4 align="center">Senha: </h4>
-					<input class="center form-control" type="password" name="senha"/>
-					<br/><br/>
-					<a href="cadastroLivro.xhtml"> <button type="button" class="btn btn-warning center-block">Entrar</button> </a>
-				</h:form>
-			</ui:define>
-		</ui:composition>
-	</h:body>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:b="http://bootsfaces.net/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title>Admin</title>
+    <link rel="stylesheet" type="text/css" href="style.css"></link>
+</h:head>
+<h:body>
+    <ui:composition template="/templates/common/layout.xhtml">
+        <ui:define name="content">
+            <h:form id="AdminForm" class="navbar-form hidden-md hidden-sm hidden-xs">
+                <b:container layout="fluid">
+                    <b:panel medium-screen="3" offsetMd="4"
+                             look="primary">
+                        <b:row>
+
+                            <b:column medium-screen="12">
+                                <b:inputText placeholder="Username" id="username" value="#{LoginMB.usuario.email}"
+                                             autocomplete="false">
+                                    <f:facet name="prepend">
+                                        <b:icon name="user"/>
+                                    </f:facet>
+                                </b:inputText>
+                            </b:column>
+                        </b:row>
+                        <b:row>
+                            <b:column medium-screen="12">
+                                <b:inputSecret placeholder="Password" id="senha" value="#{LoginMB.usuario.senha}">
+                                    <f:facet name="prepend">
+                                        <b:iconAwesome name="key"/>
+                                    </f:facet>
+                                </b:inputSecret>
+                            </b:column>
+                        </b:row>
+                        <b:row style="margin-bottom: 10px;">
+                            <b:column mediumScreen="3" offsetMd="4">
+                                <b:commandButton value="Login" action="#{LoginMB.login}" look="primary"/>
+                            </b:column>
+                        </b:row>
+                    </b:panel>
+                </b:container>
+                <b:growl globalOnly="true" placementFrom="bottom"
+                         show-detail="true" allowDismiss="true"
+                         delay="10000" escape="true"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</h:body>
 </html>
