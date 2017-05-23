@@ -21,10 +21,12 @@ public class LoginMB {
 	private Usuario usuario = new Usuario();
 
 	public String login() {
+
 		try {
+			FacesContext context = FacesContext.getCurrentInstance();
+
 			if(checkLogin()){
-				HttpSession session = SessionUtils.getSession();
-				session.setAttribute("username", usuario.getEmail());
+				context.getExternalContext().getSessionMap().put("user", usuario);
 				FacesMessages.info("Success:","Logged!");
 			}else{
 				FacesMessages.warning("Wrong Credentials: ","Please try again");
@@ -84,23 +86,8 @@ public class LoginMB {
 		}
 	}
 
-	public String getEmail() {
-		return usuario.getEmail();
-	}
-
-	public void setEmail(String email) {
-		usuario.setEmail(email);
-	}
-
-	public String getSenha() {
-		return usuario.getSenha();
-	}
-
-	public void setSenha(String senha) {
-		usuario.setSenha(senha);;
-	}
-
 	public Usuario getUsuario() {
 		return usuario;
 	}
+
 }
