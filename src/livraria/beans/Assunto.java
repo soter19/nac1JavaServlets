@@ -2,11 +2,13 @@ package livraria.beans;
 
 import com.mongodb.BasicDBObject;
 import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoCursor;
 import com.mongodb.client.result.UpdateResult;
 import livraria.Helper;
 import livraria.bd.BeanCRUD;
 import livraria.bd.Collections;
 import livraria.bd.LivrariaBD;
+import net.bootsfaces.utils.FacesMessages;
 import org.bson.Document;
 import org.bson.types.ObjectId;
 
@@ -21,6 +23,8 @@ public class Assunto implements BeanCRUD{;
 
 	private String id;
 	private String titulo;
+
+	public Assunto(){}
 
 	public Assunto(String id) throws Exception {
 		BasicDBObject query = new BasicDBObject("_id", new ObjectId(id));
@@ -66,16 +70,26 @@ public class Assunto implements BeanCRUD{;
 		                 .getCollection(Collections.ASSUNTOS.nome);
 	}
 
+	public static MongoCursor<Document> getAll() {
+		return getCollection().find().iterator();
+	}
+
+	public static Assunto getFromDocument(Document doc){
+		Assunto a = new Assunto();
+		a.setId(doc.getObjectId(idFieldName).toString());
+		a.setTitulo(doc.getString(tituloFieldName));
+		return a;
+	}
+
 	// DB
 	@Override
-	public boolean createOnDB() {
+	public void createOnDB() throws Exception {
 		if(isValid()){
-			return false;
+			throw new Exception("not valid");
 		}
 
 		Assunto.getCollection().insertOne(getDocument());
-
-		return true;
+		FacesMessages.info("Assunto Criado no BD");
 	}
 
 	@Override

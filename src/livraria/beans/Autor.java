@@ -8,6 +8,7 @@ import livraria.Helper;
 import livraria.bd.BeanCRUD;
 import livraria.bd.Collections;
 import livraria.bd.LivrariaBD;
+import net.bootsfaces.utils.FacesMessages;
 import org.bson.Document;
 import org.bson.types.ObjectId;
 
@@ -21,6 +22,8 @@ public class Autor implements BeanCRUD{
 	public final static String nomeFieldName = "nome";
 	private String id;
 	private String nome;
+
+	public Autor(){}
 
 	public Autor(String id) throws Exception {
 		BasicDBObject query = new BasicDBObject("_id", new ObjectId(id));
@@ -39,6 +42,10 @@ public class Autor implements BeanCRUD{
 		return id;
 	}
 
+	public void setId(String id) {
+		this.id = id;
+	}
+
 	public String getNome() {
 		return nome;
 	}
@@ -55,8 +62,18 @@ public class Autor implements BeanCRUD{
 		                 .getCollection(Collections.AUTORES.nome);
 	}
 
-	// DB
+	public static MongoCursor<Document> getAll() {
+		return getCollection().find().iterator();
+	}
 
+	public static Autor getFromDocument(Document doc){
+		Autor a = new Autor();
+		a.setId(doc.getObjectId(idFieldName).toString());
+		a.setNome(doc.getString(nomeFieldName));
+		return a;
+	}
+
+	// DB
 	@Override
 	public Document getDocument(){
 		Document doc = new Document();
@@ -68,8 +85,14 @@ public class Autor implements BeanCRUD{
 	}
 
 	@Override
-	public boolean createOnDB() {
-		return false;
+	public void createOnDB() {
+		Document doc = new Document();
+		doc.append(nomeFieldName, nome);
+		if(!Helper.isNullOrEmptyString(id)){
+			doc.append(idFieldName, id);
+		}
+		getCollection().insertOne(doc);
+		FacesMessages.info("Autor "+ nome +" Criado no BD");
 	}
 
 	@Override
@@ -96,9 +119,5 @@ public class Autor implements BeanCRUD{
 	@Override
 	public boolean isValid() {
 		return false;
-	}
-
-	public static MongoCursor<Document> getAll() {
-		return getCollection().find().iterator();
 	}
 }

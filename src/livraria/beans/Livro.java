@@ -22,11 +22,16 @@ public class Livro implements BeanCRUD{
 	private String  imgURL;
 	private Double  valor;
 
-	public Livro(){}
+	public Livro(){
+		autor = new Autor();
+		assunto = new Assunto();
+		editora = new Editora();
+	}
 
 	public Livro(String id){
 		this.id = id;
 
+		autor = new Autor();
 	}
 
 	public static Livro fromDocument(Document doc) throws Exception {
@@ -109,8 +114,7 @@ public class Livro implements BeanCRUD{
 
 	// DB
 	@Override
-	public boolean createOnDB() {
-		return false;
+	public void createOnDB() {
 	}
 
 	@Override
