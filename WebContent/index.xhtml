@@ -28,7 +28,9 @@
                                     <h:outputText value="#{livro.titulo}"/><br/>
                                     <h:outputText value="#{msg.labelAutor} : #{livro.autor.nome}"/><br/>
                                     <h:outputText value="#{msg.labelEditora} : #{livro.editora.nome}"/><br/>
-                                    <h:outputText value="#{msg.labelPreco} : #{livro.valor}"/><br/>
+                                    <h:outputText value="#{msg.labelPreco} : #{livro.valor}">
+                                        <f:convertNumber currencyCode="R$" type="currency" />
+                                    </h:outputText><br/>
                                     <b:buttonGroup>
                                         <b:commandButton icon="shopping-cart" look="success"
                                                          action="#{carrinhoMB.adicionaAoCarrinho(livro)}"/>
