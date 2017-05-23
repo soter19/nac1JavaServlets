@@ -1,26 +1,19 @@
 package livraria.managedBeans;
 
-import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCursor;
-import com.mongodb.client.result.UpdateResult;
 import livraria.Helper;
-import livraria.bd.BeanCRUD;
-import livraria.beans.Assunto;
 import livraria.beans.Autor;
 import org.bson.Document;
 
-import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.context.FacesContext;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 import static com.mongodb.client.model.Filters.eq;
 
 @ManagedBean
 public class AutorMB {
-	private Autor autor;
+	private Autor autor = new Autor();
 
 	public Autor getAutor() {
 		return autor;
@@ -30,24 +23,15 @@ public class AutorMB {
 		this.autor = autor;
 	}
 
-	public List<String> getAllIds(){
-		List<String> allIds = new ArrayList<>();
+	public ArrayList<Autor> getAll(){
+		ArrayList<Autor> todos = new ArrayList<>();
 		MongoCursor<Document> all = Autor.getAll();
 		while(all.hasNext()){
-			Document autor = all.next();
-			allIds.add(autor.getString(Helper.idFieldName));
+			Document autorDoc = all.next();
+			Autor    fromDocument = Autor.getFromDocument(autorDoc);
+			todos.add(fromDocument);
 		}
-		return allIds;
-	}
-
-	public List<String> getAllNomes(){
-		List<String> allNames = new ArrayList<>();
-		MongoCursor<Document> all = Autor.getAll();
-		while(all.hasNext()){
-			Document autor = all.next();
-			allNames.add(autor.getString(Autor.nomeFieldName));
-		}
-		return allNames;
+		return todos;
 	}
 }
 
