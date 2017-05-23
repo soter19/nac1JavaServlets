@@ -9,6 +9,7 @@ public enum NomesPaginas {
 	PESQUISA("pesquisa"),
 	LOGIN("login");
 
+
 	final public String nome;
 	NomesPaginas(final String nome) {
 		this.nome = nome;

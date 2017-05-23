@@ -26,13 +26,14 @@ public class LoginMB {
 				HttpSession session = SessionUtils.getSession();
 				session.setAttribute("username", usuario.getEmail());
 				FacesMessages.info("Success:","Logged!");
+
 			}else{
 				FacesMessages.warning("Wrong Credentials: ","Please try again");
 			}
 		} catch(Exception e) {
 			FacesMessages.warning("Erro: ", e.getMessage());
 		}
-		return NomesPaginas.LOGIN.nome;
+		return "index";
 	}
 
 	private Boolean checkLogin() throws Exception {
@@ -52,6 +53,7 @@ public class LoginMB {
 	public void signup(){
 		FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "", "Congratulations! You've successfully logged in.");
 		FacesContext.getCurrentInstance().addMessage("loginForm:password", msg);
+
 	}
 
 	public void forgotPassword() {
