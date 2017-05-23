@@ -1,10 +1,20 @@
 package livraria.beans;
 
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoCursor;
+import livraria.bd.BeanCRUD;
+import livraria.bd.Collections;
+import livraria.bd.LivrariaBD;
 import org.bson.Document;
+
+import static com.mongodb.client.model.Filters.eq;
+import static livraria.Helper.idFieldName;
+
 /**
  * Forged by Soter Padua on 30/03/17.
  */
-public class Livro{
+public class Livro implements BeanCRUD{
+	private String  id;
 	private String  titulo;
 	private Autor   autor;
 	private Assunto assunto;
@@ -12,6 +22,42 @@ public class Livro{
 	private String  imgURL;
 	private Double  valor;
 
+	public Livro(){}
+
+	public Livro(String id){
+		this.id = id;
+
+	}
+
+	public static Livro fromDocument(Document doc) throws Exception {
+		Livro livro = new Livro();
+		Autor autor = new Autor(doc.getString("autor"));
+		Assunto assunto = new Assunto(doc.getString("assunto"));
+		Editora editora = new Editora(doc.getString("editora"));
+
+		livro.setTitulo(doc.getString("titulo"));
+		livro.setAutor(autor);
+		livro.setAssunto(assunto);
+		livro.setValor(doc.getDouble("valor"));
+		livro.setImgURL(doc.getString("imgURL"));
+		livro.setEditora(editora);
+		livro.setValor(doc.getDouble("valor"));
+
+		return livro;
+
+	}
+
+	public static MongoCursor<Document> getAll(){
+		return getCollection().find().iterator();
+	}
+
+	public static MongoCollection<Document> getCollection(){
+		return LivrariaBD.getInstancia()
+		                 .getBD()
+		                 .getCollection(Collections.LIVROS.nome);
+	}
+
+	// Getters And Setters
 	public String getTitulo() {
 		return titulo;
 	}
@@ -60,20 +106,43 @@ public class Livro{
 		this.imgURL = imgURL;
 	}
 
-	public static Livro fromDocument(Document doc) throws Exception {
-		Livro livro = new Livro();
 
-		Autor autor = new Autor(doc.getString("autor"));
+	// DB
+	@Override
+	public boolean createOnDB() {
+		return false;
+	}
 
-		Assunto assunto = new Assunto(doc.getString("assunto"));;
+	@Override
+	public Document getFromDB() {
+		return getCollection().find(eq(idFieldName, id)).first();
+	}
 
-		livro.setTitulo(doc.getString("titulo"));
-		livro.setAutor(autor);
-		livro.setAssunto(assunto);
-		livro.setValor(doc.getDouble("valor"));
-		livro.setImgURL(doc.getString("imgURL"));
+	@Override
+	public boolean updateOnDB() {
+		return false;
+	}
 
-		return livro;
+	@Override
+	public boolean deleteFromDB() {
+		return false;
+	}
 
+	@Override
+	public boolean isValid() {
+		return false;
+	}
+
+	@Override
+	public Document getDocument() {
+		Document livroDoc = new Document();
+		livroDoc.append(idFieldName, id);
+		livroDoc.append("titulo", titulo);
+		livroDoc.append("autor", autor.getId());
+		livroDoc.append("assunto", assunto.getId());
+		livroDoc.append("editora", editora.getId());
+		livroDoc.append("valor", valor);
+
+		return livroDoc;
 	}
 }

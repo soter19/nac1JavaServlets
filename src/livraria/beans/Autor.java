@@ -2,6 +2,7 @@ package livraria.beans;
 
 import com.mongodb.BasicDBObject;
 import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoCursor;
 import com.mongodb.client.result.UpdateResult;
 import livraria.Helper;
 import livraria.bd.BeanCRUD;
@@ -32,23 +33,10 @@ public class Autor implements BeanCRUD{
 		this.nome = first.getString("nome");
 	}
 
-	public Document getDocument(){
-		Document doc = new Document();
-		doc.append(nomeFieldName, nome);
-		if(!Helper.isNullOrEmptyString(id)){
-			doc.append(idFieldName, id);
-		}
-		return doc;
-	}
-
 	// Getters and Setters
 
 	public String getId() {
 		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
 	}
 
 	public String getNome() {
@@ -70,13 +58,23 @@ public class Autor implements BeanCRUD{
 	// DB
 
 	@Override
+	public Document getDocument(){
+		Document doc = new Document();
+		doc.append(nomeFieldName, nome);
+		if(!Helper.isNullOrEmptyString(id)){
+			doc.append(idFieldName, id);
+		}
+		return doc;
+	}
+
+	@Override
 	public boolean createOnDB() {
 		return false;
 	}
 
 	@Override
-	public boolean getFromDB() {
-		return false;
+	public Document getFromDB() {
+		return null;
 	}
 
 	@Override
@@ -98,5 +96,9 @@ public class Autor implements BeanCRUD{
 	@Override
 	public boolean isValid() {
 		return false;
+	}
+
+	public static MongoCursor<Document> getAll() {
+		return getCollection().find().iterator();
 	}
 }

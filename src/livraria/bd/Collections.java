@@ -7,7 +7,8 @@ public enum Collections {
 	LIVROS("livros"),
 	AUTORES("autores"),
 	ASSUNTOS("assuntos"),
-	USUARIOS("usuarios");
+	USUARIOS("usuarios"),
+	EDITORAS("editoras");
 
 	final public String nome;
 	Collections(final String nome) {
