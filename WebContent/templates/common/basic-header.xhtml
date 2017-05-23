@@ -8,8 +8,8 @@
 <h:body>
     <ui:composition>
         <h:head>
-            <!-- CSS -->
-            <b:navBar brand="GALERINHA DO SOT" inverse="true">
+
+            <b:navBar brand="GALERINHA DO SOT" inverse="true" style="border-radius: 0;">
                 <!-- itens menu lado esquerdo-->
                 <b:navbarLinks>
                     <b:navLink value="Home" href="/"></b:navLink>
@@ -17,9 +17,10 @@
 
                 <!--barra de busca-->
                 <b:navbarLinks pull="right" styleClass="hidden-xs">
-                    <b:navLink href="favoritos.xhtml"> <b:icon name="star" size="2x"/> </b:navLink>
-                    <b:navLink href="carrinho.xhtml"> <b:icon name="shopping-cart" size="2x"/> </b:navLink>
-                    <b:navLink href="perfil.xhtml"> <b:icon name="user" size="2x"/> </b:navLink>
+                    <b:navLink href="favoritos.xhtml" icon="star" value="Lista de desejos" rendered="#{not empty user}"></b:navLink>
+                    <b:navLink href="carrinho.xhtml" icon="shopping-cart" value="Carrinho"></b:navLink>
+                    <b:navLink href="perfil.xhtml" icon="user" value="Perfil" rendered="#{not empty user}"></b:navLink>
+                    <b:navLink href="admin.xhtml" icon="user" value="Admin" rendered="#{not empty user}"></b:navLink>
 
                     <h:form class="navbar-form navbar-right hidden-md hidden-sm hidden-xs" role="search">
                         <div class="form-group">
