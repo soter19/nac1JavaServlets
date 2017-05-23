@@ -36,8 +36,7 @@ public class AuthorizationFilter implements Filter {
 			String reqURI = reqt.getRequestURI();
 			if (reqURI.contains("/login.xhtml")
 			    || (ses != null && ses.getAttribute("username") != null)
-			    || reqURI.contains("/public/")
-			    || reqURI.contains("javax.faces.resource"))
+			    || !reqURI.contains("/admin/"))
 				chain.doFilter(request, response);
 			else
 				resp.sendRedirect(reqt.getContextPath() + "/login.xhtml");
