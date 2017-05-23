@@ -73,10 +73,6 @@ public class LoginMB {
 		return first != null;
 	}
 
-	public void signup(){
-		FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "", "Congratulations! You've successfully logged in.");
-		FacesContext.getCurrentInstance().addMessage("loginForm:password", msg);
-
 	private Boolean checkAdminLogin() throws Exception{
 		if(!admin.isValid()){
 			throw new Exception("Login Inválido");
