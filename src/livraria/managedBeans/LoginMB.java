@@ -51,7 +51,7 @@ public class LoginMB {
 		return first != null;
 	}
 
-	public void signup(){
+	public String signup(){
 		if(!usuario.isValid()){
 			FacesMessages.warning("Usuário inválido: ","Por favor preencha e-mail e senha.");
 		}
@@ -60,10 +60,10 @@ public class LoginMB {
 			usuario.criarUsuario();
 		} catch(Exception e) {
 			FacesMessages.warning(e.getMessage());
-			return;
+			return NomesPaginas.LOGIN.nome;
 		}
 
-		login();
+		return login();
 	}
 
 	public void forgotPassword() {
