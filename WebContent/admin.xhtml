@@ -5,14 +5,18 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:b="http://bootsfaces.net/ui"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
-<h:head>
-    <title>Admin</title>
-    <link rel="stylesheet" type="text/css" href="style.css"></link>
-</h:head>
+      xmlns:f="http://java.sun.com/jsf/core">
+
+<f:view locale="#{facesContext.externalContext.requestLocale}">
+
+
 <h:body>
     <ui:composition template="/templates/common/layout.xhtml">
         <ui:define name="content">
+            <h:head>
+                <title>#{msg.labelAdmin}</title>
+            </h:head>
+
             <h:form id="AdminForm" class="navbar-form hidden-md hidden-sm hidden-xs">
                 <b:container layout="fluid">
                     <b:panel medium-screen="3" offsetMd="4"
@@ -20,7 +24,7 @@
                         <b:row>
 
                             <b:column medium-screen="12">
-                                <b:inputText placeholder="Username" id="username" value="#{LoginMB.usuario.email}"
+                                <b:inputText placeholder="#{msg.labelUsuario}" id="username" value="#{LoginMB.usuario.email}"
                                              autocomplete="false">
                                     <f:facet name="prepend">
                                         <b:icon name="user"/>
@@ -30,7 +34,7 @@
                         </b:row>
                         <b:row>
                             <b:column medium-screen="12">
-                                <b:inputSecret placeholder="Password" id="senha" value="#{LoginMB.usuario.senha}">
+                                <b:inputSecret placeholder="#{msg.labelSenha}" id="senha" value="#{LoginMB.usuario.senha}">
                                     <f:facet name="prepend">
                                         <b:iconAwesome name="key"/>
                                     </f:facet>
@@ -51,4 +55,5 @@
         </ui:define>
     </ui:composition>
 </h:body>
+</f:view>
 </html>
