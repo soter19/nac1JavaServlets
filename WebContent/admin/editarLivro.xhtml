@@ -14,16 +14,15 @@
             <b:row>
                 <b:column span="6">
                     <h:form>
-
                         <h1 align="center"><strong>Editar Livro</strong></h1>
                         <br/>
                         <b:column span="12">
                             <h3>Qual livro deseja editar?</h3>
                         </b:column>
                         <b:column span="6">
-                            <b:selectOneMenu value="#{livroMB.livro.titulo}">
-                                <f:selectItems value="#{livroMB.getAllLivros()}" var="livro"
-                                               itemValue="#{livro.titulo}" itemLabel="#{livro.titulo}"/>
+                            <b:selectOneMenu value="#{livroMB.livro.id}">
+                                <f:selectItems value="#{livroMB.allLivros()}" var="livro"
+                                               itemValue="#{livro.id}" itemLabel="#{livro.titulo}"/>
                             </b:selectOneMenu>
                         </b:column>
 
@@ -31,7 +30,7 @@
                                 <h5 align="left">Nome:</h5>
                         </b:column>
                         <b:column span="6">
-                                <input class="form-control" type="text" name="name"/>
+                            <b:inputText value="#{livroMB.livro.titulo}"/>
                         </b:column>
 
 
@@ -39,7 +38,7 @@
                             <h5 align="left">Autor:</h5>
                         </b:column>
                         <b:column span="6">
-                            <b:selectOneMenu value="#{livroMB.livro.autor.nome}">
+                            <b:selectOneMenu value="#{livroMB.livro.autor.id}">
                                 <f:selectItems value="#{autorMB.getAll()}" var="autor"
                                                itemValue="#{autor.id}" itemLabel="#{autor.nome}"/>
                             </b:selectOneMenu>
@@ -49,7 +48,7 @@
                             <h5 align="left">Editora:</h5>
                         </b:column>
                         <b:column span="6">
-                            <b:selectOneMenu value="#{editoraMB.editora.nome}">
+                            <b:selectOneMenu value="#{livroMB.livro.editora.id}">
                                 <f:selectItems value="#{editoraMB.getAll()}" var="editora"
                                                itemValue="#{editora.id}" itemLabel="#{editora.nome}"/>
                             </b:selectOneMenu>
@@ -59,7 +58,7 @@
                                 <h5 align="left">Gênero:</h5>
                         </b:column>
                          <b:column span="6">
-                                <b:selectOneMenu value="#{assuntoMB.assunto.titulo}">
+                                <b:selectOneMenu value="#{livroMB.livro.assunto.id}">
                                     <f:selectItems value="#{assuntoMB.getAll()}" var="assunto"
                                                    itemValue="#{assunto.id}" itemLabel="#{assunto.titulo}"/>
                                 </b:selectOneMenu>
@@ -68,13 +67,13 @@
                             <h5 align="left">Imagem:</h5>
                         </b:column>
                         <b:column span="6">
-                            <input class="form-control" type="text" name="image"/>
+                            <b:inputText value="#{livroMB.livro.imgURL}"/>
                         </b:column>
                         <b:column span="12">
                             <h5 align="left">Valor:</h5>
                         </b:column>
                         <b:column span="6">
-                                <input class="form-control" type="text" name="value"/>
+                            <b:inputText value="#{livroMB.livro.valor}"/>
                         </b:column>
                         <b:column span="6">
                             <a href="controlePreco.xhtml"><b:commandButton icon="pencil" look="info"/></a>
