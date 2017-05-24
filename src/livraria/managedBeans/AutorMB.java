@@ -24,14 +24,15 @@ public class AutorMB {
 	}
 
 	public ArrayList<Autor> getAll(){
-		ArrayList<Autor> todos = new ArrayList<>();
 		MongoCursor<Document> all = Autor.getAll();
+		ArrayList<Autor> allAutores = new ArrayList<>();
+
 		while(all.hasNext()){
 			Document autorDoc = all.next();
 			Autor    fromDocument = Autor.getFromDocument(autorDoc);
-			todos.add(fromDocument);
+			allAutores.add(fromDocument);
 		}
-		return todos;
+		return allAutores;
 	}
 }
 

@@ -2,12 +2,14 @@ package livraria.beans;
 
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
+import com.mongodb.client.result.UpdateResult;
 import livraria.Helper;
 import livraria.bd.BeanCRUD;
 import livraria.bd.Collections;
 import livraria.bd.LivrariaBD;
 import net.bootsfaces.utils.FacesMessages;
 import org.bson.Document;
+import org.bson.types.ObjectId;
 
 import static com.mongodb.client.model.Filters.eq;
 import static livraria.Helper.idFieldName;
@@ -37,17 +39,17 @@ public class Livro implements BeanCRUD{
 		editora = new Editora();
 	}
 
-	public static Livro fromDocument(Document doc) throws Exception {
-		Livro livro = new Livro();
+	public static Livro fromDocument(Document doc) throws Exception {Livro livro = new Livro();
 		Autor autor = new Autor(doc.getString("autor"));
 		Assunto assunto = new Assunto(doc.getString("assunto"));
 		Editora editora = new Editora(doc.getString("editora"));
 
+		livro.setId(doc.getObjectId(idFieldName).toString());
 		livro.setTitulo(doc.getString("titulo"));
 		livro.setAutor(autor);
 		livro.setAssunto(assunto);
 		livro.setValor(doc.getDouble("valor"));
-		livro.setImgURL(doc.getString("imgURL"));
+		livro.setImgURL(doc.getString("imgUrl"));
 		livro.setEditora(editora);
 		livro.setValor(doc.getDouble("valor"));
 
@@ -114,6 +116,9 @@ public class Livro implements BeanCRUD{
 		this.imgURL = imgURL;
 	}
 
+	public String getId(){ return id; }
+
+	public void setId(String id){this.id = id;}
 
 	// DB
 	@Override
@@ -128,7 +133,13 @@ public class Livro implements BeanCRUD{
 
 	@Override
 	public boolean updateOnDB() {
-		return false;
+		UpdateResult updateResult = getCollection().updateOne(
+			// Query Conditions
+			eq(idFieldName, new ObjectId(id)),
+			new Document("$set", getDocument())
+		);
+
+		return updateResult.wasAcknowledged();
 	}
 
 	@Override
@@ -144,9 +155,6 @@ public class Livro implements BeanCRUD{
 	@Override
 	public Document getDocument() {
 		Document livroDoc = new Document();
-		if(!Helper.isNullOrEmptyString(id)){
-			livroDoc.append(idFieldName, id);
-		}
 		livroDoc.append("titulo", titulo);
 		livroDoc.append("autor", autor.getId());
 		livroDoc.append("assunto", assunto.getId());

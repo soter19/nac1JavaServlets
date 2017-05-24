@@ -26,23 +26,14 @@ public class LivroMB{
 		this.livro = livro;
 	}
 
-	public ArrayList<Livro> getAllLivros() throws Exception {
+	public ArrayList<Livro> allLivros() throws Exception {
 		MongoCursor<Document> allLivrosCursor = Livro.getAll();
 		ArrayList<Livro> allLivros = new ArrayList<>();
 
 		while(allLivrosCursor.hasNext()){
-			Document currLivroDoc = allLivrosCursor.next();
-			Livro currLivro = new Livro();
-			currLivro.setTitulo(currLivroDoc.getString("titulo"));
-			currLivro.setImgURL(currLivroDoc.getString("imgUrl"));
-			currLivro.setValor(currLivroDoc.getDouble("valor"));
-			currLivro.setAssunto(new Assunto(currLivroDoc.getString("assunto")));
-			currLivro.setAutor(  new Autor(currLivroDoc.getString("autor")));
-			currLivro.setEditora(new Editora(currLivroDoc.getString("editora")));
-
-
-			allLivros.add(currLivro);
+			allLivros.add(Livro.fromDocument(allLivrosCursor.next()));
 		}
+
 		return allLivros;
 	}
 }
