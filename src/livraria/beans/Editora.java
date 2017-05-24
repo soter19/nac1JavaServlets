@@ -33,6 +33,7 @@ public class Editora implements BeanCRUD {
 			throw new Exception("Editora não encontrada");
 		}
 
+		this.id = id;
 		this.nome = first.getString("nome");
 	}
 

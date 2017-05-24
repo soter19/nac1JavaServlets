@@ -34,7 +34,7 @@ public class Autor implements BeanCRUD{
 		if(first == null){
 			throw new Exception("Autor not found");
 		}
-
+		this.id = id;
 		this.nome = first.getString("nome");
 	}
 

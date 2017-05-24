@@ -33,7 +33,7 @@ public class Assunto implements BeanCRUD{;
 		if(first == null){
 			throw new Exception("Assunto não encontrado");
 		}
-
+		this.id = id;
 		this.titulo = first.getString("titulo");
 	}
 

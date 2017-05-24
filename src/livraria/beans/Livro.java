@@ -32,8 +32,9 @@ public class Livro implements BeanCRUD{
 
 	public Livro(String id){
 		this.id = id;
-
 		autor = new Autor();
+		assunto = new Assunto();
+		editora = new Editora();
 	}
 
 	public static Livro fromDocument(Document doc) throws Exception {
