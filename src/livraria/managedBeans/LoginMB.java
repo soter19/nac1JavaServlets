@@ -27,7 +27,7 @@ public class LoginMB {
 			FacesContext context = FacesContext.getCurrentInstance();
 
 			if(checkLogin()){
-				context.getExternalContext().getSessionMap().put("user", usuario);
+				context.getExternalContext().getSessionMap().put("user", usuario); // AQUI ESSA PORRA!
 				FacesMessages.info("Success:","Logged!");
 			}else{
 				FacesMessages.warning("Wrong Credentials","Please try again");
