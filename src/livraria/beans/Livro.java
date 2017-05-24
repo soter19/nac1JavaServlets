@@ -2,9 +2,11 @@ package livraria.beans;
 
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
+import livraria.Helper;
 import livraria.bd.BeanCRUD;
 import livraria.bd.Collections;
 import livraria.bd.LivrariaBD;
+import net.bootsfaces.utils.FacesMessages;
 import org.bson.Document;
 
 import static com.mongodb.client.model.Filters.eq;
@@ -115,6 +117,8 @@ public class Livro implements BeanCRUD{
 	// DB
 	@Override
 	public void createOnDB() {
+		getCollection().insertOne(getDocument());
+		FacesMessages.info("Livro Criado no BD");
 	}
 
 	@Override

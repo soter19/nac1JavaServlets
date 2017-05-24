@@ -11,7 +11,7 @@
 
 <h:body>
     <ui:composition template="/templates/common/layout.xhtml">
-
+        <ui:define name="title">Cadastro Livro</ui:define>
         <ui:define name="content">
             <b:row>
                 <b:column span="6" offset="3">
@@ -22,7 +22,7 @@
 
                             <tr>
                                 <td><h5 align="left">Nome:</h5></td>
-                                <td><input class="form-control" type="text" name="name"/></td>
+                                <td><b:inputText value="#{livroMB.livro.titulo}"/></td>
                             </tr>
 
                             <tr>
@@ -88,17 +88,17 @@
 
                             <tr>
                                 <td><h5 align="left">Img:</h5></td>
-                                <td><input class="form-control" type="text" name="image"/></td>
+                                <td><b:inputText value="#{livroMB.livro.imgURL}"/></td>
                             </tr>
 
                             <tr>
                                 <td><h5 align="left">Valor:</h5></td>
-                                <td><input class="form-control" type="text" name="value"/></td>
-                                <td><a href="controlePreco.xhtml"><b:commandButton icon="pencil" look="info"/></a><br/></td>
+                                <td><b:inputText value="#{livroMB.livro.valor}"/></td>
+                                <td><a href="controlePreco.xhtml">Aplicar desconto</a><br/></td>
                             </tr>
                         </table>
 
-                        <b:commandButton action="#{livroMB.livro.createOnDB}">Salvar!</b:commandButton>
+                        <b:commandButton action="#{livroMB.livro.createOnDB}" ajax="true">Salvar!</b:commandButton>
 
                         <b:growl globalOnly="true" placementFrom="bottom"
                                  show-detail="true" allowDismiss="true"

@@ -85,7 +85,7 @@ public class Assunto implements BeanCRUD{;
 	@Override
 	public void createOnDB() throws Exception {
 		if(isValid()){
-			throw new Exception("not valid");
+			throw new Exception("Not valid");
 		}
 
 		Assunto.getCollection().insertOne(getDocument());

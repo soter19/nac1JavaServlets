@@ -5,13 +5,9 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:b="http://bootsfaces.net/ui">
-
-<h:head>
-    <title>Carrinho</title>
-</h:head>
-
 <h:body>
     <ui:composition template="/templates/common/layout.xhtml">
+        <ui:define name="title">Carrinho</ui:define>
         <ui:define name="content">
             <h:outputText value="Seu carrinho está vazio! Vá comprar coisas." rendered="#{empty carrinhoMB.carrinho}"></h:outputText>
             <h:form class="navbar-form hidden-md hidden-sm hidden-xs" rendered="#{not empty carrinhoMB.carrinho}">

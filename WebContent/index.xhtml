@@ -15,6 +15,7 @@
     </h:head>
     <h:body>
         <ui:composition template="/templates/common/layout.xhtml">
+            <ui:define name="title">Home</ui:define>
             <ui:define name="content">
                 <h:form>
                     <ui:repeat value="#{livroMB.getAllLivros()}" var="livro">

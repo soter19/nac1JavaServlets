@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 @ManagedBean
 public class AssuntoMB {
-	private Assunto assunto;
+	private Assunto assunto = new Assunto();
 
 	public Assunto getAssunto() {
 		return assunto;
