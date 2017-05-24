@@ -53,7 +53,7 @@ public class Editora implements BeanCRUD {
 	}
 
 	// DB
-	private static MongoCollection<Document> getCollection(){
+	public static MongoCollection<Document> getCollection(){
 		return LivrariaBD.getInstancia()
 		                 .getBD()
 		                 .getCollection(Collections.EDITORAS.nome);

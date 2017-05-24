@@ -41,7 +41,7 @@ public class PesquisaMB {
 
 	public String pesquisar(){
 		try {
-			livrosResultados = PesquisaBO.pesquisa(pesquisaString);
+			livrosResultados = PesquisaBO.pesquisaSimples(pesquisaString);
 		}catch(Exception e){
 			erro = e.getMessage();
 		}

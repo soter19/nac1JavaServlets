@@ -58,7 +58,7 @@ public class Autor implements BeanCRUD{
 
 	// Static Methods
 
-	private static MongoCollection<Document> getCollection(){
+	public static MongoCollection<Document> getCollection(){
 		return LivrariaBD.getInstancia()
 		                 .getBD()
 		                 .getCollection(Collections.AUTORES.nome);
