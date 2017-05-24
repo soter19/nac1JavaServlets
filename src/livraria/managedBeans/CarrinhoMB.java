@@ -4,8 +4,7 @@ import livraria.beans.Livro;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import javax.faces.model.DataModel;
-import java.util.ArrayList;
+import java.util.*;
 
 /**
  * Forged by Soter Padua on 23/05/17.
@@ -14,26 +13,32 @@ import java.util.ArrayList;
 @SessionScoped
 public class CarrinhoMB {
 	private ArrayList<Livro> carrinho = new ArrayList<>();
-
-	public ArrayList<Livro> getCarrinho() {
-		return carrinho;
-	}
+	private double valorTotal;
 
 	public void adicionaAoCarrinho(Livro l){
 		if(!carrinho.contains(l)){
 			carrinho.add(l);
 		}
+		CalculaValorTotal();
 	}
 
 	public void remover(Livro l){
 		carrinho.remove(l);
 	}
 
-	public double valorTotal(){
+	public void CalculaValorTotal(){
 		double total = 0;
 		for(Livro l : carrinho){
-			total += l.getValor();
+			total += l.getValor() * l.getQuantidade();
 		}
-		return total;
+		valorTotal = total;
+	}
+
+	public ArrayList<Livro> getCarrinho() {
+		return carrinho;
+	}
+
+	public double getValorTotal() {
+		return valorTotal;
 	}
 }

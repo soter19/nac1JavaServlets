@@ -26,6 +26,8 @@ public class Livro implements BeanCRUD{
 	private String  imgURL;
 	private Double  valor;
 
+	private Integer quantidade = 1;
+
 	public Livro(){
 		autor = new Autor();
 		assunto = new Assunto();
@@ -169,5 +171,13 @@ public class Livro implements BeanCRUD{
 	public boolean equals(Object l){
 		Livro livro = (Livro) l;
 		return livro.id.equals(id);
+	}
+
+	public Integer getQuantidade() {
+		return quantidade;
+	}
+
+	public void setQuantidade(Integer qnt){
+		this.quantidade = qnt;
 	}
 }
