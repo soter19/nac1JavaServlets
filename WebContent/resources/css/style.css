@@ -51,3 +51,7 @@ input.center{
 .CenterGroup{
     padding-top: 10px;
 }
+
+#form-cadastro h2 {
+    text-align: center;
+}
