@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:b="http://bootsfaces.net/ui"
-      xmlns:p="http://java.sun.com/jsf/composite">
+      xmlns:p="http://java.sun.com/jsf/composite" xmlns:f="http://xmlns.jcp.org/jsf/core">
 
 <h:head>
     <title>Editar livro</title>
@@ -19,99 +19,158 @@
         <ui:define name="content">
             <b:row>
                 <b:column span="6">
-                    <h:form class="navbar-form hidden-md hidden-sm hidden-xs">
+                    <h:form>
 
-                        <h1 align="left"><strong>Editar Livro</strong></h1>
+                        <h1 align="center"><strong>Editar Livro</strong></h1>
                         <br/>
-                        <h3>Qual livro deseja editar?</h3>
-                            <p>
-                                <select name="editarLivro">
-                                    <option value="Livro0">Selecione o livro...</option>
-                                    <option value="Livro1">O Pequeno Príncipe</option>
-                                    <option value="Livro2">O Código DaVinci</option>
-                                    <option value="Livro3">Veronika Decide Morrer</option>
-                                    <option value="Livro4">Memorias de Uma Moça Bem Comportada</option>
-                                    <option value="Livro5">Morte no Nilo</option>
-                                    <option value="Livro6">O Evangelho Segundo Jesus Cristo</option>
-                                    <option value="Livro7">Cinquenta Tons de Cinza </option>
-                                    <option value="Livro8">Game of Thrones - Guerra dos Tronos</option>
-                                    <option value="Livro9">Game of Thrones - Fúria dos Reis</option>
-                                    <option value="Livro10">Game of Thrones - A Tormenta das Espadas</option>
-                                </select>
-                            </p>
-                         <h5 align="left">Nome:</h5>
-                                     <input class="form-control" type="text" name="name"/>
-                                        <p>
-                                             <select name="Autores">
-                                                 <option value="Livro0">Selecione o autor...</option>
-                                                 <option value="Livro1">Maria B</option>
-                                                 <option value="Livro2">Roman Pike</option>
-                                                 <option value="Livro3">Pedro Coelho</option>
-                                             </select>
-                                         </p>
-                                         <p>
-                                             <select name="Editoras">
-                                                 <option value="Livro0">Selecione a editora...</option>
-                                                 <option value="Livro1">Abril</option>
-                                                 <option value="Livro2">Global</option>
-                                                 <option value="Livro3">Moderna</option>
-                                             </select>
-                                         </p>
-                                         <p>
-                                             <select name="Assuntos">
-                                                 <option value="Livro0">Selecione o assunto...</option>
-                                                 <option value="Livro1">Suspense</option>
-                                                 <option value="Livro2">Romance</option>
-                                                 <option value="Livro3">Drama</option>
-                                             </select>
-                                         </p>
-                                     <h5 align="left">Img:</h5>
-                                     <input class="form-control" type="text" name="image"/>
-                                     <h5 align="left">Valor:</h5>
-                                     <input class="form-control" type="text" name="value"/>
-                        <a href="controlePreco.xhtml"> <b:button value="Editar valor" look="info"/> </a>
+                        <b:column span="12">
+                            <h3>Qual livro deseja editar?</h3>
+                        </b:column>
+                        <b:column span="6">
+                            <b:selectOneMenu value="#{livroMB.livro.titulo}">
+                                <f:selectItems value="#{livroMB.getAllLivros()}" var="livro"
+                                               itemValue="#{livro.titulo}" itemLabel="#{livro.titulo}"/>
+                            </b:selectOneMenu>
+                        </b:column>
 
-                        <br/>
-                        <br/>
-                        <b:button value="Editar" look="warning"/>
-                        <b:button value="Apagar" look="danger"/>
+                        <b:column span="12">
+                                <h5 align="left">Nome:</h5>
+                        </b:column>
+                        <b:column span="6">
+                                <input class="form-control" type="text" name="name"/>
+                        </b:column>
 
+
+                        <b:column span="12">
+                            <h5 align="left">Autor:</h5>
+                        </b:column>
+                        <b:column span="6">
+                            <b:selectOneMenu value="#{livroMB.livro.autor.nome}">
+                                <f:selectItems value="#{autorMB.getAll()}" var="autor"
+                                               itemValue="#{autor.id}" itemLabel="#{autor.nome}"/>
+                            </b:selectOneMenu>
+                        </b:column>
+
+                        <b:column span="12">
+                            <h5 align="left">Editora:</h5>
+                        </b:column>
+                        <b:column span="6">
+                            <b:selectOneMenu value="#{editoraMB.editora.nome}">
+                                <f:selectItems value="#{editoraMB.getAll()}" var="editora"
+                                               itemValue="#{editora.id}" itemLabel="#{editora.nome}"/>
+                            </b:selectOneMenu>
+                        </b:column>
+
+                        <b:column span="12">
+                                <h5 align="left">Gênero:</h5>
+                        </b:column>
+                         <b:column span="6">
+                                <b:selectOneMenu value="#{assuntoMB.assunto.titulo}">
+                                    <f:selectItems value="#{assuntoMB.getAll()}" var="assunto"
+                                                   itemValue="#{assunto.id}" itemLabel="#{assunto.titulo}"/>
+                                </b:selectOneMenu>
+                        </b:column>
+                        <b:column span="12">
+                            <h5 align="left">Imagem:</h5>
+                        </b:column>
+                        <b:column span="6">
+                            <input class="form-control" type="text" name="image"/>
+                        </b:column>
+                        <b:column span="12">
+                            <h5 align="left">Valor:</h5>
+                        </b:column>
+                        <b:column span="6">
+                                <input class="form-control" type="text" name="value"/>
+                        </b:column>
+                        <b:column span="6">
+                            <a href="controlePreco.xhtml"><b:commandButton icon="pencil" look="info"/></a>
+                        </b:column>
+                        <b:column span="5" offset="1">
+                            <b:buttonGroup>
+                                <br/>
+                                <b:commandButton icon="floppy-disk" value="Salvar" look="warning" action="#{livroMB.livro.updateOnDB}"/>
+                                <b:commandButton icon="remove" value="Excluir" look="danger" action="#{livroMB.livro.deleteFromDB}"/>
+                            </b:buttonGroup>
+                        </b:column>
                     </h:form>
                 </b:column>
-
                 <b:column span="6">
-                    <h:form class="navbar-form hidden-md hidden-sm hidden-xs">
+                    <h:form>
 
                         <h1 align="left"><strong>Editar Outras Informações</strong></h1>
                         <br/>
+                        <b:column span="12">
+                            <h5 align="left">Autor:</h5>
+                        </b:column>
+                        <b:column span="6">
+                            <b:selectOneMenu value="#{livroMB.livro.autor.nome}">
+                                <f:selectItems value="#{autorMB.getAll()}" var="autor"
+                                               itemValue="#{autor.id}" itemLabel="#{autor.nome}"/>
+                            </b:selectOneMenu>
+                        </b:column>
+                        <b:column span="7">
+                            <input class="form-control" type="text"/>
+                        </b:column>
+                        <b:column span="4">
+                            <b:buttonGroup>
+                                <b:commandButton icon="floppy-disk" look="warning" action="#{autorMB.autor.updateOnDB}"/>
+                                <b:commandButton icon="remove" look="danger" action="#{autorMB.autor.deleteFromDB}"/>
+                            </b:buttonGroup>
+                        </b:column>
+                        <br/>
 
 
-                        <h3>Qual informação deseja editar?</h3>
-                        <p>
-                            <select name="editarLivro">
-                                <option value="Livro0">Selecione a opção...</option>
-                                <option value="Livro1">Autores</option>
-                                <option value="Livro2">Editoras</option>
-                                <option value="Livro3">Assuntos</option>
-                            </select>
-                        </p>
+                        <b:column span="12">
+                            <h5 align="left">Editora:</h5>
+                        </b:column>
+                        <b:column span="6">
+                            <b:selectOneMenu value="#{editoraMB.editora.nome}">
+                                <f:selectItems value="#{editoraMB.getAll()}" var="editora"
+                                               itemValue="#{editora.id}" itemLabel="#{editora.nome}"/>
+                            </b:selectOneMenu>
+                        </b:column>
+                        <b:column span="7">
+                            <input class="form-control" type="text"/>
+                        </b:column>
+                        <b:column span="4">
+                            <b:buttonGroup>
+                                <b:commandButton icon="floppy-disk" look="warning" action="#{editoraMB.editora.updateOnDB}"/>
+                                <b:commandButton icon="remove" look="danger" action="#{editoraMB.editora.deleteFromDB}"/>
+                            </b:buttonGroup>
+                        </b:column>
+                        <br/>
 
+                        <b:column span="12">
+                            <h5 align="left">Gênero:</h5>
+                        </b:column>
+                        <b:column span="6">
+                            <b:selectOneMenu value="#{assuntoMB.assunto.titulo}">
+                                <f:selectItems value="#{assuntoMB.getAll()}" var="assunto"
+                                               itemValue="#{assunto.id}" itemLabel="#{assunto.titulo}"/>
+                            </b:selectOneMenu>
+                        </b:column>
+                        <b:column span="7">
+                            <input class="form-control" type="text"/>
+                        </b:column>
+                        <b:column span="4">
+                            <b:buttonGroup>
+                                <b:commandButton icon="floppy-disk" look="warning" action="#{assuntoMB.assunto.updateOnDB}"/>
+                                <b:commandButton icon="remove" look="danger" action="#{assuntoMB.assunto.deleteFromDB}"/>
+                            </b:buttonGroup>
+                        </b:column>
 
-                        <button type="button" class="btn btn-warning">Editar</button>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <a href="cadastroLivro.xhtml"> <b:button value="VOLTAR" look="primary" size="lg"/> </a>
-
+                        <b:column span="6">
+                            <br/>
+                            <br/>
+                            <h:commandLink>
+                                Voltar para tela de cadastro!
+                            </h:commandLink>
+                        </b:column>
                     </h:form>
                 </b:column>
             </b:row>
 
         </ui:define>
-        <!--<a href="cadastroOutras.xhtml"> <button type="button" class="btn btn-warning center-block">Cadastrar mais informações</button> </a>-->
-        <!--<a href="controlePreco.xhtml"> <button type="button" class="btn btn-warning center-block">Cadastrar outras informações</button> </a>-->
     </ui:composition>
 </h:body>
 

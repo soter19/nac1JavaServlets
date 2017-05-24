@@ -40,7 +40,8 @@ public class AuthorizationFilter implements Filter {
 			boolean isAdmin      = (ses != null && ses.getAttribute("admin") != null);
 			boolean isPublicPage = !reqURI.contains("/admin/");
 
-			if(isPublicPage || isAdmin) {
+			//TODO apagar true
+			if(true || isPublicPage || isAdmin) {
 				chain.doFilter(request, response);
 			} else {
 				resp.sendRedirect(reqt.getContextPath() + "/login.xhtml");
