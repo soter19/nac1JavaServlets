@@ -4,6 +4,7 @@ import livraria.beans.Livro;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.model.DataModel;
 import java.util.ArrayList;
 
 /**
@@ -19,7 +20,13 @@ public class CarrinhoMB {
 	}
 
 	public void adicionaAoCarrinho(Livro l){
-		carrinho.add(l);
+		if(!carrinho.contains(l)){
+			carrinho.add(l);
+		}
+	}
+
+	public void remover(Livro l){
+		carrinho.remove(l);
 	}
 
 	public double valorTotal(){

@@ -164,4 +164,10 @@ public class Livro implements BeanCRUD{
 
 		return livroDoc;
 	}
+
+	@Override
+	public boolean equals(Object l){
+		Livro livro = (Livro) l;
+		return livro.id.equals(id);
+	}
 }

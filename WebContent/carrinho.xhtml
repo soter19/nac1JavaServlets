@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:b="http://bootsfaces.net/ui">
+      xmlns:b="http://bootsfaces.net/ui" xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:body>
     <ui:composition template="/templates/common/layout.xhtml">
         <ui:define name="title">Carrinho</ui:define>
@@ -17,13 +17,19 @@
                         <b:dataTableColumn value="#{item.editora.nome}" label="Editora"/>
                         <b:dataTableColumn value="#{item.assunto.titulo}" label="Gênero"/>
                         <b:dataTableColumn value="#{item.valor}" label="Preço"/>
+                        <h:column>
+                            <f:facet name="header">Remover item</f:facet>
+                            <b:navCommandLink icon-size="2x" iconAwesome="times" value="remover" action="#{carrinhoMB.remover(item)}" look="info" />
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Quantidade</f:facet>
+                            <b:inputText value="lalala"/>
+                        </h:column>
                     </b:dataTable>
 
                     <h:outputText>#{carrinhoMB.valorTotal()}</h:outputText>
 
-                    <b:commandButton value="Finalizar Compra"
-                                                 look="success"
-                                                 action="#{carrinhoMB.finalizarCompra}"/>
+                    <b:commandButton value="Finalizar Compra" look="success" action="#{carrinhoMB.finalizarCompra}"/>
 
                 </b:container>
             </h:form>
