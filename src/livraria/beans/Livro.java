@@ -118,12 +118,11 @@ public class Livro implements BeanCRUD{
 	@Override
 	public void createOnDB() {
 		getCollection().insertOne(getDocument());
-		FacesMessages.info("Livro Criado no BD");
+		FacesMessages.info("Livro Criado no BD!");
 	}
 
 	@Override
-	public Document getFromDB() {
-		return getCollection().find(eq(idFieldName, id)).first();
+	public void getIdFromDB() {
 	}
 
 	@Override
@@ -144,12 +143,15 @@ public class Livro implements BeanCRUD{
 	@Override
 	public Document getDocument() {
 		Document livroDoc = new Document();
-		livroDoc.append(idFieldName, id);
+		if(!Helper.isNullOrEmptyString(id)){
+			livroDoc.append(idFieldName, id);
+		}
 		livroDoc.append("titulo", titulo);
 		livroDoc.append("autor", autor.getId());
 		livroDoc.append("assunto", assunto.getId());
 		livroDoc.append("editora", editora.getId());
 		livroDoc.append("valor", valor);
+		livroDoc.append("imgUrl", imgURL);
 
 		return livroDoc;
 	}

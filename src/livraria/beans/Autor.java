@@ -12,6 +12,8 @@ import net.bootsfaces.utils.FacesMessages;
 import org.bson.Document;
 import org.bson.types.ObjectId;
 
+import javax.annotation.PostConstruct;
+
 import static com.mongodb.client.model.Filters.eq;
 import static livraria.Helper.idFieldName;
 
@@ -78,9 +80,6 @@ public class Autor implements BeanCRUD{
 	public Document getDocument(){
 		Document doc = new Document();
 		doc.append(nomeFieldName, nome);
-		if(!Helper.isNullOrEmptyString(id)){
-			doc.append(idFieldName, id);
-		}
 		return doc;
 	}
 
@@ -96,15 +95,14 @@ public class Autor implements BeanCRUD{
 	}
 
 	@Override
-	public Document getFromDB() {
-		return null;
+	public void getIdFromDB() throws Exception {
 	}
 
 	@Override
 	public boolean updateOnDB() {
-		UpdateResult updateResult = Assunto.getCollection().updateOne(
+		UpdateResult updateResult = getCollection().updateOne(
 			// Query Conditions
-			eq("_id", id),
+			eq(idFieldName, new ObjectId(id)),
 			new Document("$set", getDocument())
 		);
 
@@ -113,7 +111,7 @@ public class Autor implements BeanCRUD{
 
 	@Override
 	public boolean deleteFromDB() {
-		return false;
+		return getCollection().deleteOne(eq(idFieldName, new ObjectId(id))).wasAcknowledged();
 	}
 
 	@Override

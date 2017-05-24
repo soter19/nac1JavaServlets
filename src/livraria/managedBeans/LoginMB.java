@@ -30,7 +30,7 @@ public class LoginMB {
 				context.getExternalContext().getSessionMap().put("user", usuario);
 				FacesMessages.info("Success:","Logged!");
 			}else{
-				FacesMessages.warning("Wrong Credentials: ","Please try again");
+				FacesMessages.warning("Wrong Credentials","Please try again");
 				return NomesPaginas.LOGIN.nome; // No caso de erro estamos mandando para a página de login.
 			}
 		} catch(Exception e) {
@@ -40,6 +40,11 @@ public class LoginMB {
 		return NomesPaginas.INDEX.nome;
 	}
 
+	public void logout(){
+		FacesContext context = FacesContext.getCurrentInstance();
+		context.getExternalContext().invalidateSession();
+	}
+
 	public String loginAdmin(){
 		try {
 			FacesContext context = FacesContext.getCurrentInstance();
@@ -47,7 +52,6 @@ public class LoginMB {
 			if(checkAdminLogin()){
 				context.getExternalContext().getSessionMap().put("admin", admin);
 				FacesMessages.info("Success:","Logged!");
-
 			}else{
 				FacesMessages.warning("Wrong Credentials: ","Please try again");
 				return NomesPaginas.ADMIN.nome; // No caso de erro estamos mandando para a página de login.
@@ -56,7 +60,7 @@ public class LoginMB {
 			FacesMessages.warning("Erro: ", e.getMessage());
 			return NomesPaginas.ADMIN.nome; // No caso de erro estamos mandando para a página login.
 		}
-		return "index";
+		return NomesPaginas.INDEX.nome;
 	}
 
 	private Boolean checkLogin() throws Exception {
@@ -87,20 +91,20 @@ public class LoginMB {
 		return first != null;
 	}
 
-	public String signup(){
-		if(!usuario.isValid()){
-			FacesMessages.warning("Usuário inválido: ","Por favor preencha e-mail e senha.");
-		}
-
-		try {
-			usuario.criarUsuario();
-		} catch(Exception e) {
-			FacesMessages.warning(e.getMessage());
-			return NomesPaginas.LOGIN.nome;
-		}
-
-		return login();
-	}
+//	public String signup(){
+//		if(!usuario.isValid()){
+//			FacesMessages.warning("Usuário inválido: ","Por favor preencha e-mail e senha.");
+//		}
+//
+//		try {
+//			usuario.criarUsuario();
+//		} catch(Exception e) {
+//			FacesMessages.warning(e.getMessage());
+//			return NomesPaginas.LOGIN.nome;
+//		}
+//
+//		return login();
+//	}
 
 	public void forgotPassword() {
 		if(Helper.isNullOrEmptyString(usuario.getEmail())){
@@ -123,5 +127,7 @@ public class LoginMB {
 	public Usuario getUsuario() {
 		return usuario;
 	}
+
+	public Admin getAdmin(){return admin;}
 
 }

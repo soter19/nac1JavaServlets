@@ -28,7 +28,7 @@
                             <tr>
                                 <td><h5 align="left">Autor:</h5></td>
                                 <td><p>
-                                    <b:selectOneMenu value="#{livroMB.livro.autor.nome}">
+                                    <b:selectOneMenu value="#{livroMB.livro.autor.id}">
                                         <f:selectItems value="#{autorMB.getAll()}" var="autor"
                                                        itemValue="#{autor.id}" itemLabel="#{autor.nome}"/>
                                     </b:selectOneMenu>
@@ -48,7 +48,7 @@
                             <tr>
                                 <td><h5 align="left">Editora:</h5></td>
                                 <td>
-                                    <b:selectOneMenu value="#{editoraMB.editora.nome}">
+                                    <b:selectOneMenu value="#{livroMB.livro.editora.id}">
                                         <f:selectItems value="#{editoraMB.getAll()}" var="editora"
                                                        itemValue="#{editora.id}" itemLabel="#{editora.nome}"/>
                                     </b:selectOneMenu>
@@ -69,7 +69,7 @@
                                 <td><h5 align="left">Gênero:</h5></td>
                                 <td>
                                     <p>
-                                        <b:selectOneMenu value="#{assuntoMB.assunto.titulo}">
+                                        <b:selectOneMenu value="#{livroMB.livro.assunto.id}">
                                             <f:selectItems value="#{assuntoMB.getAll()}" var="assunto"
                                                            itemValue="#{assunto.id}" itemLabel="#{assunto.titulo}"/>
                                         </b:selectOneMenu>
@@ -98,11 +98,8 @@
                             </tr>
                         </table>
 
+                        <b:messages/>
                         <b:commandButton action="#{livroMB.livro.createOnDB}" ajax="true">Salvar!</b:commandButton>
-
-                        <b:growl globalOnly="true" placementFrom="bottom"
-                                 show-detail="true" allowDismiss="true"
-                                 delay="10000" escape="true" />
                     </h:form>
                 </b:column>
             </b:row>

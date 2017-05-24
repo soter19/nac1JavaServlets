@@ -57,9 +57,6 @@ public class Assunto implements BeanCRUD{;
 	// DB
 	public Document getDocument() {
 		Document doc = new Document(tituloFieldName, titulo);
-		if(!Helper.isNullOrEmptyString(id)){
-			doc.append(idFieldName, id);
-		}
 		return doc;
 	}
 
@@ -93,18 +90,15 @@ public class Assunto implements BeanCRUD{;
 	}
 
 	@Override
-	public Document getFromDB() {
-		return null;
+	public void getIdFromDB() {
+
 	}
 
 	@Override
 	public boolean updateOnDB() {
-		if(!isValid()){
-			return false;
-		}
-
-		UpdateResult updateResult = Assunto.getCollection().updateOne(
-			eq("_id", id),
+		UpdateResult updateResult = getCollection().updateOne(
+			// Query Conditions
+			eq(idFieldName, new ObjectId(id)),
 			new Document("$set", getDocument())
 		);
 
@@ -113,7 +107,7 @@ public class Assunto implements BeanCRUD{;
 
 	@Override
 	public boolean deleteFromDB() {
-		return false;
+		return getCollection().deleteOne(eq(idFieldName, new ObjectId(id))).wasAcknowledged();
 	}
 
 	@Override

@@ -35,16 +35,15 @@ public class AuthorizationFilter implements Filter {
 			HttpSession         ses  = reqt.getSession(false);
 
 			String  reqURI       = reqt.getRequestURI();
-			boolean isLoginPage  = reqURI.contains("/login.xhtml");
+			boolean isLoginPage  = reqURI.contains("/admin.xhtml");
 			boolean isLogged     = (ses != null && ses.getAttribute("username") != null);
 			boolean isAdmin      = (ses != null && ses.getAttribute("admin") != null);
 			boolean isPublicPage = !reqURI.contains("/admin/");
 
-			//TODO apagar true
-			if(true || isPublicPage || isAdmin) {
+			if(isPublicPage || isLoginPage || isAdmin) {
 				chain.doFilter(request, response);
 			} else {
-				resp.sendRedirect(reqt.getContextPath() + "/login.xhtml");
+				resp.sendRedirect(reqt.getContextPath() + "/admin/admin.xhtml");
 			}
 
 		} catch(Exception e) {

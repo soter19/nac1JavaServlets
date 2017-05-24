@@ -23,12 +23,13 @@
                             <b:row>
                                 <b:column span="4" style="margin-bottom:10px">
                                     <b:image width="100%"
-                                             value="https://s-media-cache-ak0.pinimg.com/originals/8d/e2/29/8de22937d50b35b5cdef70735714ad9d.jpg"/>
+                                             value="#{livro.imgURL}"/>
                                 </b:column>
                                 <b:column span="6">
                                     <h:outputText value="#{livro.titulo}"/><br/>
                                     <h:outputText value="#{msg.labelAutor} : #{livro.autor.nome}"/><br/>
                                     <h:outputText value="#{msg.labelEditora} : #{livro.editora.nome}"/><br/>
+                                    <h:outputText value="#{msg.labelGenero} : #{livro.assunto.titulo}"/><br/>
                                     <h:outputText value="#{msg.labelPreco} : #{livro.valor}">
                                         <f:convertNumber currencyCode="R$" type="currency" />
                                     </h:outputText><br/>

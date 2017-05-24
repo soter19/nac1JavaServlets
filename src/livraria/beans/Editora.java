@@ -3,6 +3,7 @@ package livraria.beans;
 import com.mongodb.BasicDBObject;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
+import com.mongodb.client.result.UpdateResult;
 import livraria.Helper;
 import livraria.bd.BeanCRUD;
 import livraria.bd.Collections;
@@ -11,6 +12,7 @@ import net.bootsfaces.utils.FacesMessages;
 import org.bson.Document;
 import org.bson.types.ObjectId;
 
+import static com.mongodb.client.model.Filters.eq;
 import static livraria.Helper.idFieldName;
 
 /**
@@ -79,18 +81,23 @@ public class Editora implements BeanCRUD {
 	}
 
 	@Override
-	public Document getFromDB() {
-		return null;
+	public void getIdFromDB() {
 	}
 
 	@Override
 	public boolean updateOnDB() {
-		return false;
+		UpdateResult updateResult = getCollection().updateOne(
+			// Query Conditions
+			eq(idFieldName, new ObjectId(id)),
+			new Document("$set", getDocument())
+		);
+
+		return updateResult.wasAcknowledged();
 	}
 
 	@Override
 	public boolean deleteFromDB() {
-		return false;
+		return getCollection().deleteOne(eq(idFieldName, new ObjectId(id))).wasAcknowledged();
 	}
 
 	@Override
@@ -100,6 +107,6 @@ public class Editora implements BeanCRUD {
 
 	@Override
 	public Document getDocument() {
-		return null;
+		return new Document(nomeFieldName, nome);
 	}
 }

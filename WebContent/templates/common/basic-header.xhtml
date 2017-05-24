@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:b="http://bootsfaces.net/ui"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:body>
     <ui:composition>
         <h:head>
@@ -15,21 +15,29 @@
                     <b:navLink value="Home" href="/"></b:navLink>
                 </b:navbarLinks>
 
+
                 <!--barra de busca-->
                 <b:navbarLinks pull="right" styleClass="hidden-xs">
-                    <b:navLink href="favoritos.xhtml" icon="star" value="Lista de desejos" rendered="#{not empty user}"></b:navLink>
-                    <b:navLink href="carrinho.xhtml" icon="shopping-cart" value="Carrinho"></b:navLink>
-                    <b:navLink href="perfil.xhtml" icon="user" value="Perfil" rendered="#{not empty user}"></b:navLink>
-                    <b:navLink href="admin.xhtml" icon="user" value="Admin" rendered="#{not empty user}"></b:navLink>
+                    <b:navLink href="favoritos.xhtml" icon="star" value="Lista de desejos" rendered="#{not empty user}"/>
+                    <b:navLink href="carrinho.xhtml" icon="shopping-cart" value="Carrinho"/>
+                    <b:navLink href="perfil.xhtml" icon="user" value="Perfil" rendered="#{not empty user}"/>
+
+                    <b:navLink href="admin/admin.xhtml" icon="user" value="Admin" rendered="#{ empty user}"/>
+                    <b:navLink href="login.xhtml" icon="user" value="Client" rendered="#{ empty user}"/>
+
 
                     <h:form class="navbar-form navbar-right hidden-md hidden-sm hidden-xs" role="search">
                         <div class="form-group">
-                            <b:inputText value="#{pesquisaMB.pesquisaString}"/>
+                            <b:inputText value="#{pesquisaMB.pesquisaString}">
+                                <f:facet name="append">
+                                    <b:commandButton action="#{pesquisaMB.pesquisar}" value="Buscar" icon="search"/>
+                                </f:facet>
+                            </b:inputText>
+
                         </div>
-                        <b:commandButton action="#{pesquisaMB.pesquisar}"
-                                         value="Search"/>
                     </h:form>
                 </b:navbarLinks>
+
 
             </b:navBar>
 

@@ -12,12 +12,8 @@
 
 <h:body>
     <ui:composition template="/templates/common/layout.xhtml">
-        <ui:define name="title">Admin</ui:define>
+        <ui:define name="title">#{msg.labelAdmin}</ui:define>
         <ui:define name="content">
-            <h:head>
-                <title>#{msg.labelAdmin}</title>
-            </h:head>
-
             <h:form id="AdminForm" class="navbar-form hidden-md hidden-sm hidden-xs">
                 <b:container layout="fluid">
                     <b:panel medium-screen="3" offsetMd="4"
@@ -25,7 +21,7 @@
                         <b:row>
 
                             <b:column medium-screen="12">
-                                <b:inputText placeholder="#{msg.labelUsuario}" id="username" value="#{LoginMB.usuario.email}"
+                                <b:inputText placeholder="#{msg.labelUsuario}" id="username" value="#{LoginMB.admin.email}"
                                              autocomplete="false">
                                     <f:facet name="prepend">
                                         <b:icon name="user"/>
@@ -35,13 +31,14 @@
                         </b:row>
                         <b:row>
                             <b:column medium-screen="12">
-                                <b:inputSecret placeholder="#{msg.labelSenha}" id="senha" value="#{LoginMB.usuario.senha}">
+                                <b:inputSecret placeholder="#{msg.labelSenha}" id="senha" value="#{LoginMB.admin.senha}">
                                     <f:facet name="prepend">
                                         <b:iconAwesome name="key"/>
                                     </f:facet>
                                 </b:inputSecret>
                             </b:column>
                         </b:row>
+                        <b:messages/>
                         <b:row style="margin-bottom: 10px;">
                             <b:column mediumScreen="3" offsetMd="4">
                                 <b:commandButton value="Login" action="#{LoginMB.loginAdmin}" look="primary"/>
@@ -49,6 +46,7 @@
                         </b:row>
                     </b:panel>
                 </b:container>
+
                 <b:growl globalOnly="true" placementFrom="bottom"
                          show-detail="true" allowDismiss="true"
                          delay="10000" escape="true"/>

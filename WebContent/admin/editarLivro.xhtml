@@ -4,7 +4,8 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:b="http://bootsfaces.net/ui">
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:b="http://bootsfaces.net/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 
 <h:body>
     <ui:composition template="/templates/common/layout.xhtml">
@@ -96,13 +97,13 @@
                             <h5 align="left">Autor:</h5>
                         </b:column>
                         <b:column span="6">
-                            <b:selectOneMenu value="#{livroMB.livro.autor.nome}">
+                            <b:selectOneMenu value="#{autorMB.autor.id}">
                                 <f:selectItems value="#{autorMB.getAll()}" var="autor"
                                                itemValue="#{autor.id}" itemLabel="#{autor.nome}"/>
                             </b:selectOneMenu>
                         </b:column>
                         <b:column span="7">
-                            <input class="form-control" type="text"/>
+                            <b:inputText value="#{autorMB.autor.nome}"/>
                         </b:column>
                         <b:column span="4">
                             <b:buttonGroup>
@@ -117,13 +118,13 @@
                             <h5 align="left">Editora:</h5>
                         </b:column>
                         <b:column span="6">
-                            <b:selectOneMenu value="#{editoraMB.editora.nome}">
+                            <b:selectOneMenu value="#{editoraMB.editora.id}">
                                 <f:selectItems value="#{editoraMB.getAll()}" var="editora"
                                                itemValue="#{editora.id}" itemLabel="#{editora.nome}"/>
                             </b:selectOneMenu>
                         </b:column>
                         <b:column span="7">
-                            <input class="form-control" type="text"/>
+                            <b:inputText value="#{editoraMB.editora.nome}"/>
                         </b:column>
                         <b:column span="4">
                             <b:buttonGroup>
@@ -137,13 +138,13 @@
                             <h5 align="left">Gênero:</h5>
                         </b:column>
                         <b:column span="6">
-                            <b:selectOneMenu value="#{assuntoMB.assunto.titulo}">
+                            <b:selectOneMenu value="#{assuntoMB.assunto.id}">
                                 <f:selectItems value="#{assuntoMB.getAll()}" var="assunto"
                                                itemValue="#{assunto.id}" itemLabel="#{assunto.titulo}"/>
                             </b:selectOneMenu>
                         </b:column>
                         <b:column span="7">
-                            <input class="form-control" type="text"/>
+                            <b:inputText value="#{assuntoMB.assunto.titulo}"/>
                         </b:column>
                         <b:column span="4">
                             <b:buttonGroup>

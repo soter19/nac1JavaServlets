@@ -7,7 +7,7 @@ import org.bson.Document;
  */
 public interface BeanCRUD {
 	public void createOnDB() throws Exception;
-	public Document getFromDB();
+	public void getIdFromDB() throws Exception;
 	public boolean updateOnDB();
 	public boolean deleteFromDB();
 	public boolean isValid();
