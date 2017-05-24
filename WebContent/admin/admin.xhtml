@@ -16,10 +16,8 @@
         <ui:define name="content">
             <h:form id="AdminForm" class="navbar-form hidden-md hidden-sm hidden-xs">
                 <b:container layout="fluid">
-                    <b:panel medium-screen="3" offsetMd="4"
-                             look="primary">
+                    <b:panel medium-screen="3" offsetMd="4" look="primary" rendered="#{empty admin}">
                         <b:row>
-
                             <b:column medium-screen="12">
                                 <b:inputText placeholder="#{msg.labelUsuario}" id="username" value="#{LoginMB.admin.email}"
                                              autocomplete="false">
@@ -46,6 +44,13 @@
                         </b:row>
                     </b:panel>
                 </b:container>
+                <b:panel span="3" offset="4" rendered="#{not empty admin}">
+                    <b:listLinks>
+                        <b:navLink href="/admin/cadastroLivro.xhtml" value="Cadastro de Livros" icon="book"/>
+                        <b:navLink href="/admin/editarLivro.xhtml"   value="Edição de Livros" icon="book"/>
+                        <b:navLink href="/admin/controlePreco.xhtml"   value="Controle Preço" icon="btc"/>
+                    </b:listLinks>
+                </b:panel>
 
                 <b:growl globalOnly="true" placementFrom="bottom"
                          show-detail="true" allowDismiss="true"
