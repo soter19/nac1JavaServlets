@@ -4,145 +4,41 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:b="http://bootsfaces.net/ui" xml:lang="en" lang="en">
+      xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:b="http://bootsfaces.net/ui" xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xml:lang="en" lang="en">
 
     <h:body>
         <ui:composition template="/templates/common/layout.xhtml">
             <ui:define name="title">Favoritos</ui:define>
             <ui:define name="content">
                 <h:form>
-
-                    <h2>Lista de desejos</h2><br></br>
-
-                    <div>
-                        <b:row>
+                    <ui:repeat value="#{livroMB.getAllLivros()}" var="livro">
                         <b:column span="4">
-
-                            <table class="table">
-                                <tr>
-                                    <td rowspan="5">
-                                        <img src="https://s-media-cache-ak0.pinimg.com/originals/8d/e2/29/8de22937d50b35b5cdef70735714ad9d.jpg"
-                                             alt="capa" align="left" width="150" height="160"/>
-                                    </td>
-                                </tr>
-                                <tr>
-                                <td><h4 class="text"><strong>Nome do livro</strong></h4></td>
-                                </tr>
-                                <tr>
-                                    <td>Gênero: </td>
-                                    <td>Suspense</td>
-                                </tr>
-                                <tr>
-                                    <td>Preço Original: </td>
-                                    <td>R$ 29,99</td>
-                                </tr>
-                                <tr>
-                                    <td>Preço Atual: </td>
-                                    <td>R$ 25,99</td>
-                                </tr>
-
-                            </table>
-
+                            <b:row>
+                                <b:column span="4" style="margin-bottom:10px">
+                                    <b:image width="100%"
+                                             value="#{livro.imgURL}"/>
+                                </b:column>
+                                <b:column span="6">
+                                    <h:outputText value="#{livro.titulo}"/><br/>
+                                    <h:outputText value="#{msg.labelAutor} : #{livro.autor.nome}"/><br/>
+                                    <h:outputText value="#{msg.labelEditora} : #{livro.editora.nome}"/><br/>
+                                    <h:outputText value="#{msg.labelGenero} : #{livro.assunto.titulo}"/><br/>
+                                    <h:outputText value="#{msg.labelPreco} : #{livro.valor}">
+                                        <f:convertNumber currencyCode="R$" type="currency" />
+                                    </h:outputText><br/>
+                                    <b:buttonGroup>
+                                        <b:commandButton icon="shopping-cart" look="success"
+                                                         action="#{favoritosMB.adicionaAoCarrinho(livro)}"/>
+                                        <b:commandButton icon="remove" look="error"
+                                                         action="#{favoritosMB.deleteLivro(Livro)}"/>
+                                    </b:buttonGroup>
+                                </b:column>
+                            </b:row>
                         </b:column>
-                            <b:column span="2">
-                                <b:buttonGroup orientation="vertical">
-                                    <b:button  icon="shopping-cart" value="Adicionar ao Carrinho" look="primary">
-                                        <b:commandButton value="Info" actionListener="#{autorMB.info}" update="@form"/>
-                                    </b:button>
-                                    <b:button  icon="remove" value="Remover Item" look="warning"/>
-                                </b:buttonGroup>
-                            </b:column>
-
-                </b:row>
-        </div>
-
-                    <div>
-                        <b:row>
-                            <b:column span="4">
-
-                                <table class="table">
-                                    <tr>
-                                        <td rowspan="5">
-                                            <img src="https://s-media-cache-ak0.pinimg.com/originals/8d/e2/29/8de22937d50b35b5cdef70735714ad9d.jpg"
-                                                 alt="capa" align="left" width="150" height="160"/>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><h4 class="text"><strong>Nome do livro</strong></h4></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Gênero: </td>
-                                        <td>Suspense</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Preço Original: </td>
-                                        <td>R$ 29,99</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Preço Atual: </td>
-                                        <td>R$ 25,99</td>
-                                    </tr>
-
-                                </table>
-
-                            </b:column>
-                            <b:column span="2">
-                                <b:buttonGroup orientation="vertical">
-                                    <b:button  icon="shopping-cart" value="Adicionar ao Carrinho" look="primary">
-                                        <b:commandButton value="Info" actionListener="#{autorMB.info}" update="@form"/>
-                                    </b:button>
-                                    <b:button  icon="remove" value="Remover Item" look="warning"/>
-                                </b:buttonGroup>
-                            </b:column>
-
-                        </b:row>
-                    </div>
-
-                    <div>
-                        <b:row>
-                            <b:column span="4">
-
-                                <table class="table">
-                                    <tr>
-                                        <td rowspan="5">
-                                            <img src="https://s-media-cache-ak0.pinimg.com/originals/8d/e2/29/8de22937d50b35b5cdef70735714ad9d.jpg"
-                                                 alt="capa" align="left" width="150" height="160"/>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><h4 class="text"><strong>Nome do livro</strong></h4></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Gênero: </td>
-                                        <td>Suspense</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Preço Original: </td>
-                                        <td>R$ 29,99</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Preço Atual: </td>
-                                        <td>R$ 25,99</td>
-                                    </tr>
-
-                                </table>
-
-                            </b:column>
-                            <b:column span="2">
-                                <b:buttonGroup orientation="vertical" styleClass="CenterGroup">
-                                    <b:button  icon="shopping-cart" value="Adicionar ao Carrinho" look="primary">
-                                        <b:commandButton value="Info" actionListener="#{autorMB.info}" update="@form"/>
-                                    </b:button>
-                                    <b:button  icon="remove" value="Remover Item" look="warning"/>
-                                </b:buttonGroup>
-                            </b:column>
-                        </b:row>
-                    </div>
-                    <b:growl globalOnly="true" placementFrom="bottom"
-                             show-detail="true" allowDismiss="true"
-                             delay="10000" escape="true" />
-            </h:form>
-        </ui:define>
-    </ui:composition>
-</h:body>
+                    </ui:repeat>
+                </h:form>
+            </ui:define>
+         </ui:composition>
+    </h:body>
 </html>
