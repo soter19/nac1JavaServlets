@@ -4,7 +4,8 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:b="http://bootsfaces.net/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
       xml:lang="en" lang="en">
 
 <h:body>
@@ -12,16 +13,40 @@
         <ui:define name="title">Controle de Preços</ui:define>
         <ui:define name="content">
 
-            <h:form class="navbar-form hidden-md hidden-sm hidden-xs">
+            <h:form>
+                <b:column span="6">
+                    <b:column span="12"> <h4>#{msg.labelEditarLivro}</h4> </b:column>
+                    <!--<b:column span="10"> <input type="text" class="form-control"/> </b:column>-->
+                    <b:column span="12">
+                        <!--<button class="btn btn-default" type="button">#{msg.labelBusca}</button>-->
+                        <b:inputText value="#{pesquisaMB.pesquisaString}">
+                            <f:facet name="append">
+                                <b:commandButton action="#{pesquisaMB.pesquisar}" value="Buscar" icon="search"/>
+                            </f:facet>
+                        </b:inputText></b:column>
 
-        <h3>#{msg.labelEditarLivro}</h3>
-                <input type="text" class="form-control"/>
-                    <button class="btn btn-default" type="button">#{msg.labelBusca}</button>
+                    <b:column span="3"> <h5 align="left">Nome:</h5> </b:column>
+                    <b:column span="9"> <b:inputText value="#{livroMB.livro.titulo}"/> </b:column>
 
-                    <h4 align="left">#{msg.labelPrecoOriginal}: </h4> <input class="form-control" type="text" name="precoOriginal"/>
-                    <h4 align="left">#{msg.labelDesconto}: </h4> <input class="form-control" type="text" name="desconto"/>
-                        <button type="button" class="btn btn-warning">#{msg.labelSalvar}</button>
-                    <h4 align="left">#{msg.labelPrecoAtual}: </h4> <input class="form-control" type="text" name="precoAtual"/>
+                    <b:column span="3"> <h5 align="left">#{msg.labelPrecoOriginal}: </h5> </b:column>
+                    <b:column span="9"> <b:inputText value="#{livroMB.livro.valor}"/> </b:column>
+
+
+                    <b:column span="3"> <h5 align="left">#{msg.labelDesconto}: </h5> </b:column>
+                    <b:column span="9"> <b:inputText value="#{livroMB.livro.valor}"/> </b:column>
+
+
+                    <b:column span="2" offset="7"> <b:commandButton  look="primary" value="Calcular" action="#{livroMB.livro.calcularDesconto}"/> </b:column>
+                    <b:column span="2" offset=""> <b:commandButton  look="primary" value="#{msg.labelSalvar}" action="#{livroMB.livro.updateOnDB}"/> </b:column>
+
+                    <b:column span="12"><br/></b:column>
+
+                    <b:column span="3"> <h5 align="left">#{msg.labelPrecoAtual}: </h5> </b:column>
+                    <b:column span="6"> <b:inputText value="#{livroMB.livro.valor}"/> </b:column>
+
+                    <b:column span="2"> <a href="admin.xhtml">Voltar</a> </b:column>
+
+                </b:column>
             </h:form>
         </ui:define>
         </ui:composition>

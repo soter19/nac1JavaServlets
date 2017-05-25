@@ -25,6 +25,8 @@ public class Livro implements BeanCRUD{
 	private Editora editora;
 	private String  imgURL;
 	private Double  valor;
+	private Double novoValor;
+	private Double desconto;
 
 	private Integer quantidade = 1;
 
@@ -158,7 +160,7 @@ public class Livro implements BeanCRUD{
 	public Document getDocument() {
 		Document livroDoc = new Document();
 		livroDoc.append("titulo", titulo);
-		livroDoc.append("autor", autor.getId());
+		livroDoc.append("autor",  autor.getId());
 		livroDoc.append("assunto", assunto.getId());
 		livroDoc.append("editora", editora.getId());
 		livroDoc.append("valor", valor);
@@ -179,5 +181,10 @@ public class Livro implements BeanCRUD{
 
 	public void setQuantidade(Integer qnt){
 		this.quantidade = qnt;
+	}
+
+	public void calcularDesconto(){
+		//TODO calcular desconto
+
 	}
 }
