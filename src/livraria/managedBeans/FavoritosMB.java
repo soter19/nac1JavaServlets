@@ -13,13 +13,13 @@ import java.util.ArrayList;
 @ManagedBean
 @SessionScoped
 public class FavoritosMB {
-	private static ArrayList<Livro> livrosFavoritos = new ArrayList<>();
+	private ArrayList<Livro> livrosFavoritos = new ArrayList<>();
 
-	public static ArrayList<Livro> getLivrosFavoritos() {
+	public ArrayList<Livro> getLivrosFavoritos() {
 		return livrosFavoritos;
 	}
 
-	public static void adicionarAosFavoritos(Livro l){
+	public void adicionarAosFavoritos(Livro l){
 		livrosFavoritos.add(l);
 	}
 }
