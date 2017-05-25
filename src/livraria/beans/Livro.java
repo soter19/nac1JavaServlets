@@ -127,6 +127,7 @@ public class Livro implements BeanCRUD{
 	// DB
 	@Override
 	public void createOnDB() {
+		limparCampos();
 		getCollection().insertOne(getDocument());
 		FacesMessages.info("Livro Criado no BD!");
 	}
@@ -186,5 +187,11 @@ public class Livro implements BeanCRUD{
 	public void calcularDesconto(){
 		//TODO calcular desconto
 
+	}
+
+	public void limparCampos(){
+		setTitulo(null);
+		setImgURL(null);
+		setValor(null);
 	}
 }

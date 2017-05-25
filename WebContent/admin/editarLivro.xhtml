@@ -76,8 +76,11 @@
                         <b:column span="6">
                             <b:inputText value="#{livroMB.livro.valor}"/>
                         </b:column>
+                        <b:column span="12">
+                            <h5 align="left">Desconto:</h5>
+                        </b:column>
                         <b:column span="6">
-                            <a href="controlePreco.xhtml"><b:commandButton icon="pencil" look="info"/></a>
+                        <b:inputText value="#{livroMB.livro.valor}"/>
                         </b:column>
                         <b:column span="5" offset="1">
                             <b:buttonGroup>
@@ -153,12 +156,8 @@
                             </b:buttonGroup>
                         </b:column>
 
-                        <b:column span="6">
-                            <br/>
-                            <br/>
-                            <h:commandLink>
-                                Voltar para tela de cadastro!
-                            </h:commandLink>
+                        <b:column span="2">
+                            <a href="admin.xhtml">#{msg.labelVoltar}</a>
                         </b:column>
                     </h:form>
                 </b:column>

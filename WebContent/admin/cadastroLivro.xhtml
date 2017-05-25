@@ -50,6 +50,7 @@
                                 <f:facet name="append">
                                     <b:commandButton look="primary" value="#{msg.labelCadastrarEditora}"
                                                      action="#{editoraMB.editora.createOnDB}" ajax="true"/>
+                                    <f:ajax render="@form" resetValues="true"/>
                                 </f:facet>
                             </b:inputText>
                         </b:column>
@@ -73,15 +74,19 @@
                         <b:column span="10"><b:inputText value="#{livroMB.livro.imgURL}"/></b:column>
 
                         <b:column span="2"><h5 align="left">#{msg.labelPreco}:</h5></b:column>
-                        <b:column span="7"><b:inputText value="#{livroMB.livro.valor}"/></b:column>
-                        <!--<b:column span="3"><a href="controlePreco.xhtml">Aplicar desconto</a></b:column>!-->
-
+                        <b:column span="10"><b:inputText value="#{livroMB.livro.valor}"/></b:column>
                         <b:column span="12">
                             <b:messages/>
                         </b:column>
                         <b:column span="2" offset="10">
-                            <b:commandButton action="#{livroMB.livro.createOnDB}" value="Salvar"/></b:column>
-                        <b:column span="2"><a href="admin.xhtml">#{msg.labelVoltar}</a></b:column>
+                            <b:commandButton action="#{livroMB.livro.createOnDB}" value="Salvar">
+                            </b:commandButton>
+                        </b:column>
+
+                        <b:column span="2">
+                            <a href="admin.xhtml">#{msg.labelVoltar}</a>
+                        </b:column>
+
                     </b:form>
                 </b:column>
             </b:row>
