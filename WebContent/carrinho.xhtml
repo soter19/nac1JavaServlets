@@ -36,15 +36,13 @@
 
                         <b:panelGrid size="xs" columns="6">
                             <h:outputText value="Escolha o tipo de frete: "/>
-                            <b:radiobutton value="#{carrinhoMB.valorTotal}" itemLabel=" Sedex(R$5,00)" itemValue="sedex" />
-                            <b:radiobutton value="#{carrinhoMB.valorTotal}" itemLabel=" Expresso(R$10,00)" itemValue="expresso" />
+                            <b:commandButton action="#{carrinhoMB.setSedex()}" value="Sedex(R$5,00)"
+                                             rendered="#{carrinhoMB.valorFrete == 0}"/>
+                            <b:commandButton action="#{carrinhoMB.setExpresso()}" value="Expresso(R$10,00)" rendered="#{carrinhoMB.valorFrete == 0}"/>
                             <h:outputText value="Valor total: "/>
                             <h:outputText value="#{carrinhoMB.valorTotal}"/>
-                            <b:commandButton value="#{msg.labelFinalizarCompra}" look="success" action="#{carrinhoMB.finalizarCompra}"/>
+                            <b:navLink href="finalizarCompra.xhtml" value="#{msg.labelFinalizarCompra}" look="success"/>
                         </b:panelGrid>
-
-
-
 
                     </b:container>
                 </h:form>

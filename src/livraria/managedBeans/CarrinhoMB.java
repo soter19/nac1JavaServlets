@@ -1,6 +1,7 @@
 package livraria.managedBeans;
 
 import livraria.beans.Livro;
+import net.bootsfaces.utils.FacesMessages;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -13,6 +14,7 @@ import java.util.*;
 @SessionScoped
 public class CarrinhoMB {
 	private ArrayList<Livro> carrinho = new ArrayList<>();
+	private double valorFrete;
 	private double valorTotal;
 
 	public void adicionaAoCarrinho(Livro l){
@@ -31,7 +33,7 @@ public class CarrinhoMB {
 		for(Livro l : carrinho){
 			total += l.getValor() * l.getQuantidade();
 		}
-		valorTotal = total;
+		valorTotal = total + valorFrete;
 	}
 
 	public ArrayList<Livro> getCarrinho() {
@@ -40,5 +42,30 @@ public class CarrinhoMB {
 
 	public double getValorTotal() {
 		return valorTotal;
+	}
+
+	public double getValorFrete() {
+		return valorFrete;
+	}
+
+	public void setValorFrete(double valorFrete) {
+		this.valorFrete = valorFrete;
+	}
+
+	public void setSedex(){
+		valorFrete = 5;
+		CalculaValorTotal();
+	}
+
+	public void setExpresso(){
+		valorFrete = 10;
+		CalculaValorTotal();
+	}
+
+	public void finalizarCompra(){
+		carrinho = new ArrayList<>();
+		valorTotal = 0;
+		valorFrete = 0;
+		FacesMessages.info("Compra efetuada com sucesso!");
 	}
 }

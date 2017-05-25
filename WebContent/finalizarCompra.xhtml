@@ -19,8 +19,9 @@
                                 <a href="carrinho.xhtml">#{msg.labelVoltarParaCarrinho}</a><br/>
                             </b:column>
                             <b:column span="6" offset="2">
-                                <b:alert severity="info"
-                                         title="#{msg.labelCompra}">#{msg.labelValorCompra} XX,XX
+                                <b:alert severity="info" title="#{msg.labelCompra}">
+                                    #{msg.labelValorCompra}
+                                    <h:outputText value="#{carrinhoMB.valorTotal}"/>
                                 </b:alert>
                                 <h3 class="text">#{msg.labelCartao}</h3>
                                 <table class="table">
@@ -71,8 +72,8 @@
                                 </table>
                             </b:column>
                         </b:row>
-                        //Mostrar mensagem de compra finalizada onClick ou voltar para a tela de login
-                        <button type="button" class="btn btn-warning center-block">#{msg.labelFinalizarCompra}</button>
+                        <b:commandButton action="#{carrinhoMB.finalizarCompra}" value="#{msg.labelFinalizarCompra}"/>
+                        <b:messages/>
                     </h:form>
                 </ui:define>
             </div>
