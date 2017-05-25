@@ -87,6 +87,7 @@ public class Assunto implements BeanCRUD{;
 
 		Assunto.getCollection().insertOne(getDocument());
 		FacesMessages.info("Assunto Criado no BD");
+
 	}
 
 	@Override

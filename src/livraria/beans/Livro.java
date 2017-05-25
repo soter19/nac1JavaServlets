@@ -148,7 +148,7 @@ public class Livro implements BeanCRUD{
 
 	@Override
 	public boolean deleteFromDB() {
-		return false;
+		return getCollection().deleteOne(eq(idFieldName, new ObjectId(id))).wasAcknowledged();
 	}
 
 	@Override
