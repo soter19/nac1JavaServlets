@@ -22,4 +22,9 @@ public class FavoritosMB {
 	public void adicionarAosFavoritos(Livro l){
 		livrosFavoritos.add(l);
 	}
+
+	public void removerDosFavoritos(Livro l){
+		livrosFavoritos.remove(l);
+	}
+
 }

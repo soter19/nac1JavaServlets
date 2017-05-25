@@ -31,9 +31,9 @@
                                     </h:outputText><br/>
                                     <b:buttonGroup>
                                         <b:commandButton icon="shopping-cart" look="success"
-                                                         action="#{favoritosMB.adicionaAoCarrinho(livro)}"/>
+                                                         action="#{carrinhoMB.adicionaAoCarrinho(livro)}"/>
                                         <b:commandButton icon="remove" look="danger"
-                                                         action="#{favoritosMB.deleteLivro(Livro)}"/>
+                                                         action="#{favoritosMB.removerDosFavoritos(livro)}"/>
                                     </b:buttonGroup>
                                 </b:column>
                             </b:row>
