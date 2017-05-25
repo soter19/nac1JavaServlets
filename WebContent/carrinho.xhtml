@@ -5,40 +5,43 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:b="http://bootsfaces.net/ui" xmlns:f="http://xmlns.jcp.org/jsf/core">
-<h:body>
-    <ui:composition template="/templates/common/layout.xhtml">
-        <ui:define name="title">Carrinho</ui:define>
-        <ui:define name="content">
-            <h:outputText value="Seu carrinho está vazio! Vá comprar coisas." rendered="#{empty carrinhoMB.carrinho}"></h:outputText>
-            <h:form class="navbar-form hidden-md hidden-sm hidden-xs" rendered="#{not empty carrinhoMB.carrinho}">
-                <b:container layout="fluid">
-                    <b:dataTable value="#{carrinhoMB.carrinho}" var="item" paginated="false">
-                        <b:dataTableColumn value="#{item.titulo}" label="Título"/>
-                        <b:dataTableColumn value="#{item.editora.nome}" label="Editora"/>
-                        <b:dataTableColumn value="#{item.assunto.titulo}" label="Gênero"/>
-                        <b:dataTableColumn value="#{item.valor}" label="Preço"/>
-                        <h:column>
-                            <f:facet name="header">Remover item</f:facet>
-                            <b:navCommandLink icon-size="2x" iconAwesome="times" value="remover" action="#{carrinhoMB.remover(item)}" look="info" />
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">Quantidade</f:facet>
-                            <b:inputText value="#{item.quantidade}">
-                                <f:ajax event="change" listener="#{carrinhoMB.CalculaValorTotal}" />
-                                <f:facet name="append">
-                                    <b:commandButton look="success" icon="ok" action="#{carrinhoMB.CalculaValorTotal()}"/>
-                                </f:facet>
-                            </b:inputText>
-                        </h:column>
-                    </b:dataTable>
 
-                    <h:outputText value="#{carrinhoMB.valorTotal}"/>
-//TODO linkar botao a pagina de finalizar compra
-                    <b:commandButton value="Finalizar Compra" look="success" action="#{carrinhoMB.finalizarCompra}"/>
+<f:view locale="#{facesContext.externalContext.requestLocale}">
+    <h:body>
+        <ui:composition template="/templates/common/layout.xhtml">
+            <ui:define name="title">#{msg.labelCarrinho}</ui:define>
+            <ui:define name="content">
+                <h:outputText value="#{msg.labelCarrinhoVazio}" rendered="#{empty carrinhoMB.carrinho}"></h:outputText>
+                <h:form class="navbar-form hidden-md hidden-sm hidden-xs" rendered="#{not empty carrinhoMB.carrinho}">
+                    <b:container layout="fluid">
+                        <b:dataTable value="#{carrinhoMB.carrinho}" var="item" paginated="false">
+                            <b:dataTableColumn value="#{item.titulo}" label="Título"/>
+                            <b:dataTableColumn value="#{item.editora.nome}" label="Editora"/>
+                            <b:dataTableColumn value="#{item.assunto.titulo}" label="Gênero"/>
+                            <b:dataTableColumn value="#{item.valor}" label="Preço"/>
+                            <h:column>
+                                <f:facet name="header">#{msg.labelRemoverItem}</f:facet>
+                                <b:navCommandLink icon-size="2x" iconAwesome="times" value="#{msg.labelRemover}" action="#{carrinhoMB.remover(item)}" look="info" />
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">#{msg.labelQuantidade}</f:facet>
+                                <b:inputText value="#{item.quantidade}">
+                                    <f:ajax event="change" listener="#{carrinhoMB.CalculaValorTotal}" />
+                                    <f:facet name="append">
+                                        <b:commandButton look="success" icon="ok" action="#{carrinhoMB.CalculaValorTotal()}"/>
+                                    </f:facet>
+                                </b:inputText>
+                            </h:column>
+                        </b:dataTable>
 
-                </b:container>
-            </h:form>
-        </ui:define>
-    </ui:composition>
-</h:body>
+                        <h:outputText value="#{carrinhoMB.valorTotal}"/>
+                        //TODO linkar botao a pagina de finalizar compra
+                        <b:commandButton value="#{msg.labelFinalizarCompra}" look="success" action="#{carrinhoMB.finalizarCompra}"/>
+
+                    </b:container>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</f:view>
 </html>

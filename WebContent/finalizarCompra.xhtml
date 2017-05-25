@@ -3,56 +3,59 @@
         PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:b="http://bootsfaces.net/ui" xml:lang="en" lang="en">s
+      xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:b="http://bootsfaces.net/ui" xml:lang="en" lang="en"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<f:view locale="#{facesContext.externalContext.requestLocale}">
+    >
     <h:body id="body-perfil">
         <ui:composition template="/templates/common/layout.xhtml">
-            <ui:define name="title">Finalizar Compra</ui:define>
+            <ui:define name="title">#{msg.labelFinalizarCompra}</ui:define>
             <div id="block-center">
                 <ui:define name="content">
                     <h:form class="navbar-form hidden-md hidden-sm hidden-xs">
                         <b:row>
-                            <h2 class="text">Finalizando Compra:</h2><br/>
+                            <h2 class="text">#{msg.labelFinalizarCompra}:</h2><br/>
                             <b:column span="2" offset="8">
-                                <a href="admin/carrinho.xhtml">Voltar para o carrinho</a><br/>
+                                <a href="carrinho.xhtml">#{msg.labelVoltarParaCarrinho}</a><br/>
                             </b:column>
                             <b:column span="6" offset="2">
                                 <b:alert severity="info"
-                                         title="Sua Compra!">O valor da sua
-                                    compra foi R$:XX,XX
+                                         title="#{msg.labelCompra}">#{msg.labelValorCompra} XX,XX
                                 </b:alert>
-                                <h3 class="text">Cartão de Crédito</h3>
+                                <h3 class="text">#{msg.labelCartao}</h3>
                                 <table class="table">
                                     <tr>
-                                        <td>Nome do Titular no Cartão:</td>
+                                        <td>#{msg.labelNomeTitular}:</td>
                                         <td colspan="2"><input type="text" class="form-control center-block" value=""/></td>
                                     </tr>
                                     <tr>
-                                        <td>Número do Cartão:</td>
+                                        <td>#{msg.labelNumeroCartao}:</td>
                                         <td colspan="2"><input type="text" class="form-control center-block" value=""/></td>
                                     </tr>
                                     <tr>
-                                        <td>Código de Segurança:</td>
+                                        <td>#{msg.labelCodSeguranca}:</td>
                                         <td><input type="text" class="form-control center-block" value=""/></td>
                                     </tr>
                                     <tr>
-                                        <td>Validade do Cartão:</td>
-                                        <td>Mês
+                                        <td>#{msg.labelValCartao}:</td>
+                                        <td>#{msg.labelMes}
                                             <select size="1" name="D1">
-                                                <option value="1">Janeiro</option>
-                                                <option value="2">Fevereiro</option>
-                                                <option value="3">Março</option>
-                                                <option value="4">Abril</option>
-                                                <option value="5">Maio</option>
-                                                <option value="6">Junho</option>
-                                                <option value="7">Julho</option>
-                                                <option value="8">Agosto</option>
-                                                <option value="9">Setembro</option>
-                                                <option value="10">Outubro</option>
-                                                <option value="11">Novembro</option>
-                                                <option value="12">Dezembro</option>
+                                                <option value="1">#{msg.labelJan}</option>
+                                                <option value="2">#{msg.labelFev}</option>
+                                                <option value="3">#{msg.labelMar}</option>
+                                                <option value="4">#{msg.labelAbr}</option>
+                                                <option value="5">#{msg.labelMai}</option>
+                                                <option value="6">#{msg.labelJun}</option>
+                                                <option value="7">#{msg.labelJul}</option>
+                                                <option value="8">#{msg.labelAgo}</option>
+                                                <option value="9">#{msg.labelSet}</option>
+                                                <option value="10">#{msg.labelOut}</option>
+                                                <option value="11">#{msg.labelNov}</option>
+                                                <option value="12">#{msg.labelDez}</option>
                                             </select>
                                         </td>
-                                        <td>Ano
+                                        <td>#{msg.labelAno}
                                             <select size="1" name="D2">
                                                 <option value="1">2017</option>
                                                 <option value="2">2018</option>
@@ -70,10 +73,11 @@
                             </b:column>
                         </b:row>
                         //Mostrar mensagem de compra finalizada onClick ou voltar para a tela de login
-                        <button type="button" class="btn btn-warning center-block">Finalizar Compra</button>
+                        <button type="button" class="btn btn-warning center-block">#{msg.labelFinalizarCompra}</button>
                     </h:form>
                 </ui:define>
             </div>
         </ui:composition>
     </h:body>
+</f:view>
 </html>

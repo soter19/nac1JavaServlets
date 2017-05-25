@@ -7,9 +7,16 @@ import livraria.beans.Autor;
 import livraria.beans.Editora;
 import livraria.beans.Livro;
 import org.bson.Document;
+import sun.security.validator.ValidatorException;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.component.UIComponent;
+import javax.faces.context.FacesContext;
 import java.util.ArrayList;
+
+import static com.mongodb.client.model.Filters.or;
+import static com.mongodb.client.model.Filters.regex;
 
 /**
  * Forged by Soter Padua on 30/03/17.
@@ -35,5 +42,28 @@ public class LivroMB{
 		}
 
 		return allLivros;
+	}
+
+	public void validarLivroRepetido(FacesContext context,
+									 UIComponent componentToValidate,
+									 Object value) throws Exception {
+
+		String busca = value.toString();
+		String pattern = ".*" + busca + ".*";
+		MongoCursor<Document> cur = Livro.getCollection().find(
+				or(
+						regex("titulo", pattern, "i")
+				)).iterator();
+
+		while(cur.hasNext()){
+			Document next = cur.next();
+			Livro currLivro = Livro.fromDocument(next);
+			if (currLivro.getTitulo().equals(value)){
+				FacesMessage message = new FacesMessage("Livro Existente!");
+				throw new ValidatorException(message);
+				//break;
+			}
+		}
+
 	}
 }

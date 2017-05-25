@@ -13,60 +13,63 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:c="http://java.sun.com/jsp/jstl/core"
-      xmlns:b="http://bootsfaces.net/ui" xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 
-<h:head>
-    <title>Pesquisa</title>
-</h:head>
+<f:view locale="#{facesContext.externalContext.requestLocale}">
 
-<h:body>
+    <h:head>
+        <title>#{msg.labelPesquisa}</title>
+    </h:head>
 
-    <ui:composition template="/templates/common/layout.xhtml">
-        <ui:define name="title">Pesquisa</ui:define>
-        <ui:define name="content">
+    <h:body>
 
-            <b:alert rendered="#{pesquisaMB.erro != null}"
-                     severity="warning"><strong>Warning!</strong>
-                #{pesquisaMB.erro}</b:alert>
+        <ui:composition template="/templates/common/layout.xhtml">
+            <ui:define name="title">#{msg.labelPesquisa}</ui:define>
+            <ui:define name="content">
 
-            <ul>
-                <c:if test="#{empty pesquisaMB.livrosResultados}">
-                    <h3>Nenhum livro foi encontrado.</h3>
-                </c:if>
-                <c:if test="#{not empty pesquisaMB.livrosResultados}">
-                    <b:row>
-                        <ui:repeat var="livro" value="#{pesquisaMB.livrosResultados}">
-                            <b:column span="4" style="margin-bottom:20px">
-                                <b:column span="4">
-                                    <b:image width="100%"
-                                             value="#{livro.imgURL}"/>
+                <b:alert rendered="#{pesquisaMB.erro != null}"
+                         severity="warning"><strong>Warning!</strong>
+                    #{pesquisaMB.erro}</b:alert>
+
+                <ul>
+                    <c:if test="#{empty pesquisaMB.livrosResultados}">
+                        <h3>#{msg.labelNenhumLivro}</h3>
+                    </c:if>
+                    <c:if test="#{not empty pesquisaMB.livrosResultados}">
+                        <b:row>
+                            <ui:repeat var="livro" value="#{pesquisaMB.livrosResultados}">
+                                <b:column span="4" style="margin-bottom:20px">
+                                    <b:column span="4">
+                                        <b:image width="100%"
+                                                 value="#{livro.imgURL}"/>
+                                    </b:column>
+                                    <b:column span="6">
+                                        <h:outputText value="#{livro.titulo}"/><br/>
+                                        <h:outputText value="#{msg.labelAutor} : #{livro.autor.nome}"/><br/>
+                                        <h:outputText value="#{msg.labelEditora} : #{livro.editora.nome}"/><br/>
+                                        <h:outputText value="#{msg.labelGenero} : #{livro.assunto.titulo}"/><br/>
+                                        <h:outputText value="#{msg.labelPreco} : #{livro.valor}">
+                                            <f:convertNumber currencyCode="R$" type="currency"/>
+                                        </h:outputText><br/>
+                                        <b:form>
+                                            <b:buttonGroup>
+                                                <b:commandButton icon="shopping-cart" look="success"
+                                                                 action="#{carrinhoMB.adicionaAoCarrinho(livro)}"/>
+                                                <b:commandButton icon="star" look="important"
+                                                                 action="#{favoritosMB.adicionarAosFavoritos(livro)}"
+                                                                 rendered="#{not empty user}"/>
+                                            </b:buttonGroup>
+                                        </b:form>
+                                    </b:column>
                                 </b:column>
-                                <b:column span="6">
-                                    <h:outputText value="#{livro.titulo}"/><br/>
-                                    <h:outputText value="#{msg.labelAutor} : #{livro.autor.nome}"/><br/>
-                                    <h:outputText value="#{msg.labelEditora} : #{livro.editora.nome}"/><br/>
-                                    <h:outputText value="#{msg.labelGenero} : #{livro.assunto.titulo}"/><br/>
-                                    <h:outputText value="#{msg.labelPreco} : #{livro.valor}">
-                                        <f:convertNumber currencyCode="R$" type="currency"/>
-                                    </h:outputText><br/>
-                                    <b:form>
-                                        <b:buttonGroup>
-                                            <b:commandButton icon="shopping-cart" look="success"
-                                                             action="#{carrinhoMB.adicionaAoCarrinho(livro)}"/>
-                                            <b:commandButton icon="star" look="important"
-                                                             action="#{favoritosMB.adicionarAosFavoritos(livro)}"
-                                                             rendered="#{not empty user}"/>
-                                        </b:buttonGroup>
-                                    </b:form>
-                                </b:column>
-                            </b:column>
-                        </ui:repeat>
-                    </b:row>
-                </c:if>
-            </ul>
-        </ui:define>
+                            </ui:repeat>
+                        </b:row>
+                    </c:if>
+                </ul>
+            </ui:define>
 
-    </ui:composition>
-</h:body>
-
+        </ui:composition>
+    </h:body>
+</f:view>
 </html>

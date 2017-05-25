@@ -16,12 +16,12 @@
             <b:row>
                 <b:column span="6" offset="3">
 
-                    <h1 align="center"><strong>Cadastrar Livro</strong></h1>
+                    <h1 align="center"><strong>#{msg.labelCadastrarLivro}</strong></h1>
                     <h:form>
-                        <b:column span="2"><h5 align="left">Nome:</h5></b:column>
-                        <b:column span="10"><b:inputText value="#{livroMB.livro.titulo}"/></b:column>
+                        <b:column span="2"><h5 align="left">#{msg.labelNome}:</h5></b:column>
+                        <b:column span="10"><b:inputText value="#{livroMB.livro.titulo}" validator="#{livroMB.validarLivroRepetido}"/></b:column>
 
-                        <b:column span="2"><h5 align="left">Autor:</h5></b:column>
+                        <b:column span="2"><h5 align="left">#{msg.labelAutor}:</h5></b:column>
                         <b:column span="3">
                             <b:selectOneMenu value="#{livroMB.livro.autor.id}">
                                 <f:selectItems value="#{autorMB.getAll()}" var="autor"
@@ -31,12 +31,12 @@
                         <b:column span="6" offset="1">
                             <b:inputText name="autor" value="#{autorMB.autor.nome}">
                                 <f:facet name="append">
-                                    <b:commandButton look="primary" action="#{autorMB.autor.createOnDB()}" value="Cadastrar Autor" ajax="true"/>
+                                    <b:commandButton look="primary" action="#{autorMB.autor.createOnDB()}" value="#{msg.labelCadastrarAutor}" ajax="true"/>
                                 </f:facet>
                             </b:inputText>
                         </b:column>
 
-                        <b:column span="2"><h5 align="left">Editora:</h5></b:column>
+                        <b:column span="2"><h5 align="left">#{msg.labelEditora}:</h5></b:column>
                         <b:column span="3">
                             <b:selectOneMenu value="#{livroMB.livro.editora.id}">
                                 <f:selectItems value="#{editoraMB.getAll()}" var="editora"
@@ -46,13 +46,13 @@
                         <b:column span="6" offset="1">
                             <b:inputText name="editora" value="#{editoraMB.editora.nome}">
                                 <f:facet name="append">
-                                    <b:commandButton look="primary" value="Cadastrar Editora"
+                                    <b:commandButton look="primary" value="#{msg.labelCadastrarEditora}"
                                                      action="#{editoraMB.editora.createOnDB}" ajax="true"/>
                                 </f:facet>
                             </b:inputText>
                         </b:column>
 
-                        <b:column span="2"><h5 align="left">Gênero:</h5></b:column>
+                        <b:column span="2"><h5 align="left">#{msg.labelGenero}:</h5></b:column>
                         <b:column span="3">
                             <b:selectOneMenu value="#{livroMB.livro.assunto.id}">
                                 <f:selectItems value="#{assuntoMB.getAll()}" var="assunto"
@@ -63,7 +63,7 @@
                             <b:form>
                                 <b:inputText name="assunto" value="#{assuntoMB.assunto.titulo}">
                                     <f:facet name="append">
-                                        <b:commandButton look="primary" value="Cadastrar Gênero"
+                                        <b:commandButton look="primary" value="#{msg.labelCadastrarGenero}"
                                                          action="#{assuntoMB.assunto.createOnDB}" ajax="true"/>
                                     </f:facet>
                                 </b:inputText>
@@ -72,13 +72,13 @@
                        <b:column span="2"><h5 align="left">Img:</h5></b:column>
                         <b:column span="10"><b:inputText value="#{livroMB.livro.imgURL}"/></b:column>
 
-                        <b:column span="2"><h5 align="left">Valor:</h5></b:column>
+                        <b:column span="2"><h5 align="left">#{msg.labelPreco}:</h5></b:column>
                         <b:column span="7"><b:inputText value="#{livroMB.livro.valor}"/></b:column>
-                        <b:column span="3"><a href="controlePreco.xhtml">Aplicar desconto</a></b:column>
+                        <!--<b:column span="3"><a href="controlePreco.xhtml">Aplicar desconto</a></b:column>!-->
 
                         <b:messages/>
-                        <b:column span="2" offset="10"><b:commandButton action="#{livroMB.livro.createOnDB}" ajax="true">Salvar!</b:commandButton></b:column>
-                        <b:column span="2"><a href="admin.xhtml">Voltar</a></b:column>
+                        <b:column span="2" offset="10"><b:commandButton action="#{livroMB.livro.createOnDB}" ajax="true">#{msg.labelSalvar}!</b:commandButton></b:column>
+                        <b:column span="2"><a href="admin.xhtml">#{msg.labelVoltar}</a></b:column>
                     </h:form>
                 </b:column>
             </b:row>
