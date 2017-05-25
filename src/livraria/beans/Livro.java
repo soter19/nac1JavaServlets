@@ -189,7 +189,7 @@ public class Livro implements BeanCRUD{
 
 	}
 
-	public void limparCampos(){
+	public void limparCamposSalvar(){
 		setTitulo(null);
 		setImgURL(null);
 		setValor(null);

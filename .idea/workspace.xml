@@ -4,10 +4,7 @@
     <list default="true" id="f067d0e5-0902-46c0-82c5-18fc19aa3b3b" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/admin/cadastroLivro.xhtml" afterPath="$PROJECT_DIR$/WebContent/admin/cadastroLivro.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/admin/editarLivro.xhtml" afterPath="$PROJECT_DIR$/WebContent/admin/editarLivro.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nac1JavaServlets.iml" afterPath="$PROJECT_DIR$/nac1JavaServlets.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/livraria/beans/Livro.java" afterPath="$PROJECT_DIR$/src/livraria/beans/Livro.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/livraria/managedBeans/LivroMB.java" afterPath="$PROJECT_DIR$/src/livraria/managedBeans/LivroMB.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,7 +19,38 @@
     <favorites_list name="nac1JavaServlets" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="Livro.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/livraria/beans/Livro.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="249">
+              <caret line="191" column="34" lean-forward="false" selection-start-line="191" selection-start-column="34" selection-end-line="191" selection-end-column="34" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cadastroLivro.xhtml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/WebContent/admin/cadastroLivro.xhtml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="176">
+              <caret line="81" column="73" lean-forward="true" selection-start-line="81" selection-start-column="73" selection-end-line="81" selection-end-column="73" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="editarLivro.xhtml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WebContent/admin/editarLivro.xhtml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="86">
+              <caret line="78" column="24" lean-forward="false" selection-start-line="78" selection-start-column="24" selection-end-line="83" selection-end-column="35" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -32,6 +60,8 @@
       <find>sal</find>
       <find>prec</find>
       <find>livroMB</find>
+      <find>valor</find>
+      <find>desc</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$</dir>
@@ -79,10 +109,11 @@
         <option value="$PROJECT_DIR$/WebContent/WEB-INF/classes/msg_pt_BR.properties" />
         <option value="$PROJECT_DIR$/WebContent/WEB-INF/classes/msg_en.properties" />
         <option value="$PROJECT_DIR$/WebContent/WEB-INF/classes/msg_es.properties" />
-        <option value="$PROJECT_DIR$/WebContent/admin/cadastroLivro.xhtml" />
         <option value="$PROJECT_DIR$/WebContent/admin/editarLivro.xhtml" />
         <option value="$PROJECT_DIR$/src/livraria/managedBeans/LivroMB.java" />
+        <option value="$PROJECT_DIR$/src/livraria/beans/Autor.java" />
         <option value="$PROJECT_DIR$/src/livraria/beans/Livro.java" />
+        <option value="$PROJECT_DIR$/WebContent/admin/cadastroLivro.xhtml" />
       </list>
     </option>
   </component>
@@ -782,7 +813,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="90984000" />
+    <option name="totallyTimeSpent" value="91405000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -795,10 +826,11 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="768" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39971346" sideWeight="0.5030211" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.45702004" sideWeight="0.12160121" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29512894" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -809,17 +841,17 @@
       <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39971346" sideWeight="0.49697885" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39971346" sideWeight="0.49697885" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295129" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295129" sideWeight="0.49697885" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295129" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.45702004" sideWeight="0.8836858" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.45702004" sideWeight="0.8783988" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295129" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295129" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25075528" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25075528" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295129" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="JavaEE:App" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
@@ -987,13 +1019,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/livraria/beans/Autor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="624">
-          <caret line="87" column="16" lean-forward="false" selection-start-line="87" selection-start-column="16" selection-end-line="87" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/livraria/bd/BeanCRUD.java" />
     <entry file="file://$PROJECT_DIR$/src/AuthorizationFilter.java" />
     <entry file="file://$PROJECT_DIR$/src/livraria/managedBeans/AutorMB.java" />
@@ -1094,6 +1119,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="646">
           <caret line="79" column="0" lean-forward="false" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="35" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1114,6 +1140,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="595">
           <caret line="79" column="34" lean-forward="false" selection-start-line="79" selection-start-column="34" selection-end-line="79" selection-end-column="34" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1129,14 +1156,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="24" column="38" lean-forward="false" selection-start-line="24" selection-start-column="38" selection-end-line="24" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/livraria/beans/Assunto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="33" column="8" lean-forward="false" selection-start-line="33" selection-start-column="8" selection-end-line="33" selection-end-column="8" />
           <folding />
         </state>
       </provider>
@@ -1157,34 +1176,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/admin/editarLivro.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="389">
-          <caret line="83" column="35" lean-forward="true" selection-start-line="83" selection-start-column="35" selection-end-line="83" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/lib/javax.faces-2.2.1.jar!/javax/faces/application/FacesMessage.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1723">
           <caret line="168" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="168" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/admin/cadastroLivro.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="81" column="72" lean-forward="false" selection-start-line="81" selection-start-column="72" selection-end-line="81" selection-end-column="72" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/livraria/managedBeans/LoginMB.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -1194,24 +1189,6 @@
         <state relative-caret-position="304">
           <caret line="163" column="55" lean-forward="true" selection-start-line="163" selection-start-column="55" selection-end-line="163" selection-end-column="55" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/livraria/beans/Livro.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="129" column="23" lean-forward="false" selection-start-line="129" selection-start-column="8" selection-end-line="129" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/livraria/managedBeans/LivroMB.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="60" column="55" lean-forward="true" selection-start-line="60" selection-start-column="55" selection-end-line="60" selection-end-column="55" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1227,6 +1204,64 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="600">
           <caret line="47" column="0" lean-forward="true" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/livraria/beans/Autor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-825">
+          <caret line="38" column="5" lean-forward="true" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/livraria/beans/Assunto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-422">
+          <caret line="35" column="4" lean-forward="true" selection-start-line="35" selection-start-column="4" selection-end-line="35" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/livraria/managedBeans/LoginMB.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/livraria/managedBeans/LivroMB.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="131">
+          <caret line="60" column="55" lean-forward="true" selection-start-line="60" selection-start-column="55" selection-end-line="60" selection-end-column="55" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/livraria/beans/Livro.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="249">
+          <caret line="191" column="34" lean-forward="false" selection-start-line="191" selection-start-column="34" selection-end-line="191" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/admin/editarLivro.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="86">
+          <caret line="78" column="24" lean-forward="false" selection-start-line="78" selection-start-column="24" selection-end-line="83" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/admin/cadastroLivro.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="81" column="73" lean-forward="true" selection-start-line="81" selection-start-column="73" selection-end-line="81" selection-end-column="73" />
           <folding />
         </state>
       </provider>
