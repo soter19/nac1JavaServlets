@@ -19,42 +19,53 @@
             <ui:define name="content">
                 <h:form>
                     <b:row>
-                    <ui:repeat value="#{livroMB.allLivros()}" var="livro">
-                        <b:column span="3">
-                            <b:row>
-                                <b:column span="4">
-                                    <b:image width="100%"
-                                             value="#{livro.imgURL}"/>
-                                </b:column>
-                                <b:column span="8">
-                                    <h:outputText value="#{livro.titulo}"/><br/>
-                                    <h:outputText value="#{msg.labelAutor} : #{livro.autor.nome}"/><br/>
-                                    <h:outputText value="#{msg.labelEditora} : #{livro.editora.nome}"/><br/>
-                                    <h:outputText value="#{msg.labelGenero} : #{livro.assunto.titulo}"/><br/>
-                                    <h:outputText value="#{msg.labelPreco} : #{livro.valor}"
-                                                  rendered="#{livro.desconto == 0}">
-                                        <f:convertNumber currencyCode="R$" type="currency" />
-                                    </h:outputText><br/>
-                                    <h:outputText escape="false" rendered="#{livro.desconto > 0}"
-                                                  value="#{msg.labelPreco} : &lt;s&gt; #{livro.valor} &lt;/s&gt; ">
-                                        <f:convertNumber currencyCode="R$" type="currency" />
-                                    </h:outputText><br/>
-                                    <h:outputText value="Desconto : #{livro.desconto}"
-                                                  rendered="#{livro.desconto > 0}"/><br/>
-                                    <h:outputText value="Novo Valor : #{livro.valor - (livro.valor/100 *
-                                    livro.desconto)}"
-                                                  rendered="#{livro.desconto > 0}"/><br/>
-                                    <b:buttonGroup>
-                                        <b:commandButton icon="shopping-cart" look="success"
-                                                         action="#{carrinhoMB.adicionaAoCarrinho(livro)}"/>
-                                        <b:commandButton icon="star" look="warning"
-                                                         action="#{favoritosMB.adicionarAosFavoritos(livro)}"
-                                                         rendered="#{not empty user}"/>
-                                    </b:buttonGroup>
-                                </b:column>
-                            </b:row>
-                        </b:column>
-                    </ui:repeat>
+                        <ui:repeat value="#{livroMB.allLivros()}" var="livro" varStatus="curr">
+                            <b:column span="4">
+                                <b:row>
+                                    <b:column span="4">
+                                        <b:image width="100%"
+                                                 value="#{livro.imgURL}"/>
+                                    </b:column>
+                                    <b:column span="8" styleClass="livro-index">
+                                        <p><h:outputText value="#{livro.titulo}"/></p>
+                                        <p><h:outputText value="#{msg.labelAutor} : #{livro.autor.nome}"/></p>
+                                        <p><h:outputText value="#{msg.labelEditora} : #{livro.editora.nome}"/></p>
+                                        <p><h:outputText value="#{msg.labelGenero} : #{livro.assunto.titulo}"/></p>
+                                        <p><h:outputText value="#{msg.labelPreco} : R$#{livro.valor}"
+                                                         rendered="#{livro.desconto == 0}">
+                                            <f:convertNumber type="currency" />
+                                        </h:outputText>
+                                        </p>
+
+                                        <p><h:outputText escape="false" rendered="#{livro.desconto > 0}"
+                                                         value="#{msg.labelPreco} : R$&lt;s&gt; #{livro.valor} &lt;/s&gt; ">
+                                            <f:convertNumber pattern="#0.00" />
+                                        </h:outputText></p>
+
+                                        <p><h:outputText escape="false"
+                                                         value="Desconto :&lt;b&gt; #{livro.desconto}% &lt;/b&gt;"
+                                                         rendered="#{livro.desconto >
+                                    0}"/></p>
+
+                                        <p><h:outputText value="Novo Valor : #{livro.valor - (livro.valor/100 *
+                                    livro.desconto)}" rendered="#{livro.desconto > 0}"><f:convertNumber pattern="#0.00" /></h:outputText></p>
+
+                                        <b:buttonGroup>
+                                            <b:commandButton icon="shopping-cart" look="success"
+                                                             action="#{carrinhoMB.adicionaAoCarrinho(livro)}"/>
+                                            <b:commandButton icon="star" look="warning"
+                                                             action="#{favoritosMB.adicionarAosFavoritos(livro)}"
+                                                             rendered="#{not empty user}"/>
+                                        </b:buttonGroup>
+                                    </b:column>
+                                </b:row>
+                            </b:column>
+
+
+                            <h:panelGroup layout="block" style="clear: both; margin: 10px 0;" rendered="#{(curr.index + 1)
+                         % 3
+                         == 0}"/>
+                        </ui:repeat>
                     </b:row>
                 </h:form>
             </ui:define>

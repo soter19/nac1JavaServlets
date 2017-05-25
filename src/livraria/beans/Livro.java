@@ -12,6 +12,7 @@ import org.bson.Document;
 import org.bson.types.ObjectId;
 
 import static com.mongodb.client.model.Filters.eq;
+import static com.mongodb.client.model.Sorts.descending;
 import static livraria.Helper.idFieldName;
 
 /**
@@ -62,7 +63,7 @@ public class Livro implements BeanCRUD{
 	}
 
 	public static MongoCursor<Document> getAll(){
-		return getCollection().find().sort().iterator();
+		return getCollection().find().sort(descending("desconto")).iterator();
 	}
 
 	public static MongoCollection<Document> getCollection(){

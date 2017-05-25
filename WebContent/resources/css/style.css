@@ -55,3 +55,7 @@ input.center{
 #form-cadastro h2 {
     text-align: center;
 }
+
+.livro-index p{
+    margin: 0 0 2px;
+}

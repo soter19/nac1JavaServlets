@@ -6,6 +6,7 @@ import livraria.beans.Assunto;
 import livraria.beans.Autor;
 import livraria.beans.Editora;
 import livraria.beans.Livro;
+import net.bootsfaces.utils.FacesMessages;
 import org.bson.Document;
 import sun.security.validator.ValidatorException;
 
@@ -60,9 +61,7 @@ public class LivroMB{
 			Document next = cur.next();
 			Livro currLivro = Livro.fromDocument(next);
 			if (currLivro.getTitulo().equals(value)){
-				FacesMessage message = new FacesMessage("Livro Existente!");
-				throw new ValidatorException(message);
-				//break;
+				FacesMessages.error("Livro Existente!");
 			}
 		}
 

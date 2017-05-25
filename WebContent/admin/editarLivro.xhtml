@@ -30,9 +30,8 @@
                                 <h5 align="left">Nome:</h5>
                         </b:column>
                         <b:column span="6">
-                            <b:inputText value="#{livroMB.livro.titulo}"/>
+                            <b:inputText value="#{livroMB.livro.titulo}" required="true"/>
                         </b:column>
-
 
                         <b:column span="12">
                             <h5 align="left">Autor:</h5>
@@ -49,8 +48,7 @@
                         </b:column>
                         <b:column span="6">
                             <b:selectOneMenu value="#{livroMB.livro.editora.id}">
-                                <f:selectItems value="#{editoraMB.getAll()}" var="editora"
-                                               itemValue="#{editora.id}" itemLabel="#{editora.nome}"/>
+                                <f:selectItems value="#{editoraMB.getAll()}" var="editora" itemValue="#{editora.id}" itemLabel="#{editora.nome}"/>
                             </b:selectOneMenu>
                         </b:column>
 
@@ -59,27 +57,26 @@
                         </b:column>
                          <b:column span="6">
                                 <b:selectOneMenu value="#{livroMB.livro.assunto.id}">
-                                    <f:selectItems value="#{assuntoMB.getAll()}" var="assunto"
-                                                   itemValue="#{assunto.id}" itemLabel="#{assunto.titulo}"/>
+                                    <f:selectItems value="#{assuntoMB.getAll()}" var="assunto" itemValue="#{assunto.id}" itemLabel="#{assunto.titulo}"/>
                                 </b:selectOneMenu>
                         </b:column>
                         <b:column span="12">
                             <h5 align="left">Imagem:</h5>
                         </b:column>
                         <b:column span="6">
-                            <b:inputText value="#{livroMB.livro.imgURL}"/>
+                            <b:inputText value="#{livroMB.livro.imgURL}" required="true"/>
                         </b:column>
                         <b:column span="12">
                             <h5 align="left">Valor:</h5>
                         </b:column>
                         <b:column span="6">
-                            <b:inputText value="#{livroMB.livro.valor}"/>
+                            <b:inputText value="#{livroMB.livro.valor}" required="true"/>
                         </b:column>
                         <b:column span="12">
                             <h5 align="left">Desconto:</h5>
                         </b:column>
                         <b:column span="6">
-                        <b:inputText value="#{livroMB.livro.valor}"/>
+                        <b:inputText value="#{livroMB.livro.valor}" required="true"/>
                         </b:column>
                         <b:column span="5" offset="1">
                             <b:buttonGroup>
@@ -148,13 +145,13 @@
                         <b:column span="7">
                             <b:inputText value="#{assuntoMB.assunto.titulo}"/>
                         </b:column>
-                        <b:column span="4">
+                        <b:column span="6">
                             <b:buttonGroup>
                                 <b:commandButton icon="floppy-disk" look="warning" action="#{assuntoMB.assunto.updateOnDB}"/>
                                 <b:commandButton icon="remove" look="danger" action="#{assuntoMB.assunto.deleteFromDB}"/>
                             </b:buttonGroup>
                         </b:column>
-
+                        <b:messages/>
                         <b:column span="2">
                             <a href="admin.xhtml">#{msg.labelVoltar}</a>
                         </b:column>

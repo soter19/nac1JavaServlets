@@ -27,7 +27,7 @@
                             </h:column>
                             <h:column>
                                 <f:facet name="header">#{msg.labelQuantidade}</f:facet>
-                                <b:inputText value="#{item.quantidade}">
+                                <b:inputText value="#{item.quantidade}" required="true">
                                     <f:ajax event="change" listener="#{carrinhoMB.CalculaValorTotal}" />
                                     <f:facet name="append">
                                         <b:commandButton look="success" icon="ok" action="#{carrinhoMB.CalculaValorTotal()}"/>
@@ -35,7 +35,7 @@
                                 </b:inputText>
                             </h:column>
                         </b:dataTable>
-
+                        <b:messages/>
                         <b:panelGrid size="xs" columns="6">
                             <h:outputText value="Escolha o tipo de frete: "/>
                             <b:commandButton action="#{carrinhoMB.setSedex()}" value="Sedex(R$5,00)"
