@@ -6,12 +6,11 @@ package livraria.utils;
  */
 public enum NomesPaginas {
 	ADMIN("admin/admin"),
-	INDEX("index"),
-	CADASTRO_LIVRO("cadastroLivro"),
-	CARRINHO("carrinho"),
-	PESQUISA("pesquisa"),
-	LOGIN("login");
-
+	INDEX("/index"),
+	CADASTRO_LIVRO("/cadastroLivro"),
+	CARRINHO("/carrinho"),
+	PESQUISA("/pesquisa"),
+	LOGIN("/login");
 
 	final public String nome;
 	NomesPaginas(final String nome) {

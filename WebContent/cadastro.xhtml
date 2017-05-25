@@ -25,20 +25,9 @@
                                 <b:column medium-screen="8">
                                     <b:inputText placeholder="#{msg.labelNome}"
                                                  id="nome"
-                                                 value=""
+                                                 value="#{cadastroMB.user.nome}"
                                                  autocomplete="false"/>
                                 </b:column>
-                                <!--<b:inputText placeholder="#{msg.labelNome}"
-                                     id="nome"
-                                     value=""
-                                             autocomplete="false">
-                                    <f:facet name="prepend">
-                                    <b:icon name="user"/>
-                                    </f:facet>
-                                </b:inputText>
-                            </b:column>!-->
-                                <!--<b:column medium-screen="6" style-class="message">
-                                    <b:message for="nome"/> !-->
                             </b:row>
                             <b:row>
                                 <b:column medium-screen="4">
@@ -47,11 +36,9 @@
                                 <b:column medium-screen="8">
                                     <b:inputText placeholder="#{msg.labelEmail}"
                                                  id="email"
-                                                 value=""
+                                                 value="#{cadastroMB.user.email}"
                                                  autocomplete="false"/>
                                 </b:column>
-                                <!--<b:column medium-screen="6" style-class="message">
-                                    <b:message for="email"/> !-->
                             </b:row>
                             <b:row>
                                 <b:column medium-screen="4">
@@ -60,86 +47,38 @@
                                 <b:column medium-screen="8">
                                     <b:inputText placeholder="#{msg.labelTelefone}"
                                                  id="telefone"
-                                                 value=""
+                                                 value="#{cadastroMB.user.telefone}"
                                                  autocomplete="false"/>
                                 </b:column>
-                                <!--<b:column medium-screen="6" style-class="message">
-                                    <b:message for="telefone"/> !-->
+
                             </b:row>
                             <b:row>
                                 <b:column medium-screen="4">
                                     <h:outputText value="#{msg.labelSenha}:"/>
                                 </b:column>
                                 <b:column medium-screen="8">
-                                    <b:inputText placeholder="#{msg.labelSenha}"
-                                                 id="senha"
-                                                 value=""
-                                                 autocomplete="false"/>
+                                    <b:inputSecret placeholder="#{msg.labelSenha}"
+                                                   id="senha"
+                                                   value="#{cadastroMB.user.senha}"
+                                                   autocomplete="false"/>
                                 </b:column>
-                                <!--<b:column medium-screen="6" style-class="message">
-                                    <b:message for="senha"/> !-->
                             </b:row>
                             <b:row>
                                 <b:column medium-screen="4">
                                     <h:outputText value="#{msg.labelConfirmarSenha}:"/>
                                 </b:column>
                                 <b:column medium-screen="8">
-                                    <b:inputText placeholder="#{msg.labelConfirmarSenha}"
-                                                 id="confirmasenha"
-                                                 value=""
-                                                 autocomplete="false"/>
+                                    <b:inputSecret placeholder="#{msg.labelConfirmarSenha}"
+                                                   id="confirmasenha"
+                                                   value="#{cadastroMB.user.senha}"
+                                                   autocomplete="false"/>
                                 </b:column>
-                                <!--<b:column medium-screen="6" style-class="message">
-                                    <b:message for="confirmasenha"/> !-->
                             </b:row>
+                            <b:commandButton value="#{msg.labelFinalizarCadastro}"
+                                             look="success"
+                                             action="#{cadastroMB.cadastrar}"/>
                         </b:panel>
                     </b:container>
-                    <h2><h:outputText value="#{msg.labelDadosEndereco}"/></h2>
-                    <b:container layout="fluid">
-                        <b:panel medium-screen="4" offsetMd="4" look="primary">
-
-                            <b:row>
-                                <b:column medium-screen="4">
-                                    <h:outputText value="#{msg.labelEndereco}:"/>
-                                </b:column>
-                                <b:column medium-screen="8">
-                                    <b:inputText placeholder="#{msg.labelEndereco}"
-                                                 id="endereco"
-                                                 value=""
-                                                 autocomplete="false"/>
-                                </b:column>
-                                <!--<b:column medium-screen="6" style-class="message">
-                                    <b:message for="endereco"/> !-->
-                                <b:column medium-screen="4">
-                                    <h:outputText value="#{msg.labelNumero}:"/>
-                                </b:column>
-                                <b:column medium-screen="8">
-                                    <b:inputText placeholder="#{msg.labelNumero}"
-                                                 id="numero"
-                                                 value=""
-                                                 autocomplete="false"/>
-                                </b:column>
-                                <!--<b:column medium-screen="6" style-class="message">
-                                    <b:message for="numero"/> !-->
-                                <b:column medium-screen="4">
-                                    <h:outputText value="#{msg.labelCEP}:"/>
-                                </b:column>
-                                <b:column medium-screen="8">
-                                    <b:inputText placeholder="#{msg.labelCEP}"
-                                                 id="cep"
-                                                 value=""
-                                                 autocomplete="false"/>
-                                </b:column>
-                                <!--<b:column medium-screen="6" style-class="message">
-                                    <b:message for="cep"/> !-->
-                            </b:row>
-                        </b:panel>
-                    </b:container>
-                    <center>
-                        <b:commandButton value="#{msg.labelFinalizarCadastro}"
-                                         look="success"
-                                         action="#{cadastroBean.cadastrarcliente}" />
-                    </center>
                 </h:form>
             </ui:define>
         </ui:composition>

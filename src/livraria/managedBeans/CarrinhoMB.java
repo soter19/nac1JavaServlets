@@ -31,7 +31,11 @@ public class CarrinhoMB {
 	public void CalculaValorTotal(){
 		double total = 0;
 		for(Livro l : carrinho){
-			total += l.getValor() * l.getQuantidade();
+			Double novoValor = l.getValor();
+			if(l.getDesconto() != null){
+				novoValor = l.getValor() - (l.getValor()/100 * l.getDesconto());
+			}
+			total += novoValor * l.getQuantidade();
 		}
 		valorTotal = total + valorFrete;
 	}

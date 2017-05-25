@@ -21,23 +21,45 @@
     <h:head>
         <title>#{msg.labelPesquisa}</title>
     </h:head>
-
     <h:body>
-
         <ui:composition template="/templates/common/layout.xhtml">
             <ui:define name="title">#{msg.labelPesquisa}</ui:define>
             <ui:define name="content">
 
-                <b:alert rendered="#{pesquisaMB.erro != null}"
-                         severity="warning"><strong>Warning!</strong>
-                    #{pesquisaMB.erro}</b:alert>
-
+                <b:alert rendered="#{pesquisaMB.erro != null}" severity="warning"><strong>Warning!</strong> #{pesquisaMB.erro}</b:alert>
                 <ul>
                     <c:if test="#{empty pesquisaMB.livrosResultados}">
                         <h3>#{msg.labelNenhumLivro}</h3>
                     </c:if>
                     <c:if test="#{not empty pesquisaMB.livrosResultados}">
                         <b:row>
+                            <b:form>
+                                <!-- Nome Livro -->
+                                <b:selectOneMenu value="#{pesquisaMB.paTitulo}">
+                                    <f:selectItems var="livro" value="#{pesquisaMB.livrosResultados}"
+                                                   itemValue="#{livro.titulo}" itemLabel="#{livro.titulo}"/>
+                                </b:selectOneMenu>
+                                <!-- Autor -->
+                                <b:selectOneMenu value="#{pesquisaMB.paAutor}">
+                                    <f:selectItems var="livro" value="#{pesquisaMB.livrosResultados}"
+                                                   itemValue="#{livro.autor.nome}" itemLabel="#{livro.autor.nome}"/>
+                                </b:selectOneMenu>
+                                <!-- Gênero -->
+                                <b:selectOneMenu value="#{pesquisaMB.paAssunto}">
+                                    <f:selectItems var="livro" value="#{pesquisaMB.livrosResultados}"
+                                                   itemValue="#{livro.assunto.titulo}"
+                                                   itemLabel="#{livro.assunto.titulo}"/>
+                                </b:selectOneMenu>
+                                <!-- Editora -->
+                                <b:selectOneMenu value="#{pesquisaMB.paEditora}">
+                                    <f:selectItems var="livro" value="#{pesquisaMB.livrosResultados}"
+                                                   itemValue="#{livro.editora.nome}" itemLabel="#{livro.editora.nome}"/>
+                                </b:selectOneMenu>
+
+                                <!--<b:commandButton action="#{pesquisaMB.pesquisaAvancada()}" value="pesquisar"/>-->
+                            </b:form>
+
+                            <h2>Pesquisa Simples</h2>
                             <ui:repeat var="livro" value="#{pesquisaMB.livrosResultados}">
                                 <b:column span="4" style="margin-bottom:20px">
                                     <b:column span="4">
@@ -52,15 +74,16 @@
                                         <h:outputText value="#{msg.labelPreco} : #{livro.valor}">
                                             <f:convertNumber currencyCode="R$" type="currency"/>
                                         </h:outputText><br/>
-                                        <b:form>
-                                            <b:buttonGroup>
-                                                <b:commandButton icon="shopping-cart" look="success"
-                                                                 action="#{carrinhoMB.adicionaAoCarrinho(livro)}"/>
-                                                <b:commandButton icon="star" look="important"
-                                                                 action="#{favoritosMB.adicionarAosFavoritos(livro)}"
-                                                                 rendered="#{not empty user}"/>
-                                            </b:buttonGroup>
-                                        </b:form>
+
+                                        <!--<b:buttonGroup>-->
+                                            <!--<b:commandButton icon="shopping-cart" look="success"-->
+                                                             <!--action="#{carrinhoMB.adicionaAoCarrinho(livro)}"/>-->
+                                            <!--<b:commandButton icon="star" look="important"-->
+                                                             <!--action="#{favoritosMB.adicionarAosFavoritos(livro)}"-->
+                                                             <!--rendered="#{not empty user}"/>-->
+                                        <!--</b:buttonGroup>-->
+
+
                                     </b:column>
                                 </b:column>
                             </ui:repeat>

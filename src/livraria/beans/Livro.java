@@ -25,7 +25,6 @@ public class Livro implements BeanCRUD{
 	private Editora editora;
 	private String  imgURL;
 	private Double  valor;
-	private Double novoValor;
 	private Double desconto;
 
 	private Integer quantidade = 1;
@@ -56,13 +55,14 @@ public class Livro implements BeanCRUD{
 		livro.setImgURL(doc.getString("imgUrl"));
 		livro.setEditora(editora);
 		livro.setValor(doc.getDouble("valor"));
+		livro.setDesconto(doc.getDouble("desconto"));
 
 		return livro;
 
 	}
 
 	public static MongoCursor<Document> getAll(){
-		return getCollection().find().iterator();
+		return getCollection().find().sort().iterator();
 	}
 
 	public static MongoCollection<Document> getCollection(){
@@ -124,10 +124,18 @@ public class Livro implements BeanCRUD{
 
 	public void setId(String id){this.id = id;}
 
+	public Double getDesconto() {
+		return desconto;
+	}
+
+	public void setDesconto(Double desconto) {
+		this.desconto = desconto;
+	}
+
+
 	// DB
 	@Override
 	public void createOnDB() {
-		limparCampos();
 		getCollection().insertOne(getDocument());
 		FacesMessages.info("Livro Criado no BD!");
 	}
@@ -149,7 +157,7 @@ public class Livro implements BeanCRUD{
 
 	@Override
 	public boolean deleteFromDB() {
-		return false;
+		return getCollection().deleteOne(eq(idFieldName, new ObjectId(id))).wasAcknowledged();
 	}
 
 	@Override
@@ -166,6 +174,7 @@ public class Livro implements BeanCRUD{
 		livroDoc.append("editora", editora.getId());
 		livroDoc.append("valor", valor);
 		livroDoc.append("imgUrl", imgURL);
+		livroDoc.append("desconto", desconto);
 
 		return livroDoc;
 	}

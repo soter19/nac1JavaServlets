@@ -19,21 +19,13 @@
                 <ui:define name="content">
                     <h:form id="perfilForm">
                         <b:container layout="fluid">
-                            <b:panel title="#{msg.labelTituloPerfil}" look="primary">
+                            <b:panel title="#{msg.labelTituloPerfil}" rendered="#{not empty user}" look="primary">
                                 <b:row tooltip="#{msg.labelDicaNome}">
                                     <b:column medium-screen="2">
                                         <h:outputText value="#{msg.labelNome}:" for="name" />
                                     </b:column>
                                     <b:column medium-screen="4">
-                                        <b:inputText id="name" value=""/>
-                                    </b:column>
-                                </b:row>
-                                <b:row tooltip="#{msg.labelDicaData}">
-                                    <b:column medium-screen="2">
-                                        <h:outputText value="#{msg.labelData}:" />
-                                    </b:column>
-                                    <b:column medium-screen="4">
-                                        <b:inputText id="datanasc" value=""/>
+                                        <b:inputText id="name" value="#{user.nome}"/>
                                     </b:column>
                                 </b:row>
                                 <b:row tooltip="#{msg.labelDicaEmail}">
@@ -44,44 +36,12 @@
                                         <b:inputText id="email" value="#{user.email}"/>
                                     </b:column>
                                 </b:row>
-                                <b:row tooltip="#{msg.labelDicaCPF}">
-                                    <b:column medium-screen="2">
-                                        <h:outputText value="#{msg.labelCPF}:" />
-                                    </b:column>
-                                    <b:column medium-screen="4">
-                                        <b:inputText id="cpf" value=""/>
-                                    </b:column>
-                                </b:row>
                                 <b:row tooltip="#{msg.labelDicaTelefone}">
                                     <b:column medium-screen="2">
                                         <h:outputText value="#{msg.labelTelefone}:" />
                                     </b:column>
                                     <b:column medium-screen="4">
-                                        <b:inputText id="telefone" value=""/>
-                                    </b:column>
-                                </b:row>
-                                <b:row tooltip="#{msg.labelDicaEndereco}">
-                                    <b:column medium-screen="2">
-                                        <h:outputText value="#{msg.labelEndereco}:" />
-                                    </b:column>
-                                    <b:column medium-screen="4">
-                                        <b:inputText id="endereco" value=""/>
-                                    </b:column>
-                                </b:row>
-                                <b:row tooltip="#{msg.labelDicaNumero}">
-                                    <b:column medium-screen="2">
-                                        <h:outputText value="#{msg.labelNumero}:" />
-                                    </b:column>
-                                    <b:column medium-screen="4">
-                                        <b:inputText id="numero" value=""/>
-                                    </b:column>
-                                </b:row>
-                                <b:row tooltip="#{msg.labelDicaCEP}">
-                                    <b:column medium-screen="2">
-                                        <h:outputText value="#{msg.labelCEP}:" />
-                                    </b:column>
-                                    <b:column medium-screen="4">
-                                        <b:inputText id="cep" value=""/>
+                                        <b:inputText id="telefone" value="#{user.telefone}"/>
                                     </b:column>
                                 </b:row>
                                 <b:row>

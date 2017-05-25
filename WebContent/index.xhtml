@@ -18,21 +18,32 @@
             <ui:define name="title">Home</ui:define>
             <ui:define name="content">
                 <h:form>
+                    <b:row>
                     <ui:repeat value="#{livroMB.allLivros()}" var="livro">
-                        <b:column span="4">
+                        <b:column span="3">
                             <b:row>
-                                <b:column span="4" style="margin-bottom:10px">
+                                <b:column span="4">
                                     <b:image width="100%"
                                              value="#{livro.imgURL}"/>
                                 </b:column>
-                                <b:column span="6">
+                                <b:column span="8">
                                     <h:outputText value="#{livro.titulo}"/><br/>
                                     <h:outputText value="#{msg.labelAutor} : #{livro.autor.nome}"/><br/>
                                     <h:outputText value="#{msg.labelEditora} : #{livro.editora.nome}"/><br/>
                                     <h:outputText value="#{msg.labelGenero} : #{livro.assunto.titulo}"/><br/>
-                                    <h:outputText value="#{msg.labelPreco} : #{livro.valor}">
+                                    <h:outputText value="#{msg.labelPreco} : #{livro.valor}"
+                                                  rendered="#{livro.desconto == 0}">
                                         <f:convertNumber currencyCode="R$" type="currency" />
                                     </h:outputText><br/>
+                                    <h:outputText escape="false" rendered="#{livro.desconto > 0}"
+                                                  value="#{msg.labelPreco} : &lt;s&gt; #{livro.valor} &lt;/s&gt; ">
+                                        <f:convertNumber currencyCode="R$" type="currency" />
+                                    </h:outputText><br/>
+                                    <h:outputText value="Desconto : #{livro.desconto}"
+                                                  rendered="#{livro.desconto > 0}"/><br/>
+                                    <h:outputText value="Novo Valor : #{livro.valor - (livro.valor/100 *
+                                    livro.desconto)}"
+                                                  rendered="#{livro.desconto > 0}"/><br/>
                                     <b:buttonGroup>
                                         <b:commandButton icon="shopping-cart" look="success"
                                                          action="#{carrinhoMB.adicionaAoCarrinho(livro)}"/>
@@ -44,6 +55,7 @@
                             </b:row>
                         </b:column>
                     </ui:repeat>
+                    </b:row>
                 </h:form>
             </ui:define>
         </ui:composition>

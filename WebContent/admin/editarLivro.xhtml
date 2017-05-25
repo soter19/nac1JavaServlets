@@ -22,8 +22,7 @@
                         </b:column>
                         <b:column span="6">
                             <b:selectOneMenu value="#{livroMB.livro.id}">
-                                <f:selectItems value="#{livroMB.allLivros()}" var="livro"
-                                               itemValue="#{livro.id}" itemLabel="#{livro.titulo}"/>
+                                <f:selectItems value="#{livroMB.allLivros()}" var="livro" itemValue="#{livro.id}" itemLabel="#{livro.titulo}"/>
                             </b:selectOneMenu>
                         </b:column>
 

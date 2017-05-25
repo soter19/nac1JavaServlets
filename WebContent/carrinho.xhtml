@@ -18,7 +18,9 @@
                             <b:dataTableColumn value="#{item.titulo}" label="Título"/>
                             <b:dataTableColumn value="#{item.editora.nome}" label="Editora"/>
                             <b:dataTableColumn value="#{item.assunto.titulo}" label="Gênero"/>
-                            <b:dataTableColumn value="#{item.valor}" label="Preço"/>
+                            <b:dataTableColumn value="#{item.valor}" label="Preço" rendered="#{item.desconto == 0}"/>
+                            <b:dataTableColumn value="#{item.valor - (item.valor/100 * item.desconto)}" label="Preço"
+                                               rendered="#{item.desconto > 0}"/>
                             <h:column>
                                 <f:facet name="header">#{msg.labelRemoverItem}</f:facet>
                                 <b:navCommandLink icon-size="2x" iconAwesome="times" value="#{msg.labelRemover}" action="#{carrinhoMB.remover(item)}" look="info" />
